@@ -1,0 +1,43 @@
+/* La Arboleda · v0.1 · css/base.css
+   Fase 0 (Semana 1): reset, variables de paleta y tipografía.
+   Variables CSS (custom properties) permitidas desde el día 1 (PLAN §6.6).
+   La paleta se extrajo de las fotos del proyecto (PLAN §8.2). */
+
+:root {
+  /* Paleta extraída de las imágenes (PLAN §8.2) */
+  --color-verde-musgo-oscuro: #232C18;
+  --color-verde-musgo:        #4B5A32;
+  --color-verde-suave:        #7C8F52;
+  --color-terracota:          #C9793A;
+  --color-rojo-flor:          #C4432A;
+  --color-morado-flor:        #8B2FA0;
+  --color-amarillo-flor:      #E4C750;
+  --color-azul-cielo:         #6D93D6;
+  --color-dorado-campo:       #A67C3D;
+  --color-crema:              #F6F1E4;
+  --color-texto-oscuro:       #24291B;
+  --color-texto-claro:        #F6F1E4;
+
+  /* Tipografía (PLAN §8.3): serif cálida para títulos, sans limpia para cuerpo */
+  --fuente-titulo: "Fraunces", Georgia, "Times New Roman", serif;
+  --fuente-cuerpo: "Inter", system-ui, Arial, sans-serif;
+}
+
+/* Reset básico */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--fuente-cuerpo);
+  color: var(--color-texto-oscuro);
+  background: var(--color-crema);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--fuente-titulo);
+  line-height: 1.15;
+  font-weight: 600;
+}

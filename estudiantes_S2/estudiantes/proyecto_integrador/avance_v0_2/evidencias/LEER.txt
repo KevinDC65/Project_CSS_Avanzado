@@ -1,6 +1,0 @@
-Guardar aquí las capturas solicitadas:
-- evidencia_375px.png
-- evidencia_768px.png
-- evidencia_1440px.png
-
-Cada captura debe ir acompañada de una breve observación en la guía o en el informe del grupo.

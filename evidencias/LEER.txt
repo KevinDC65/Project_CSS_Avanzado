@@ -1,0 +1,15 @@
+# Evidencias responsive — La Arboleda (v0.1)
+
+Esta carpeta guarda las capturas o notas de revisión en 375 px, 768 px y 1440 px,
+requeridas por la Guía del Proyecto Integrador (Semana 1).
+
+## Cómo registrar la evidencia
+1. Abrir `index.html` en el navegador.
+2. Usar las herramientas de desarrollador (responsive) en 375, 768 y 1440 px.
+3. Guardar una captura por cada ancho (p. ej. `375.png`, `768.png`, `1440.png`).
+4. Anotar en el README (sección 3) la fecha y cualquier corrección aplicada.
+
+## Estado v0.1
+- Sin scroll horizontal en 375 px (navegación en bloque, decisión D04).
+- Imagen flexible adaptada al contenedor (decisión D03).
+- Revisión registrada en el README del proyecto (28/08/2026).
