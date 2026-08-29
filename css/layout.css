@@ -1,10 +1,3 @@
-/* La Arboleda · Fase 1 (Flexbox + Grid) · css/layout.css
-   Avance rumbo a PC1 (Semanas 3-4). Flexbox en header/nav/hero y Grid en el
-   mosaico de "El detalle" (PLAN §7 / §6.1). Recursos de impacto creativos:
-   fondo fijo con blend, etiquetas de capítulo, drop-cap, grano sutil, scroll-snap.
-   Sin @keyframes / parallax (Unidad 3), SASS/LESS (U2) ni frameworks (U4). */
-
-/* ---------- Encabezado / barra superior (Flexbox, Fase 1) ---------- */
 .site-header {
   position: sticky;
   top: 0;
@@ -40,7 +33,6 @@
 }
 .main-nav a:hover { background: var(--color-verde-suave); color: var(--color-texto-oscuro); }
 
-/* ---------- HERO a pantalla completa (fondo fijo img22 + blend cinematográfico) ---------- */
 .hero {
   position: relative;
   min-height: 96vh;
@@ -49,11 +41,11 @@
   background-color: var(--color-verde-musgo-oscuro);
   background-image:
     linear-gradient(180deg, rgba(35,44,24,0.30) 0%, rgba(35,44,24,0.12) 38%, rgba(35,44,24,0.82) 100%),
-    url('../img/img22.webp');           /* ruta relativa al CSS: sube a LaArboleda/img */
+    url('../img/img22.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  background-blend-mode: multiply;       /* tintado artístico, la imagen sigue visible */
+  background-blend-mode: multiply;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,7 +78,6 @@
   z-index: 2; color: var(--color-texto-claro); font-size: 1.6rem; text-decoration: none; opacity: 0.85;
 }
 
-/* ---------- Etiquetas de capítulo (narrativa creativa) ---------- */
 .cap-label {
   display: inline-block;
   font-family: var(--fuente-titulo);
@@ -100,7 +91,6 @@
   border-left: 3px solid var(--color-terracota);
 }
 
-/* ---------- Banda atmosférica (capítulos con imagen fija + blend sutil) ---------- */
 .band {
   position: relative;
   min-height: 74vh;
@@ -108,7 +98,7 @@
   background-position: center;
   background-attachment: fixed;
   background-color: var(--color-verde-musgo);
-  background-blend-mode: soft-light;     /* tinte paleta, sin romper contraste */
+  background-blend-mode: soft-light;
   overflow: hidden;
   margin: 8px 0 32px;
   border-radius: 18px;
@@ -124,12 +114,10 @@
 .band-text h2 { font-size: clamp(2.2rem, 6vw, 3.8rem); margin: 0 0 12px; }
 .band--cielo .band-text h2 { color: var(--color-crema); }
 
-/* ---------- Contenido: mosaico Grid asimétrico (Cap.2, PLAN §6.1) ---------- */
 .bloque { margin: 32px 0; }
 .bloque h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); color: var(--color-verde-musgo); }
 .bloque .intro { max-width: 54rem; }
 
-/* Drop-cap editorial en el párrafo intro del capítulo */
 .bloque .intro::first-letter {
   float: left;
   font-family: var(--fuente-titulo);
@@ -156,7 +144,7 @@
   margin: 0;
   overflow: hidden;
   background: var(--color-verde-musgo-oscuro);
-  border-radius: 18px 6px 18px 6px;   /* radios orgánicos "hechos a mano" */
+  border-radius: 18px 6px 18px 6px;
 }
 .mosaico .m2 { border-radius: 6px 18px 6px 18px; }
 .mosaico .m4 { border-radius: 18px; }
@@ -183,7 +171,6 @@
 }
 .nota h3 { color: var(--color-terracota); margin-top: 0; }
 
-/* ---------- Evidencia responsive ---------- */
 .evidence {
   border-left: 6px solid var(--color-terracota);
   padding: 16px 18px;
@@ -193,7 +180,6 @@
 }
 .evidence h2 { color: var(--color-verde-musgo); }
 
-/* ---------- Pie de página ---------- */
 footer {
   text-align: center;
   padding: 36px 16px;
@@ -202,10 +188,8 @@ footer {
   font-size: 0.9rem;
 }
 
-/* ---------- D02: contenedor fluido ---------- */
 .container { width: min(1120px, 92%); margin: 0 auto; }
 
-/* ---------- Viñeta + grano global sutil (PLAN §6.7) ---------- */
 body::after {
   content: "";
   position: fixed;
@@ -217,11 +201,9 @@ body::after {
   background-size: 3px 3px;
 }
 
-/* ---------- Scroll-snap por capítulo (PLAN §6.5) ---------- */
 html { scroll-behavior: smooth; scroll-snap-type: y proximity; }
 .band, .hero { scroll-snap-align: start; }
 
-/* ---------- D04: media query inicial para pantallas pequeñas ---------- */
 @media (max-width: 900px) {
   .mosaico {
     grid-template-columns: 1fr 1fr;
@@ -238,7 +220,6 @@ html { scroll-behavior: smooth; scroll-snap-type: y proximity; }
   .main-nav { width: 100%; justify-content: center; }
   .main-nav a { flex: 1 1 auto; text-align: center; }
   .container { width: 94%; }
-  /* El fondo fijo da problemas en móviles: se desactiva */
   .band, .hero { background-attachment: scroll; min-height: 62vh; }
 }
 @media (max-width: 560px) {

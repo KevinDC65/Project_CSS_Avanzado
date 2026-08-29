@@ -1,5 +1,2 @@
-/* La Arboleda · v0.1 · css/styles.css
-   Archivo de entrada: importa base y layout (PLAN §5).
-   En la Unidad 2 este rol lo tomará el archivo compilado desde SASS/LESS. */
 @import url("base.css");
 @import url("layout.css");
