@@ -15,7 +15,14 @@
       <span class="marca">La Arboleda</span>
       <span class="eyebrow">Proyecto Integrador · Fase 1</span>
     </div>
-    <nav class="main-nav" aria-label="Navegación principal">
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
       <a href="#camino">El camino</a>
       <a href="#detalle">El detalle</a>
       <a href="#cielo">El cielo</a>
@@ -50,26 +57,32 @@
       <div class="mosaico">
         <figure class="m1">
           <img src="img/img4.webp" alt="Flor morada de cinco pétalos con estambres amarillos, rodeada de hojas verdes">
+          <button class="immersive-btn" type="button" data-image="img/img4.webp" data-title="Flor morada — pieza central del capítulo.">Entrar</button>
           <figcaption>Flor morada — pieza central del capítulo.</figcaption>
         </figure>
         <figure class="m2">
           <img src="img/img1.webp" alt="Racimo de flores naranjas y amarillas entre hojas verdes desenfocadas">
+          <button class="immersive-btn" type="button" data-image="img/img1.webp" data-title="Racimo naranja — acento cálido.">Entrar</button>
           <figcaption>Racimo naranja — acento cálido.</figcaption>
         </figure>
         <figure class="m3">
           <img src="img/img5.webp" alt="Flores rojas alargadas en forma de tubo entre ramas verdes">
+          <button class="immersive-btn" type="button" data-image="img/img5.webp" data-title="Salvia roja — textura de borde.">Entrar</button>
           <figcaption>Salvia roja — textura de borde.</figcaption>
         </figure>
         <figure class="m4">
           <img src="img/img17.webp" alt="Flor amarilla pequeña de cinco pétalos entre hojas verdes bajo el sol">
+          <button class="immersive-btn" type="button" data-image="img/img17.webp" data-title="Potentilla amarilla — luz directa.">Entrar</button>
           <figcaption>Potentilla amarilla — luz directa.</figcaption>
         </figure>
         <figure class="m5">
           <img src="img/img18.webp" alt="Hongos color canela creciendo sobre un tronco cubierto de musgo">
+          <button class="immersive-btn" type="button" data-image="img/img18.webp" data-title="Hongos canela — acento del sotobosque.">Entrar</button>
           <figcaption>Hongos canela — acento del sotobosque.</figcaption>
         </figure>
         <figure class="m6">
           <img src="img/img8.webp" alt="Niebla envolviendo troncos de árboles en el bosque">
+          <button class="immersive-btn" type="button" data-image="img/img8.webp" data-title="Niebla — transición atmosférica.">Entrar</button>
           <figcaption>Niebla — transición atmosférica.</figcaption>
         </figure>
       </div>
@@ -100,5 +113,112 @@
     <p>La Arboleda · Proyecto Integrador · Curso CSS Avanzado · Fase 1 (Flexbox + Grid)</p>
     <p>Equipo: ver README.md · Universidad Tecnológica del Perú · 2026-2</p>
   </footer>
+
+  <div class="immersive-modal" id="immersiveModal" aria-hidden="true">
+    <div class="immersive-backdrop" data-close="true"></div>
+    <div class="immersive-panel" role="dialog" aria-modal="true" aria-labelledby="immersiveTitle">
+      <button class="immersive-close" type="button" aria-label="Cerrar vista inmersiva">×</button>
+      <div class="immersive-scene">
+        <img class="immersive-photo" id="immersivePhoto" src="" alt="Vista inmersiva del paisaje">
+      </div>
+      <div class="immersive-meta">
+        <p class="cap-label">Vista inmersiva</p>
+        <h3 id="immersiveTitle">Paisaje</h3>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+
+    if (menuToggle && mainNav) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('is-open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      mainNav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          mainNav.classList.remove('is-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    const immersiveModal = document.getElementById('immersiveModal');
+    const immersivePhoto = document.getElementById('immersivePhoto');
+    const immersiveTitle = document.getElementById('immersiveTitle');
+    const immersiveButtons = document.querySelectorAll('.immersive-btn');
+    const immersiveClose = document.querySelector('.immersive-close');
+
+    function openImmersive(imageSrc, title) {
+      immersivePhoto.src = imageSrc;
+      immersiveTitle.textContent = title;
+      immersiveModal.classList.add('is-active');
+      immersiveModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeImmersive() {
+      immersiveModal.classList.remove('is-active');
+      immersiveModal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+    }
+
+    immersiveButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        openImmersive(button.dataset.image, button.dataset.title);
+      });
+    });
+
+    immersiveClose.addEventListener('click', closeImmersive);
+    immersiveModal.addEventListener('click', (event) => {
+      if (event.target.matches('[data-close="true"]')) {
+        closeImmersive();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && immersiveModal.classList.contains('is-active')) {
+        closeImmersive();
+      }
+    });
+
+    const immersiveScene = document.querySelector('.immersive-scene');
+    if (immersiveScene) {
+      immersiveScene.addEventListener('pointermove', (event) => {
+        const rect = immersiveScene.getBoundingClientRect();
+        const rotateY = ((event.clientX - rect.left) / rect.width - 0.5) * 18;
+        const rotateX = (0.5 - (event.clientY - rect.top) / rect.height) * 18;
+        immersivePhoto.style.transform = `scale(1.12) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+      });
+
+      immersiveScene.addEventListener('pointerleave', () => {
+        immersivePhoto.style.transform = 'scale(1.04) rotateX(0deg) rotateY(0deg)';
+      });
+    }
+
+    const parallaxSections = document.querySelectorAll('.hero, .band');
+
+    function updateParallaxMobile() {
+      if (window.innerWidth > 768) {
+        parallaxSections.forEach((section) => {
+          section.style.backgroundPosition = '';
+        });
+        return;
+      }
+
+      parallaxSections.forEach((section) => {
+        const speed = section.classList.contains('hero') ? 0.18 : 0.22;
+        const offset = window.scrollY * speed;
+        section.style.backgroundPosition = `center calc(50% + ${offset}px)`;
+      });
+    }
+
+    window.addEventListener('scroll', updateParallaxMobile, { passive: true });
+    window.addEventListener('resize', updateParallaxMobile);
+    updateParallaxMobile();
+  </script>
 </body>
 </html>
