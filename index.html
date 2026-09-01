@@ -36,11 +36,10 @@
       <h1>La Arboleda</h1>
       <p class="lead">La arboleda; un pequeño refugio donde los árboles se alzan como testigos del tiempo, creando un espacio en el que la naturaleza encuentra su propio equilibrio. Aunque limitada en extensión, guarda en cada raíz, hoja y sombra una parte de la historia de la vida.</p>
     </div>
-    <a class="scroll-hint" href="#camino" aria-label="Desplazar al inicio del recorrido">↓</a>
   </section>
 
   <main class="container">
-    <section id="camino" class="band" style="background-image:url('img/img11.webp')">
+    <section id="camino" class="band band--camino">
       <div class="band-overlay band-overlay--dark"></div>
       <div class="band-text">
         <p class="cap-label">Cap. 1</p>
@@ -93,7 +92,7 @@
       </article>
     </section>
 
-    <section id="cielo" class="band band--cielo" style="background-image:url('img/img21.webp')">
+    <section id="cielo" class="band band--cielo">
       <div class="band-overlay band-overlay--gold"></div>
       <div class="band-text">
         <p class="cap-label">Cap. 3</p>
@@ -200,26 +199,6 @@ La naturaleza no necesita ser inmensa para recordarnos lo pequeños que somos, n
       });
     }
 
-    const parallaxSections = document.querySelectorAll('.hero, .band');
-
-    function updateParallaxMobile() {
-      if (window.innerWidth > 768) {
-        parallaxSections.forEach((section) => {
-          section.style.backgroundPosition = '';
-        });
-        return;
-      }
-
-      parallaxSections.forEach((section) => {
-        const speed = section.classList.contains('hero') ? 0.18 : 0.22;
-        const offset = window.scrollY * speed;
-        section.style.backgroundPosition = `center calc(50% + ${offset}px)`;
-      });
-    }
-
-    window.addEventListener('scroll', updateParallaxMobile, { passive: true });
-    window.addEventListener('resize', updateParallaxMobile);
-    updateParallaxMobile();
   </script>
 </body>
 </html>
