@@ -1,258 +1,244 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La Arboleda · Proyecto Integrador · Fase 1</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Un recorrido visual por los páramos de Piura: agua, bosques de neblina, especies y comunidades.">
+    <meta name="theme-color" content="#e7eee5">
+    <title>Páramos de Piura | Donde nace el agua</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="less/components.css">
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="brand">
-      <span class="marca">La Arboleda</span>
-      <span class="eyebrow">Proyecto Integrador · Fase 1</span>
-    </div>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+        <a class="wordmark" href="#inicio" aria-label="Piura Alta, inicio"><span
+                class="wordmark__symbol">P</span><span>PIURA<br><b>ALTA</b></span></a>
+        <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Abrir o cerrar el menú"
+            aria-controls="site-navigation">
+        <label class="menu-toggle" for="nav-toggle" aria-hidden="true"><span></span><span></span><span></span></label>
+        <nav class="main-nav" id="site-navigation" aria-label="Navegación principal"><a
+                href="#territorio">Territorio</a><a href="biodiversidad.html">Vida</a><a
+                href="conservacion.html">Conservación</a></nav>
+        <a class="header-note" href="#fuentes">Cuaderno de campo <span>↗</span></a>
+    </header>
 
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <main id="contenido">
+        <section class="hero" id="inicio" aria-labelledby="hero-title">
+            <img class="hero__image"
+                src="https://cdn.www.gob.pe/uploads/document/file/913980/P%C3%A1ramo_-_Foto._Proyecto_IKI_alianza_Forasan_-_Aider_-_TNC__3_20200702-4721-dssg4v.JPG"
+                alt="Páramo altoandino de Piura cubierto por nubes bajas" fetchpriority="high">
+            <div class="hero__shade"></div>
+            <div class="cloud cloud--one" aria-hidden="true"></div>
+            <div class="cloud cloud--two" aria-hidden="true"></div>
+            <div class="hero__content">
+                <p class="eyebrow eyebrow--light"><span></span> Norte de los Andes · Perú</p>
+                <h1 id="hero-title">Donde nace<br><em>el agua</em></h1>
+                <p class="hero__intro">En las alturas de Piura, la neblina se posa sobre pajonales, lagunas y bosques.
+                    Un paisaje que guarda agua y conecta vidas.</p><a class="text-link text-link--light"
+                    href="#territorio">Comienza el recorrido <span>↓</span></a>
+            </div>
+            <div class="hero__coordinates" aria-hidden="true">04° S · 79° O<br>AYABACA / HUANCABAMBA</div>
+            <div class="hero__scroll" aria-hidden="true"><span></span> DESLIZA</div>
+            <p class="image-credit image-credit--hero">Proyecto IKI / FORASAN / AIDER / TNC · <a
+                    href="https://www.gob.pe/institucion/ana/noticias/189680-minagri-promueve-la-conservacion-de-los-paramos-en-piura"
+                    target="_blank" rel="noreferrer">ANA, 2020</a></p>
+        </section>
 
-    <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
-      <a href="#camino">El camino</a>
-      <a href="#detalle">El detalle</a>
-      <a href="#cielo">El cielo</a>
-    </nav>
-  </header>
+        <section class="quick-facts" aria-label="Datos del páramo piurano">
+            <div class="quick-facts__intro">UN ECOSISTEMA<br>QUE NOS CONECTA</div>
+            <div class="fact-chip"><strong>Ayabaca</strong><span>y Huancabamba</span></div>
+            <div class="fact-chip"><strong>Cabeceras</strong><span>de cuenca</span></div>
+            <div class="fact-chip"><strong>Agua</strong><span>para personas y cultivos</span></div><a
+                class="quick-facts__source"
+                href="https://www.gob.pe/institucion/ana/noticias/189680-minagri-promueve-la-conservacion-de-los-paramos-en-piura"
+                target="_blank" rel="noreferrer">ANA · 2020 ↗</a>
+        </section>
 
-  <section class="hero" id="inicio">
-    <div class="hero-overlay"></div>
-    <div class="hero-text">
-      <p class="eyebrow">Cap. 0 · Portal de entrada</p>
-      <h1>La Arboleda</h1>
-      <p class="lead">La arboleda; un pequeño refugio donde los árboles se alzan como testigos del tiempo, creando un
-        espacio en el que la naturaleza encuentra su propio equilibrio. Aunque limitada en extensión, guarda en cada
-        raíz, hoja y sombra una parte de la historia de la vida.</p>
-    </div>
-  </section>
+        <section class="territory section-pad" id="territorio" aria-labelledby="territory-title">
+            <div class="section-heading">
+                <p class="eyebrow"><span></span> 01 / El territorio</p>
+                <h2 class="draw-title" id="territory-title">Una frontera<br>de niebla y altura</h2>
+            </div>
+            <div class="territory__body">
+                <p class="lead">En el extremo norte peruano, los páramos aparecen entre Ayabaca y Huancabamba, junto a
+                    bosques montanos que se funden con las nubes.</p>
+                <p>No son una postal aislada: forman un mosaico de pajonales, humedales, lagunas y bosque de neblina.
+                    Las comunidades altoandinas conviven con estos paisajes y sus ciclos de lluvia, frío y niebla.</p>
+                <p>Samanga, en Ayabaca, es uno de los lugares donde se protege este patrimonio. Su Área de Conservación
+                    Privada Bosques de Neblina y Páramos de Samanga fue reconocida por el Estado en 2013.</p><a
+                    class="text-link" href="https://www.gob.pe/institucion/minam/normas-legales/317970-117-2013-minam"
+                    target="_blank" rel="noreferrer">Ver reconocimiento oficial <span>↗</span></a>
+            </div>
+            <figure class="territory__image field-note" tabindex="0" aria-describedby="territory-tip"><img
+                    src="https://cdn.www.gob.pe/uploads/document/file/913980/P%C3%A1ramo_-_Foto._Proyecto_IKI_alianza_Forasan_-_Aider_-_TNC__3_20200702-4721-dssg4v.JPG"
+                    alt="Relieve ondulado de páramo piurano entre nubes" loading="lazy"><span
+                    class="field-note__tag">PAISAJE · PIURA</span><span class="field-note__tip"
+                    id="territory-tip"><b>Dato de campo</b>Los páramos piuranos se encuentran en las zonas altas de
+                    Ayabaca y Huancabamba. La neblina frecuente define su paisaje.</span>
+                <figcaption>La altura cambia el ritmo del paisaje: el agua llega como lluvia, neblina y escorrentía.
+                </figcaption>
+            </figure>
+        </section>
 
-  <main class="container">
-    <section id="camino" class="band band--camino">
-      <div class="band-overlay band-overlay--dark"></div>
-      <div class="band-text">
-        <p class="cap-label">Cap. 1</p>
-        <h2>El camino</h2>
-        <p>El camino es más que un sendero entre la naturaleza; es el reflejo de nuestro propio recorrido por la vida.
-          Cada paso nos aleja más de donde iniciamos. Quizas sea dificil, quizas pocos logren llegar hasta el final,
-          pero cada paso deja una huella y cada desvio nos enseña algo. Entonces, segui adelante sin mirar atras.</p>
-      </div>
-    </section>
+        <section class="water-story" id="agua" aria-labelledby="water-title">
+            <div class="water-story__visual"><img class="water-story__photo"
+                    src="https://cdn.www.gob.pe/uploads/document/file/913980/P%C3%A1ramo_-_Foto._Proyecto_IKI_alianza_Forasan_-_Aider_-_TNC__3_20200702-4721-dssg4v.JPG"
+                    alt="Nubes sobre la vegetación de las alturas de Piura" loading="lazy">
+                <div class="water-story__wash"></div>
+                <div class="cloud cloud--three" aria-hidden="true"></div>
+                <div class="water-ribbon" aria-hidden="true"><span></span><span></span><span></span></div><a
+                    class="water-story__foreground field-note"
+                    href="https://commons.wikimedia.org/wiki/File:BOSQUE_DE_CUYAS,_AYABACA,_PIURA,_PER%C3%9A.jpg"
+                    target="_blank" rel="noreferrer"
+                    aria-label="Ver foto de la catarata La Chira en el bosque de Cuyas, Ayabaca"><img
+                        src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/BOSQUE_DE_CUYAS%2C_AYABACA%2C_PIURA%2C_PER%C3%9A.jpg/500px-BOSQUE_DE_CUYAS%2C_AYABACA%2C_PIURA%2C_PER%C3%9A.jpg"
+                        alt="Catarata La Chira entre la vegetación húmeda del bosque de Cuyas, Ayabaca"
+                        loading="lazy"><span class="field-note__tip"><b>Otra capa del paisaje</b>La Chira cae entre la
+                        humedad del bosque de Cuyas, a pocos kilómetros de la ciudad de Ayabaca.</span></a><span
+                    class="water-story__foreground-credit">LA CHIRA · CUYAS, AYABACA<br>G. G. Sánchez · CC BY-SA
+                    4.0</span><span class="water-story__caption">EL VIAJE DE UNA GOTA · 01—03</span>
+            </div>
+            <div class="water-story__copy">
+                <p class="eyebrow"><span></span> 02 / La ruta del agua</p>
+                <h2 class="draw-title" id="water-title">La montaña<br>la recibe despacio</h2>
+                <div class="water-steps">
+                    <article class="water-step"><span class="water-step__number">01</span>
+                        <div>
+                            <h3>La nube se acerca</h3>
+                            <p>La humedad del aire se transforma en lluvia y se deposita sobre suelos y vegetación de
+                                altura.</p>
+                        </div>
+                    </article>
+                    <article class="water-step"><span class="water-step__number">02</span>
+                        <div>
+                            <h3>El suelo la guarda</h3>
+                            <p>La cobertura vegetal y los suelos húmedos ayudan a retener agua y sostener manantiales y
+                                quebradas.</p>
+                        </div>
+                    </article>
+                    <article class="water-step"><span class="water-step__number">03</span>
+                        <div>
+                            <h3>La cuenca la comparte</h3>
+                            <p>El agua desciende hacia las cuencas y sostiene a poblaciones y actividades agrícolas de
+                                Piura.</p>
+                        </div>
+                    </article>
+                </div>
+                <p class="water-story__note">La Autoridad Nacional del Agua destaca la función de captación,
+                    almacenamiento y regulación hídrica de los páramos piuranos.</p>
+            </div>
+        </section>
 
-    <section id="detalle" class="bloque">
-      <p class="cap-label">Cap. 2</p>
-      <h2>El detalle</h2>
-      <p class="intro">El detalle; pequeños cambios, grandes impactos. Sin duda alguna la naturaleza esta llena de
-        detalles que, a simple vista, pueden ser tomados como insignificates. Una hoja marchita, una señilla que germina
-        o incluse una pequeña gota de agua que a primera vista puede resultar trivial. En la naturaleza, nada existe por
-        casualidad: incluso lo más pequeño puede dar origen a grandes cambios. Quizás nosotros también seamos así;
-        pequeños dentro de un mundo inmenso, pero capaces de dejar una huella que trascienda nuestro propio tiempo.</p>
+        <section class="life section-pad" id="vida" aria-labelledby="life-title">
+            <div class="life__heading">
+                <div>
+                    <p class="eyebrow"><span></span> 03 / Vecinos de altura</p>
+                    <h2 class="draw-title" id="life-title">La vida encuentra<br>su manera</h2>
+                </div>
+                <p class="life__lead">Bosques de neblina y páramos son hábitat de especies emblemáticas. Pasa el cursor
+                    o enfoca cada imagen para descubrir una pista.</p>
+            </div>
+            <div class="species-grid">
+                <figure class="species-card species-card--tapir field-note" tabindex="0" aria-describedby="tapir-tip">
+                    <img src="https://cdn.www.gob.pe/uploads/document/file/9940360/1389306-tapir_foto_nodo-conservation-1.jpg"
+                        alt="Tapir andino, también llamado danta de montaña" loading="lazy"><span
+                        class="species-card__number">01</span><span class="field-note__tip" id="tapir-tip"><b>Tapir
+                            andino</b>También llamado danta de montaña. SERFOR destaca su presencia en Ayabaca y
+                        Huancabamba y su papel como dispersor de semillas.</span>
+                    <figcaption><span>MAMÍFERO · EN PELIGRO CRÍTICO</span><b>Tapir andino</b><i>Tapirus pinchaque</i>
+                    </figcaption>
+                </figure>
+                <figure class="species-card species-card--bear field-note" tabindex="0" aria-describedby="bear-tip"><img
+                        src="https://cdn.www.gob.pe/uploads/document/file/4084844/Rescate%20de%20oso%20de%20anteojos4.jpg.jpg"
+                        alt="Oso de anteojos atendido tras ser rescatado en Huancabamba" loading="lazy"><span
+                        class="species-card__number">02</span><span class="field-note__tip" id="bear-tip"><b>Oso de
+                            anteojos</b>SERFOR documentó el rescate de una cría cerca de Las Huaringas, en Huancabamba.
+                        La especie dispersa semillas y su protección beneficia páramos y bosques.</span>
+                    <figcaption><span>MAMÍFERO · VULNERABLE</span><b>Oso de anteojos</b><i>Tremarctos ornatus</i>
+                    </figcaption>
+                </figure>
+                <figure class="species-card species-card--flora field-note" tabindex="0" aria-describedby="flora-tip">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Puya_goudotiana4.jpg/960px-Puya_goudotiana4.jpg"
+                        alt="Puya en flor en un páramo de Choachí, Colombia; imagen referencial" loading="lazy"><span
+                        class="species-card__number">03</span><span class="field-note__tip" id="flora-tip"><b>Adaptarse
+                            a la altura</b>Esta puya fue fotografiada en Colombia; se muestra como referencia visual y
+                        no identifica una especie de Piura.</span>
+                    <figcaption><span>FLORA · IMAGEN REFERENCIAL</span><b>Puya de montaña</b><i>Fotografía tomada en
+                            Colombia</i></figcaption>
+                </figure>
+            </div>
+            <p class="life__credit">Fauna: imágenes difundidas por <a
+                    href="https://www.gob.pe/institucion/serfor/noticias/1389306-serfor-destaca-articulacion-para-conservar-al-tapir-andino-en-piura"
+                    target="_blank" rel="noreferrer">SERFOR</a> y <a
+                    href="https://www.gob.pe/institucion/serfor/noticias/695361-piura-serfor-rescata-cria-de-oso-anteojos-en-provincia-de-huancabamba"
+                    target="_blank" rel="noreferrer">SERFOR Piura</a>. Puya: Nicolas Ramirez, <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC BY-SA
+                    4.0</a>, vía <a href="https://commons.wikimedia.org/wiki/File:Puya_goudotiana4.jpg" target="_blank"
+                    rel="noreferrer">Wikimedia Commons</a>.</p>
+        </section>
 
-      <div class="mosaico">
-        <figure class="m1">
-          <img src="img/img4.webp" alt="Flor morada de cinco pétalos con estambres amarillos, rodeada de hojas verdes">
-          <button class="immersive-btn" type="button" data-image="img/img4.webp"
-            data-title="Flor morada — pieza central del capítulo.">Entrar</button>
-          <figcaption>Flor morada — pieza central del capítulo.</figcaption>
-        </figure>
-        <figure class="m2">
-          <img src="img/img1.webp" alt="Racimo de flores naranjas y amarillas entre hojas verdes desenfocadas">
-          <button class="immersive-btn" type="button" data-image="img/img1.webp"
-            data-title="Racimo naranja — acento cálido.">Entrar</button>
-          <figcaption>Racimo naranja — acento cálido.</figcaption>
-        </figure>
-        <figure class="m3">
-          <img src="img/img5.webp" alt="Flores rojas alargadas en forma de tubo entre ramas verdes">
-          <button class="immersive-btn" type="button" data-image="img/img5.webp"
-            data-title="Salvia roja — textura de borde.">Entrar</button>
-          <figcaption>Salvia roja — textura de borde.</figcaption>
-        </figure>
-        <figure class="m4">
-          <img src="img/img17.webp" alt="Flor amarilla pequeña de cinco pétalos entre hojas verdes bajo el sol">
-          <button class="immersive-btn" type="button" data-image="img/img17.webp"
-            data-title="Potentilla amarilla — luz directa.">Entrar</button>
-          <figcaption>Potentilla amarilla — luz directa.</figcaption>
-        </figure>
-        <figure class="m5">
-          <img src="img/img18.webp" alt="Hongos color canela creciendo sobre un tronco cubierto de musgo">
-          <button class="immersive-btn" type="button" data-image="img/img18.webp"
-            data-title="Hongos canela — acento del sotobosque.">Entrar</button>
-          <figcaption>Hongos canela — acento del sotobosque.</figcaption>
-        </figure>
-        <figure class="m6">
-          <img src="img/img8.webp" alt="Niebla envolviendo troncos de árboles en el bosque">
-          <button class="immersive-btn" type="button" data-image="img/img8.webp"
-            data-title="Niebla — transición atmosférica.">Entrar</button>
-          <figcaption>Niebla — transición atmosférica.</figcaption>
-        </figure>
-      </div>
-<section class="principios" aria-labelledby="principios-title">
-        <div class="principios-heading">
-          <p class="cap-label">Cap. 3 · La naturaleza</p>
-          <h3 id="principios-title">Un recorrido por la naturaleza</h3>
-          <p>La Arboleda nos invita a observar la naturaleza desde diferentes perspectivas. Cada elemento forma parte de un recorrido donde podemos descubrir la belleza de lo simple.</p>
-        </div>
+        <section class="conservation" id="cuidar" aria-labelledby="care-title">
+            <div class="conservation__texture" aria-hidden="true"></div>
+            <div class="conservation__content">
+                <p class="eyebrow eyebrow--light"><span></span> 04 / Cuidar el origen</p>
+                <h2 class="draw-title" id="care-title">Un páramo vivo<br>se cuida en comunidad</h2>
+                <p>Conservar también es trabajo cotidiano: restaurar áreas degradadas, vigilar el territorio y sostener
+                    acuerdos entre comunidades, autoridades y organizaciones.</p><a class="action-link"
+                    href="https://www.gob.pe/institucion/ana/noticias/952967-piura-ana-inicia-proyecto-para-restaurar-ecosistemas-en-la-comunidad-altoandina-de-samanga"
+                    target="_blank" rel="noreferrer">Conoce el proyecto de restauración en Samanga <span>↗</span></a>
+            </div>
+            <div class="conservation__stamp" aria-hidden="true"><span>AGUA</span><b>↓</b><span>VIDA</span></div>
+        </section>
 
-        <div class="principios-list">
-          <article class="principio-card">
-            <span class="principio-num">01</span>
-            <h4>Los árboles</h4>
-            <p>Los árboles representan vida, crecimiento y permanencia. Sus ramas y raíces forman parte del equilibrio natural de la arboleda.</p>
-          </article>
-          <article class="principio-card">
-            <span class="principio-num">02</span>
-            <h4>Los detalles</h4>
-            <p>Una flor, una hoja o una pequeña gota de agua pueden parecer insignificantes, pero juntos construyen la identidad y belleza del entorno.</p>
-          </article>
-          <article class="principio-card">
-            <span class="principio-num">03</span>
-            <h4>El equilibrio</h4>
-            <p>Cada elemento de la naturaleza cumple una función. El equilibrio entre árboles, plantas, luz y agua permite que la vida continúe.</p>
-          </article>
-        </div>
-      </section>
-
-      <article class="nota">
-        <h3>Qué es La Arboleda</h3>
-        <p> La Arboleda es un recorrido por la naturaleza y sus pequeños misterios. Un espacio donde los árboles, los
-          caminos, los detalles y el cielo representan distintas formas de observar y comprender el mundo que nos rodea.
-          Cada sección es una invitación a detenerse, mirar y recordar que también somos parte de aquello que
-          contemplamos.</p>
-      </article>
-    </section>
-
-    <section id="cielo" class="band band--cielo">
-      <div class="band-overlay band-overlay--gold"></div>
-      <div class="band-text">
-        <p class="cap-label">Cap. 3</p>
-        <h2>El cielo</h2>
-        <p>El cielo; ese manto que nos cubre desde arriba, lleno de estrellas y nubes que dan forma a nuestro universo.
-          Un espacio que parece infinito, donde cada estrella guarda una historia que quizá nunca lleguemos a conocer.
-          Durante el día nos regala luz y, al caer la noche, nos recuerda lo pequeños que somos frente a la inmensidad
-          que nos rodea. Quizás por eso mirarlo sea también una forma de recordar que, aunque nuestra existencia sea
-          pequeña, formamos parte de algo mucho más grande.</p>
-      </div>
-    </section>
-
-    <section id="evidencia" class="evidence">
-      <h2>Un lugar para detenerse</h2>
-      <p>A veces olvidamos mirar aquello que siempre estuvo frente a nosotros. Un árbol, una hoja, el cielo o un camino
-        pueden parecer simples elementos de nuestro entorno, pero basta detenernos un momento para descubrir que cada
-        uno guarda algo que contar.
-
-        La naturaleza no necesita ser inmensa para recordarnos lo pequeños que somos, ni perfecta para mostrarnos la
-        belleza de existir. Quizás solo necesitamos aprender a observarla.</p>
-    </section>
-  </main>
-
-  <footer>
-    <p>La Arboleda · Proyecto Integrador · Curso CSS Avanzado · Fase 1 (Flexbox + Grid)</p>
-    <p>Equipo: ver README.md · Universidad Tecnológica del Perú · 2026-2</p>
-  </footer>
-
-  <div class="immersive-modal" id="immersiveModal" aria-hidden="true">
-    <div class="immersive-backdrop" data-close="true"></div>
-    <div class="immersive-panel" role="dialog" aria-modal="true" aria-labelledby="immersiveTitle">
-      <button class="immersive-close" type="button" aria-label="Cerrar vista inmersiva">×</button>
-      <div class="immersive-scene">
-        <img class="immersive-photo" id="immersivePhoto" src="" alt="Vista inmersiva del paisaje">
-      </div>
-      <div class="immersive-meta">
-        <p class="cap-label">Vista inmersiva</p>
-        <h3 id="immersiveTitle">Paisaje</h3>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
-
-    if (menuToggle && mainNav) {
-      menuToggle.addEventListener('click', () => {
-        const isOpen = mainNav.classList.toggle('is-open');
-        menuToggle.setAttribute('aria-expanded', String(isOpen));
-      });
-
-      mainNav.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-          mainNav.classList.remove('is-open');
-          menuToggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-    }
-
-    const immersiveModal = document.getElementById('immersiveModal');
-    const immersivePhoto = document.getElementById('immersivePhoto');
-    const immersiveTitle = document.getElementById('immersiveTitle');
-    const immersiveButtons = document.querySelectorAll('.immersive-btn');
-    const immersiveClose = document.querySelector('.immersive-close');
-
-    function openImmersive(imageSrc, title) {
-      immersivePhoto.src = imageSrc;
-      immersiveTitle.textContent = title;
-      immersiveModal.classList.add('is-active');
-      immersiveModal.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('modal-open');
-    }
-
-    function closeImmersive() {
-      immersiveModal.classList.remove('is-active');
-      immersiveModal.setAttribute('aria-hidden', 'true');
-      document.body.classList.remove('modal-open');
-    }
-
-    immersiveButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        openImmersive(button.dataset.image, button.dataset.title);
-      });
-    });
-
-    immersiveClose.addEventListener('click', closeImmersive);
-    immersiveModal.addEventListener('click', (event) => {
-      if (event.target.matches('[data-close="true"]')) {
-        closeImmersive();
-      }
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && immersiveModal.classList.contains('is-active')) {
-        closeImmersive();
-      }
-    });
-
-    const immersiveScene = document.querySelector('.immersive-scene');
-    if (immersiveScene) {
-      immersiveScene.addEventListener('pointermove', (event) => {
-        const rect = immersiveScene.getBoundingClientRect();
-        const rotateY = ((event.clientX - rect.left) / rect.width - 0.5) * 18;
-        const rotateX = (0.5 - (event.clientY - rect.top) / rect.height) * 18;
-        immersivePhoto.style.transform = `scale(1.12) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
-      });
-
-      immersiveScene.addEventListener('pointerleave', () => {
-        immersivePhoto.style.transform = 'scale(1.04) rotateX(0deg) rotateY(0deg)';
-      });
-    }
-
-  </script>
+        <section class="more-reading section-pad" id="explorar" aria-labelledby="explore-title">
+            <div class="more-reading__heading">
+                <p class="eyebrow"><span></span> Sigue el recorrido</p>
+                <h2 class="draw-title" id="explore-title">Dos miradas<br>más de cerca</h2>
+            </div>
+            <div class="more-reading__grid"><a class="more-reading__item" href="biodiversidad.html"><span>01 /
+                        ESPECIES</span><b>Vecinos de la niebla</b>
+                    <p>Conoce al tapir andino, al oso de anteojos y los hábitats que comparten.</p><i
+                        aria-hidden="true">↗</i>
+                </a><a class="more-reading__item" href="conservacion.html"><span>02 / TERRITORIO</span><b>Cuidar desde
+                        las alturas</b>
+                    <p>Áreas protegidas, restauración y el trabajo de las comunidades de Samanga.</p><i
+                        aria-hidden="true">↗</i>
+                </a></div>
+        </section>
+        <section class="sources section-pad" id="fuentes" aria-labelledby="sources-title">
+            <div>
+                <p class="eyebrow"><span></span> Para seguir explorando</p>
+                <h2 class="draw-title" id="sources-title">Fuentes<br>del recorrido</h2>
+            </div>
+            <ul class="sources__list">
+                <li><a href="https://www.gob.pe/institucion/ana/noticias/189680-minagri-promueve-la-conservacion-de-los-paramos-en-piura"
+                        target="_blank" rel="noreferrer"><span>ANA · Conservación de los páramos en
+                            Piura</span><b>↗</b></a></li>
+                <li><a href="https://www.gob.pe/institucion/regionpiura/informes-publicaciones/2332147-bosques-de-neblina-y-paramos-de-samanga"
+                        target="_blank" rel="noreferrer"><span>Gobierno Regional · Bosques de neblina y páramos de
+                            Samanga</span><b>↗</b></a></li>
+                <li><a href="https://www.gob.pe/institucion/serfor/noticias/1389306-serfor-destaca-articulacion-para-conservar-al-tapir-andino-en-piura"
+                        target="_blank" rel="noreferrer"><span>SERFOR · Conservación del tapir andino en
+                            Piura</span><b>↗</b></a></li>
+                <li><a href="https://www.gob.pe/institucion/serfor/noticias/695361-piura-serfor-rescata-cria-de-oso-anteojos-en-provincia-de-huancabamba"
+                        target="_blank" rel="noreferrer"><span>SERFOR · Oso de anteojos en
+                            Huancabamba</span><b>↗</b></a></li>
+            </ul>
+        </section>
+    </main>
+    <footer class="site-footer"><a class="wordmark" href="#inicio"><span
+                class="wordmark__symbol">P</span><span>PIURA<br><b>ALTA</b></span></a>
+        <p>Un cuaderno visual sobre los páramos del norte peruano.</p><a href="#inicio">Volver arriba ↑</a>
+    </footer>
 </body>
 
 </html>
