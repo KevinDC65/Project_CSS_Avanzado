@@ -1,20 +1,46 @@
-$ink: #18342e;
-$forest: #254b3e;
-$lime: #d7e265;
+// Color para títulos y texto destacado.
+$ink: #070606;
+// Color de fondo para bloques oscuros.
+$forest: #3f7446;
+// Acento para títulos y detalles.
+$lime: #edeee7;
+// Fondo claro previsto
 $paper: #f1f0e8;
-$clay: #bc654c;
+// Color para nombres y etiquetas.
+$clay: #72ec72;
+// Espaciado lateral
 $gutter: clamp(1.25rem, 6vw, 6.5rem);
+// Tipografía de títulos.
 $serif: "Newsreader", Georgia, serif;
+// Tipografía de interfaz
 $display: "Manrope", sans-serif;
 
+// Espaciado vertical y lateral de secciones.
 @mixin page-pad {
-    padding: clamp(4rem, 8vw, 7.5rem) var(--gutter);
+    padding: clamp(4rem, 8vw, 7rem) var(--gutter);
 }
 
-@mixin reveal-title($size: 4.5rem) {
+// Formato común para títulos, con tamaño configurable.
+@mixin reveal-title($size: 5.4rem) {
     margin: 1rem 0 1.2rem;
     color: $ink;
     font: 500 $size/.95 $serif;
+}
+
+// Color y tamaño común para texto de lectura.
+@mixin body-copy($size: 0.88rem) {
+    color: #53645c;
+    font-size: $size;
+}
+
+// Imagen a tamaño completo, con altura mínima opcional.
+@mixin cover-image($min-height: null) {
+    width: 100%;
+    height: 100%;
+    @if $min-height != null {
+        min-height: $min-height;
+    }
+    object-fit: cover;
 }
 
 .detail-hero {
@@ -94,8 +120,7 @@ $display: "Manrope", sans-serif;
 }
 
 .detail-intro p:not(.eyebrow) {
-    color: #53645c;
-    font-size: .88rem;
+    @include body-copy;
 }
 
 .species-profile {
@@ -129,10 +154,7 @@ $display: "Manrope", sans-serif;
 }
 
 .species-profile__photo img {
-    width: 100%;
-    height: 100%;
-    min-height: 32rem;
-    object-fit: cover;
+    @include cover-image(32rem);
 }
 
 .species-profile__photo figcaption,
@@ -146,18 +168,13 @@ $display: "Manrope", sans-serif;
     text-shadow: 0 1px 6px $ink;
 }
 
-.species-profile__photo .field-note__tip {
-    bottom: 3.2rem;
-}
-
 .species-profile__copy h2 {
     @include reveal-title(6.2rem);
 }
 
 .species-profile__copy>p:not(.eyebrow) {
     max-width: 34rem;
-    color: #53645c;
-    font-size: .88rem;
+    @include body-copy;
 }
 
 .species-profile__copy .species-profile__latin {
@@ -177,8 +194,7 @@ $display: "Manrope", sans-serif;
 }
 
 .habitat-note__copy>p:not(.eyebrow) {
-    color: #53645c;
-    font-size: .88rem;
+    @include body-copy;
 }
 
 .habitat-note__photo {
@@ -190,18 +206,12 @@ $display: "Manrope", sans-serif;
 }
 
 .habitat-note__photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.habitat-note__photo .field-note__tip {
-    bottom: 3.2rem;
+    @include cover-image;
 }
 
 .detail-cta,
 .care-note {
-    padding: clamp(4rem, 8vw, 7rem) var(--gutter);
+    @include page-pad;
     color: white;
     background: $forest;
 }

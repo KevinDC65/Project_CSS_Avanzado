@@ -354,34 +354,6 @@ a {
   letter-spacing: 0.1em;
 }
 
-.field-note__tip {
-  position: absolute;
-  z-index: 3;
-  right: 1rem;
-  bottom: 1rem;
-  left: 1rem;
-  padding: 1rem 1.1rem;
-  color: white;
-  background: rgba(24, 52, 46, 0.94);
-  font-size: 0.77rem;
-  line-height: 1.55;
-  opacity: 0;
-  transform: translateY(0.55rem);
-  transition: opacity 200ms ease, transform 200ms ease;
-  pointer-events: none;
-}
-.field-note__tip b {
-  display: block;
-  margin-bottom: 0.2rem;
-  color: #d7e265;
-  font: 700 0.72rem "Manrope", sans-serif;
-}
-
-.field-note:hover .field-note__tip, .field-note:focus-visible .field-note__tip, .field-note:focus-within .field-note__tip {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .territory__image figcaption {
   position: absolute;
   right: 1rem;
@@ -391,10 +363,6 @@ a {
   font-size: 0.7rem;
   text-shadow: 0 1px 5px #18342e;
   pointer-events: none;
-}
-
-.territory__image .field-note__tip {
-  bottom: 3.6rem;
 }
 
 .water-story {
@@ -626,12 +594,6 @@ a {
 .species-card figcaption i {
   color: rgba(255, 255, 255, 0.74);
   font: italic 0.75rem "Newsreader", Georgia, serif;
-}
-
-.species-card .field-note__tip {
-  right: 0.8rem;
-  bottom: 6rem;
-  left: 0.8rem;
 }
 
 .life__credit {
@@ -999,16 +961,6 @@ a {
   }
   .species-card figcaption span {
     font-size: 0.5rem;
-  }
-  .field-note__tip {
-    right: 0.6rem;
-    bottom: 0.6rem;
-    left: 0.6rem;
-    padding: 0.75rem;
-    font-size: 0.69rem;
-  }
-  .species-card .field-note__tip {
-    bottom: 5.5rem;
   }
   .conservation {
     min-height: 620px;

@@ -5,7 +5,7 @@
   align-items: center;
   overflow: hidden;
   color: white;
-  background: #254b3e;
+  background: #3f7446;
   isolation: isolate;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .detail-hero h1 em {
-  color: #d7e265;
+  color: #edeee7;
   font-weight: 400;
 }
 
@@ -71,12 +71,12 @@
 .actions-section h2,
 .habitat-note h2 {
   margin: 1rem 0 1.2rem;
-  color: #18342e;
-  font: 500 4.7368421053rem "Newsreader", Georgia, serif;
+  color: #070606;
+  font: 500 5.6842105263rem "Newsreader", Georgia, serif;
 }
 
 .detail-intro .lead {
-  color: #18342e;
+  color: #070606;
   font: 500 1.15rem/1.55 "Newsreader", Georgia, serif;
 }
 
@@ -112,7 +112,7 @@
   min-height: 32rem;
   margin: 0;
   overflow: hidden;
-  background: #254b3e;
+  background: #3f7446;
 }
 
 .species-profile__photo img {
@@ -131,16 +131,12 @@
   left: 1rem;
   color: white;
   font-size: 0.67rem;
-  text-shadow: 0 1px 6px #18342e;
-}
-
-.species-profile__photo .field-note__tip {
-  bottom: 3.2rem;
+  text-shadow: 0 1px 6px #070606;
 }
 
 .species-profile__copy h2 {
   margin: 1rem 0 1.2rem;
-  color: #18342e;
+  color: #070606;
   font: 500 6.5263157895rem "Newsreader", Georgia, serif;
 }
 
@@ -151,7 +147,7 @@
 }
 
 .species-profile__copy .species-profile__latin {
-  color: #bc654c;
+  color: #72ec72;
   font: italic 500 0.85rem "Newsreader", Georgia, serif;
 }
 
@@ -176,7 +172,7 @@
   height: 34rem;
   margin: 0;
   overflow: hidden;
-  background: #254b3e;
+  background: #3f7446;
 }
 
 .habitat-note__photo img {
@@ -186,15 +182,11 @@
      object-fit: cover;
 }
 
-.habitat-note__photo .field-note__tip {
-  bottom: 3.2rem;
-}
-
 .detail-cta,
 .care-note {
   padding: clamp(4rem, 8vw, 7rem) var(--gutter);
   color: white;
-  background: #254b3e;
+  background: #3f7446;
 }
 
 .detail-cta h2,
@@ -246,7 +238,7 @@
 }
 
 .conservation-page .field-timeline li:hover .field-timeline__year {
-  color: #254b3e;
+  color: #3f7446;
   transform: translateX(0.3rem);
 }
 

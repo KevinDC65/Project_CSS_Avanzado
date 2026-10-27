@@ -1,9 +1,34 @@
-@ink: #18342e;
-@forest: #254b3e;
-@moss: #71836a;
-@lime: #d7e265;
-@clay: #bc654c;
+// Color oscuro para fondos y títulos.
+@ink: #4cc279;
+// Color base para bloques y enlaces.
+@forest: #0f0f0e;
+// Verde musgo alternativo
+@moss: #10110f;
+// Color de acento para etiquetas y foco.
+@lime: #f7f9fa;
+// Color para años y etiquetas.
+@clay: #030303;
+// Tipografía de interfaz.
 @display: "Manrope", sans-serif;
+
+// Etiqueta en negrita con color y tamaño configurables.
+.display-label(@color: @clay; @size: 10rem) {
+    color: @color;
+    font: 700 @size @display;
+}
+
+// Texto secundario con tamaño configurable.
+.muted-copy(@size) {
+    color: #53645c;
+    font-size: @size;
+}
+
+// Estilo común para enlaces de fuentes.
+.source-link() {
+    color: @forest;
+    font-size: .72rem;
+    text-underline-offset: .2em;
+}
 
 .site-header {
     position: sticky;
@@ -60,8 +85,7 @@
 
     >span {
         display: block;
-        color: @lime;
-        font: 700 .6rem @display;
+        .display-label(@lime; .6rem);
         letter-spacing: .12em;
     }
 
@@ -101,21 +125,17 @@
 
     h3 {
         margin: 0 0 .5rem;
-        color: @forest;
-        font: 700 1rem @display;
+        .display-label(@forest; 1rem);
     }
 
     p {
         max-width: 42rem;
         margin: 0 0 .75rem;
-        color: #53645c;
-        font-size: .84rem;
+        .muted-copy(.84rem);
     }
 
     a {
-        color: @forest;
-        font-size: .72rem;
-        text-underline-offset: .2em;
+        .source-link();
     }
 }
 
@@ -144,8 +164,7 @@
 }
 
 .principle-card>span {
-    color: @clay;
-    font: 700 .65rem @display;
+    .display-label();
 }
 
 .principle-card h3 {
@@ -156,8 +175,7 @@
 
 .principle-card p {
     margin: 0;
-    color: #53645c;
-    font-size: .76rem;
+    .muted-copy(.76rem);
 }
 
 .detail-sources {
@@ -169,9 +187,7 @@
 }
 
 .detail-sources a {
-    color: @forest;
-    font-size: .72rem;
-    text-underline-offset: .2em;
+    .source-link();
 }
 
 @media (max-width: 760px) {

@@ -1,0 +1,437 @@
+/* Fallback de altura: los navegadores compatibles mejoran vh con svh. */
+.hero {
+  min-height: 100vh;
+}
+
+.detail-hero {
+  min-height: 92vh;
+}
+
+@supports (height: 100svh) {
+  .hero {
+    min-height: min(820px, 100svh);
+  }
+
+  .detail-hero {
+    min-height: min(760px, 92svh);
+  }
+}
+
+/* Paneles informativos de imágenes: ubicación, estilo y entrada al hover/foco. */
+.field-note__tip {
+  position: absolute;
+  z-index: 3;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  padding: 1rem 1.1rem;
+  color: white;
+  background: rgba(24, 52, 46, 0.94);
+  font-size: 0.77rem;
+  line-height: 1.55;
+  opacity: 0;
+  transform: translateY(0.55rem);
+  transition: opacity 200ms ease, transform 200ms ease;
+  pointer-events: none;
+}
+
+.field-note__tip b {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: #d7e265;
+  font: 700 0.72rem "Manrope", sans-serif;
+}
+
+.field-note:hover .field-note__tip,
+.field-note:focus-visible .field-note__tip,
+.field-note:focus-within .field-note__tip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ajusta el panel para que no cubra el pie de foto de cada composición. */
+.territory__image .field-note__tip {
+  bottom: 3.6rem;
+}
+
+.species-profile__photo .field-note__tip,
+.habitat-note__photo .field-note__tip {
+  bottom: 3.2rem;
+}
+
+.species-card .field-note__tip {
+  right: 0.8rem;
+  bottom: 6rem;
+  left: 0.8rem;
+}
+
+@media (max-width: 620px) {
+  .field-note__tip {
+    right: 0.6rem;
+    bottom: 0.6rem;
+    left: 0.6rem;
+    padding: 0.75rem;
+    font-size: 0.69rem;
+  }
+
+  .species-card .field-note__tip {
+    bottom: 5.5rem;
+  }
+}
+
+/* Entrada escalonada de tarjetas de especies, lecturas y galerías. */
+.more-reading__item,
+.species-card,
+.biodiversity-gallery__card,
+.place-card {
+  animation: card-enter 700ms ease-out backwards;
+}
+
+.more-reading__item:nth-child(2),
+.species-card:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.species-card:nth-child(3) {
+  animation-delay: 240ms;
+}
+
+.biodiversity-gallery__card:nth-child(2),
+.place-card:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.biodiversity-gallery__card:nth-child(3) {
+  animation-delay: 240ms;
+}
+
+.biodiversity-gallery__card:nth-child(4) {
+  animation-delay: 360ms;
+}
+
+/* Zoom suave para imágenes de tarjetas y galerías. */
+.species-card > img {
+  animation: image-enter 900ms 100ms ease-out;
+  transition: transform 700ms cubic-bezier(0.2, 0.75, 0.3, 1);
+}
+
+.biodiversity-gallery__card>img,
+.place-card>img {
+  animation: image-enter 900ms 100ms ease-out;
+  transition: transform 700ms cubic-bezier(0.2, 0.75, 0.3, 1);
+}
+
+.species-card:hover>img,
+.species-card:focus>img {
+  transform: scale(1.06);
+}
+
+.biodiversity-gallery__card:hover>img,
+.place-card:hover>img {
+  transform: scale(1.045);
+}
+
+@supports (filter: saturate(1)) {
+
+  .species-card:hover>img,
+  .species-card:focus>img {
+    filter: saturate(1.08);
+  }
+
+  .biodiversity-gallery__card:hover>img,
+  .place-card:hover>img {
+    filter: saturate(1.08);
+  }
+}
+
+.biodiversity-gallery__intro {
+  max-width: 48rem;
+  margin-bottom: 2.5rem;
+}
+
+.biodiversity-gallery__intro h2,
+.place-gallery__heading h2 {
+  margin: 1rem 0;
+  color: #94331b;
+  font: 500 clamp(3rem, 6vw, 5rem)/0.95 "Newsreader", Georgia, serif;
+}
+
+.biodiversity-gallery__intro>p:not(.eyebrow),
+.place-gallery__heading>p:not(.eyebrow) {
+  max-width: 42rem;
+  color: #53645c;
+  font-size: 0.9rem;
+}
+
+.biodiversity-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.biodiversity-gallery__card {
+  min-width: 0;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0.5rem 1.5rem rgb(24 52 46 / 8%);
+}
+
+.biodiversity-gallery__card>img {
+  display: block;
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+}
+
+.biodiversity-gallery__copy {
+  padding: 1.2rem;
+}
+
+.biodiversity-gallery__copy>span,
+.place-card figcaption>span {
+  color: #254b3e;
+  font: 700 0.58rem/1.4 "Manrope", sans-serif;
+  letter-spacing: 0.1em;
+}
+
+.biodiversity-gallery__copy h3,
+.place-card h3 {
+  margin: 0.65rem 0;
+  color: #18342e;
+  font: 500 1.55rem/1.05 "Newsreader", Georgia, serif;
+}
+
+.biodiversity-gallery__copy p,
+.place-card p {
+  margin: 0 0 1rem;
+  color: #53645c;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.biodiversity-gallery__copy small,
+.place-card small {
+  color: #53645c;
+  font-size: 0.62rem;
+  line-height: 1.6;
+}
+
+.biodiversity-gallery__copy small a,
+.place-card small a {
+  color: #254b3e;
+  text-underline-offset: 0.18em;
+}
+
+.place-gallery__heading {
+  max-width: 48rem;
+  margin-bottom: 2.5rem;
+}
+
+.place-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.place-card {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0.5rem 1.5rem rgb(24 52 46 / 8%);
+}
+
+.place-card>img {
+  display: block;
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+}
+
+.place-card figcaption {
+  padding: 1.5rem;
+}
+
+.more-reading__item {
+  transition: background-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+
+.more-reading__item:hover,
+.more-reading__item:focus {
+  box-shadow: 0 1rem 2rem rgb(24 52 46 / 18%);
+  transform: translateY(-0.35rem);
+}
+
+/* Transiciones de interacción para enlaces y botones; pulso en sus flechas. */
+.text-link,
+.action-link,
+.detail-sources a {
+  transition: color 220ms ease, transform 220ms ease;
+}
+
+.text-link:hover,
+.text-link:focus,
+.action-link:hover,
+.action-link:focus,
+.detail-sources a:hover,
+.detail-sources a:focus {
+  transform: translateY(-2px);
+}
+
+.detail-cta .action-link>span,
+.care-note .action-link>span,
+.conservation .action-link>span {
+  display: inline-block;
+  animation: controlled-pulse 4.5s 900ms ease-in-out infinite;
+}
+
+/* Flotación continua de baja intensidad en el sello de conservación. */
+.conservation__stamp {
+  animation: float-gently 5s 1s ease-in-out infinite;
+}
+
+@media (max-width: 760px) {
+  .biodiversity-gallery__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .place-gallery__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .biodiversity-gallery__card>img {
+    height: 18rem;
+  }
+
+  .detail-hero {
+    min-height: 86vh;
+  }
+}
+
+@media (max-width: 620px) {
+  .biodiversity-gallery__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .biodiversity-gallery__card>img,
+  .place-card>img {
+    height: 16rem;
+  }
+
+  .hero {
+    min-height: 96vh;
+  }
+}
+
+@supports (height: 100svh) {
+  @media (max-width: 760px) {
+    .detail-hero {
+      min-height: 86svh;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .hero {
+      min-height: 96svh;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .field-note__tip,
+  .more-reading__item,
+  .species-card,
+  .species-card>img,
+  .biodiversity-gallery__card,
+  .biodiversity-gallery__card>img,
+  .place-card,
+  .place-card>img,
+  .detail-cta .action-link>span,
+  .care-note .action-link>span,
+  .conservation .action-link>span,
+  .conservation__stamp {
+    animation: none;
+  }
+
+  .species-card:hover>img,
+  .species-card:focus>img,
+  .biodiversity-gallery__card:hover>img,
+  .place-card:hover>img,
+  .species-card:hover,
+  .species-card:focus,
+  .more-reading__item:hover,
+  .more-reading__item:focus,
+  .text-link:hover,
+  .text-link:focus,
+  .action-link:hover,
+  .action-link:focus,
+  .detail-sources a:hover,
+  .detail-sources a:focus {
+    transform: none;
+  }
+
+  .more-reading__item,
+  .field-note__tip,
+  .species-card>img,
+  .biodiversity-gallery__card>img,
+  .place-card>img,
+  .text-link,
+  .action-link,
+  .detail-sources a {
+    transition: none;
+  }
+}
+
+/* Entrada vertical aplicada a las tarjetas. */
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aparición con zoom inicial de las fotografías. */
+@keyframes image-enter {
+  from {
+    opacity: 0.7;
+    transform: scale(1.045);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Pulso periódico y discreto para las flechas de llamadas a la acción. */
+@keyframes controlled-pulse {
+
+  0%,
+  18%,
+  100% {
+    transform: scale(1);
+  }
+
+  9% {
+    transform: scale(1.12);
+  }
+}
+
+/* Movimiento vertical repetido del sello de conservación. */
+@keyframes float-gently {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(12deg);
+  }
+
+  50% {
+    transform: translateY(-0.45rem) rotate(12deg);
+  }
+}
