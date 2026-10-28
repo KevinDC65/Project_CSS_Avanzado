@@ -1,13 +1,13 @@
 // Color para títulos y texto destacado.
-$ink: #070606;
+$ink: #18342e;
 // Color de fondo para bloques oscuros.
-$forest: #3f7446;
+$forest: #254b3e;
 // Acento para títulos y detalles.
-$lime: #edeee7;
+$lime: #d7e265;
 // Fondo claro previsto
 $paper: #f1f0e8;
 // Color para nombres y etiquetas.
-$clay: #72ec72;
+$clay: #bc654c;
 // Espaciado lateral
 $gutter: clamp(1.25rem, 6vw, 6.5rem);
 // Tipografía de títulos.
@@ -46,12 +46,18 @@ $display: "Manrope", sans-serif;
 .detail-hero {
     position: relative;
     display: flex;
-    min-height: min(760px, 92svh);
+    min-height: min(760px, 92vh);
     align-items: center;
     overflow: hidden;
     color: white;
     background: $forest;
     isolation: isolate;
+}
+
+@supports (height: 100svh) {
+    .detail-hero {
+        min-height: min(760px, 92svh);
+    }
 }
 
 .detail-hero__image,
@@ -66,7 +72,6 @@ $display: "Manrope", sans-serif;
 .detail-hero__image {
     object-fit: cover;
     object-position: center 48%;
-    animation: detail-image-arrive 1.2s ease-out both;
 }
 
 .detail-hero__shade {
@@ -77,7 +82,6 @@ $display: "Manrope", sans-serif;
 .detail-hero__content {
     width: min(710px, 76vw);
     margin: 5rem 0 5rem var(--gutter);
-    animation: detail-copy-arrive .85s .12s both;
 }
 
 .detail-hero h1 {
@@ -247,89 +251,156 @@ $display: "Manrope", sans-serif;
     font-size: .88rem;
 }
 
+.biodiversity-gallery__intro,
+.place-gallery__heading {
+    max-width: 48rem;
+    margin-bottom: 2.5rem;
+}
+
+.biodiversity-gallery__intro>p:not(.eyebrow),
+.place-gallery__heading>p:not(.eyebrow) {
+    max-width: 42rem;
+    color: #53645c;
+    font-size: .9rem;
+}
+
+.biodiversity-gallery__intro h2,
+.place-gallery__heading h2 {
+    margin: 1rem 0;
+    color: $ink;
+    font: 500 clamp(3rem, 6vw, 5rem)/.95 $serif;
+}
+
+.biodiversity-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.place-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.biodiversity-gallery__card,
+.place-card {
+    min-width: 0;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 .5rem 1.5rem rgb(24 52 46 / 8%);
+}
+
+.place-card {
+    margin: 0;
+}
+
+.biodiversity-gallery__card>img,
+.place-card>img {
+    display: block;
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+}
+
+.biodiversity-gallery__card>img {
+    height: 15rem;
+}
+
+.biodiversity-gallery__copy {
+    padding: 1.2rem;
+}
+
+.place-card figcaption {
+    padding: 1.5rem;
+}
+
+.biodiversity-gallery__copy>span,
+.place-card figcaption>span {
+    color: $forest;
+    font: 700 .58rem/1.4 $display;
+    letter-spacing: .1em;
+}
+
+.biodiversity-gallery__copy h3,
+.place-card h3 {
+    margin: .65rem 0;
+    color: $ink;
+    font: 500 1.55rem/1.05 $serif;
+}
+
+.biodiversity-gallery__copy p,
+.place-card p {
+    margin: 0 0 1rem;
+    color: #53645c;
+    font-size: .78rem;
+    line-height: 1.6;
+}
+
+.biodiversity-gallery__copy small,
+.place-card small {
+    color: #53645c;
+    font-size: .62rem;
+    line-height: 1.6;
+}
+
+.biodiversity-gallery__copy small a,
+.place-card small a {
+    color: $forest;
+    text-underline-offset: .18em;
+}
+
 .detail-page .site-footer {
     margin-top: 0;
 }
 
-.biodiversity-page .species-profile__photo img {
-    transition: transform 700ms cubic-bezier(.2, .75, .3, 1);
-}
-
-.biodiversity-page .species-profile__photo:hover img {
-    transform: scale(1.045);
-}
-
 .conservation-page .field-timeline__year {
     display: inline-block;
-    transition: transform 240ms ease, color 240ms ease;
 }
 
 .conservation-page .field-timeline li:hover .field-timeline__year {
     color: $forest;
-    transform: translateX(.3rem);
-}
-
-.conservation-page .principle-card {
-    transition: transform 240ms ease, background-color 240ms ease;
 }
 
 .conservation-page .principle-card:hover {
     background-color: rgb(215 226 101 / 12%);
-    transform: translateY(-.2rem);
 }
 
-@supports (animation-timeline: view()) {
-
-    .biodiversity-page .species-profile__photo,
-    .biodiversity-page .habitat-note__photo,
-    .conservation-page .field-timeline>li,
-    .conservation-page .principle-card {
-        animation: story-element-reveal linear both;
-        animation-timeline: view();
-        animation-range: entry 0% cover 32%;
-    }
-}
-
-@keyframes detail-image-arrive {
-    from {
-        opacity: .65;
-        transform: scale(1.045);
+@media (max-width: 760px) {
+    .biodiversity-gallery__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    to {
-        opacity: 1;
-        transform: scale(1);
+    .place-gallery__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .biodiversity-gallery__card>img {
+        height: 18rem;
     }
 }
 
-@keyframes detail-copy-arrive {
-    from {
-        opacity: 0;
-        transform: translateY(1.1rem);
+@media (max-width: 620px) {
+    .biodiversity-gallery__grid {
+        grid-template-columns: 1fr;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes story-element-reveal {
-    from {
-        opacity: .28;
-        transform: translateY(1.5rem);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .biodiversity-gallery__card>img,
+    .place-card>img {
+        height: 16rem;
     }
 }
 
 @media (max-width: 760px) {
     .detail-hero {
-        min-height: 86svh;
+        min-height: 86vh;
         align-items: end;
+    }
+
+    @supports (height: 100svh) {
+        .detail-hero {
+            min-height: 86svh;
+        }
     }
 
     .detail-hero__content {

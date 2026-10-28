@@ -1,13 +1,13 @@
 // Color oscuro para fondos y títulos.
-@ink: #4cc279;
+@ink: #18342e;
 // Color base para bloques y enlaces.
-@forest: #0f0f0e;
+@forest: #254b3e;
 // Verde musgo alternativo
-@moss: #10110f;
+@moss: #71836a;
 // Color de acento para etiquetas y foco.
-@lime: #f7f9fa;
+@lime: #d7e265;
 // Color para años y etiquetas.
-@clay: #030303;
+@clay: #bc654c;
 // Tipografía de interfaz.
 @display: "Manrope", sans-serif;
 
@@ -75,12 +75,9 @@
     color: white;
     background: @forest;
     text-decoration: none;
-    transition: background 220ms ease, transform 220ms ease;
-
     &:hover,
     &:focus-visible {
         background: @ink;
-        transform: translateY(-.3rem);
     }
 
     >span {
@@ -251,24 +248,11 @@
         width: 1rem;
         height: 1px;
         background: white;
-        transition: transform 180ms ease, opacity 180ms ease;
     }
 
     .nav-toggle:focus-visible+.menu-toggle {
         outline: 2px solid @lime;
         outline-offset: 3px;
-    }
-
-    .nav-toggle:checked+.menu-toggle span:first-child {
-        transform: translateY(.4rem) rotate(45deg);
-    }
-
-    .nav-toggle:checked+.menu-toggle span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .nav-toggle:checked+.menu-toggle span:last-child {
-        transform: translateY(-.4rem) rotate(-45deg);
     }
 
     .main-nav {

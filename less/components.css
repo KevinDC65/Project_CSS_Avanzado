@@ -22,7 +22,7 @@
 }
 .more-reading__heading h2 {
   margin: 1.1rem 0 0;
-  color: #4cc279;
+  color: #18342e;
   font: 500 4rem/0.96 "Newsreader", Georgia, serif;
 }
 .more-reading__grid {
@@ -35,18 +35,16 @@
   min-height: 15rem;
   padding: 1.4rem;
   color: white;
-  background: #0f0f0e;
+  background: #254b3e;
   text-decoration: none;
-  transition: background 220ms ease, transform 220ms ease;
 }
 .more-reading__item:hover,
 .more-reading__item:focus-visible {
-  background: #4cc279;
-  transform: translateY(-0.3rem);
+  background: #18342e;
 }
 .more-reading__item > span {
   display: block;
-  color: #f7f9fa;
+  color: #d7e265;
   font: 700 0.6rem "Manrope", sans-serif;
   letter-spacing: 0.12em;
 }
@@ -64,7 +62,7 @@
   position: absolute;
   right: 1.3rem;
   bottom: 1.1rem;
-  color: #f7f9fa;
+  color: #d7e265;
   font: normal 1.2rem "Manrope", sans-serif;
 }
 .field-timeline {
@@ -81,7 +79,7 @@
 }
 .field-timeline h3 {
   margin: 0 0 0.5rem;
-  color: #0f0f0e;
+  color: #254b3e;
   font: 700 1rem "Manrope", sans-serif;
 }
 .field-timeline p {
@@ -91,12 +89,12 @@
   font-size: 0.84rem;
 }
 .field-timeline a {
-  color: #0f0f0e;
+  color: #254b3e;
   font-size: 0.72rem;
   text-underline-offset: 0.2em;
 }
 .field-timeline__year {
-  color: #030303;
+  color: #bc654c;
   font: 500 1.7rem/1.1 "Newsreader", Georgia, serif;
 }
 .principle-grid {
@@ -115,12 +113,12 @@
   border-right: 0;
 }
 .principle-card > span {
-  color: #030303;
+  color: #bc654c;
   font: 700 10rem "Manrope", sans-serif;
 }
 .principle-card h3 {
   margin: 1.8rem 0 0.5rem;
-  color: #0f0f0e;
+  color: #254b3e;
   font: 500 1.4rem "Newsreader", Georgia, serif;
 }
 .principle-card p {
@@ -136,7 +134,7 @@
   border-top: 1px solid rgba(24, 52, 46, 0.18);
 }
 .detail-sources a {
-  color: #0f0f0e;
+  color: #254b3e;
   font-size: 0.72rem;
   text-underline-offset: 0.2em;
 }
@@ -192,20 +190,10 @@
     width: 1rem;
     height: 1px;
     background: white;
-    transition: transform 180ms ease, opacity 180ms ease;
   }
   .nav-toggle:focus-visible + .menu-toggle {
-    outline: 2px solid #f7f9fa;
+    outline: 2px solid #d7e265;
     outline-offset: 3px;
-  }
-  .nav-toggle:checked + .menu-toggle span:first-child {
-    transform: translateY(0.4rem) rotate(45deg);
-  }
-  .nav-toggle:checked + .menu-toggle span:nth-child(2) {
-    opacity: 0;
-  }
-  .nav-toggle:checked + .menu-toggle span:last-child {
-    transform: translateY(-0.4rem) rotate(-45deg);
   }
   .main-nav {
     position: absolute;
