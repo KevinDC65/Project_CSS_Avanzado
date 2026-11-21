@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Conoce al tapir andino y al oso de anteojos, especies emblemáticas de los páramos de Piura. Versión Tailwind CSS.">
+    <meta name="theme-color" content="#18342e">
+    <title>Vida de altura | Páramos de Piura · Tailwind</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="dist/styles.css">
+</head>
+
+<body class="font-sans text-[1.0625rem] antialiased">
+    <a class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded focus:bg-lime focus:px-4 focus:py-2 focus:font-display focus:font-bold focus:text-ink"
+        href="#contenido">Saltar al contenido</a>
+
+    <header class="header-scroll fixed inset-x-0 top-0 z-30 flex h-18 items-center justify-between gap-6 px-6 text-white lg:px-24">
+        <a class="flex items-center gap-2.5 font-display text-xs font-bold leading-tight tracking-[0.14em]" href="index.html"
+            aria-label="Piura Alta, inicio">
+            <span class="grid size-10 place-items-center rounded-full border border-current font-serif text-xl font-medium tracking-normal"
+                aria-hidden="true">P</span>
+            <span>PIURA<br><b class="font-extrabold">ALTA</b></span>
+        </a>
+        <input class="peer sr-only" type="checkbox" id="nav-toggle" aria-label="Abrir o cerrar el menú"
+            aria-controls="site-navigation">
+        <label for="nav-toggle" aria-hidden="true"
+            class="grid size-11 cursor-pointer place-content-center gap-1.5 rounded-full border border-white/25 peer-checked:border-lime peer-checked:bg-lime peer-checked:text-ink peer-focus-visible:outline-2 peer-focus-visible:outline-lime md:hidden">
+            <span class="block h-px w-4.5 bg-current"></span><span class="block h-px w-4.5 bg-current"></span><span
+                class="block h-px w-4.5 bg-current"></span>
+        </label>
+        <nav id="site-navigation" aria-label="Navegación principal"
+            class="absolute inset-x-0 top-full hidden flex-col bg-ink px-6 pb-5 font-display font-semibold shadow-2xl peer-checked:flex md:static md:flex md:flex-row md:gap-10 md:bg-transparent md:p-0 md:shadow-none">
+            <a class="border-t border-white/20 py-4 hover:text-lime md:border-0 md:py-2" href="index.html#territorio">Territorio</a>
+            <a class="border-t border-white/20 py-4 text-lime underline underline-offset-8 md:border-0 md:py-2" href="biodiversidad.html"
+                aria-current="page">Vida</a>
+            <a class="border-t border-white/20 py-4 hover:text-lime md:border-0 md:py-2" href="conservacion.html">Conservación</a>
+        </nav>
+        <a class="hidden rounded-full border border-white/25 px-4 py-2 font-display text-sm font-semibold transition hover:border-lime hover:bg-lime hover:text-ink md:inline-block"
+            href="#fuentes">Fuentes ↗</a>
+    </header>
+
+    <main id="contenido">
+        <section class="relative isolate flex min-h-[min(860px,92svh)] items-end overflow-hidden bg-forest text-white"
+            aria-labelledby="page-title">
+            <img class="absolute inset-0 -z-30 size-full object-cover object-[center_48%]"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Oso_Andino_-_Tremarctos_ornatus.jpg/1280px-Oso_Andino_-_Tremarctos_ornatus.jpg"
+                width="1280" height="853"
+                alt="Oso andino en el Parque Nacional Natural Chingaza, Colombia; imagen referencial" fetchpriority="high">
+            <div class="hero-shade absolute inset-0 -z-20" aria-hidden="true"></div>
+            <div class="w-full px-6 pb-20 animate-hero lg:px-24">
+                <ol class="mb-6 flex gap-2 font-display text-sm font-semibold text-white/80" aria-label="Ubicación">
+                    <li><a class="text-white hover:text-lime" href="index.html">Inicio</a></li>
+                    <li class="before:mr-2 before:text-lime before:content-['/']" aria-current="page">Vida de altura</li>
+                </ol>
+                <div class="max-w-3xl">
+                    <h1 class="font-serif text-display font-medium" id="page-title">Vecinos de<br><em
+                            class="font-normal text-lime">la niebla</em></h1>
+                    <p class="my-6 max-w-lg text-lg text-white/85">Una mirada cercana a dos mamíferos emblemáticos y a los
+                        ecosistemas que los sostienen.</p>
+                    <a class="inline-flex min-h-11 items-center gap-2 font-display font-bold hover:text-lime"
+                        href="#tapir">Conocer las especies <span aria-hidden="true">↓</span></a>
+                </div>
+                <p class="mt-8 font-display text-xs text-white/80 md:text-right">Oso andino · Chingaza, Colombia ·
+                    Biodiego88, <a class="underline decoration-lime" href="https://creativecommons.org/licenses/by/4.0/"
+                        target="_blank" rel="noreferrer">CC BY 4.0</a> vía <a class="underline decoration-lime"
+                        href="https://commons.wikimedia.org/wiki/File:Oso_Andino_-_Tremarctos_ornatus.jpg"
+                        target="_blank" rel="noreferrer">Wikimedia Commons</a></p>
+            </div>
+        </section>
+
+        <section class="mx-auto grid max-w-[1440px] gap-12 px-6 py-24 md:grid-cols-2 lg:px-24 lg:py-36"
+            aria-labelledby="intro-title">
+            <div>
+                <h2 class="max-w-[16ch] font-serif text-title font-medium" id="intro-title">Un hogar conectado por el
+                    agua y el bosque</h2>
+                <p class="folio mt-6 text-clay-ink">Biodiversidad altoandina</p>
+            </div>
+            <div class="grid content-start gap-5">
+                <p class="font-serif text-lead first-letter:text-clay">En Ayabaca y Huancabamba, páramos y bosques de
+                    neblina forman un continuo de hábitats donde cada especie cumple una función.</p>
+                <p class="max-w-prose text-muted">La conexión entre zonas de alimentación, refugio y reproducción es
+                    importante para mantener poblaciones saludables. Cuando el hábitat se fragmenta, también se
+                    interrumpen esos desplazamientos.</p>
+            </div>
+        </section>
+
+        <article class="mx-auto grid max-w-[1440px] items-center gap-12 px-6 pb-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20 lg:px-24 lg:pb-36"
+            id="tapir" aria-labelledby="tapir-title">
+            <figure tabindex="0" aria-describedby="tapir-fact"
+                class="reveal group relative isolate flex min-h-[26rem] flex-col overflow-hidden rounded-[10px] bg-forest text-white lg:min-h-[36rem] touch:min-h-0">
+                <img class="absolute inset-0 -z-10 size-full object-cover transition duration-700 ease-out-expo group-hover:scale-105 touch:static touch:aspect-[4/3] touch:h-auto"
+                    src="https://cdn.www.gob.pe/uploads/document/file/9940360/1389306-tapir_foto_nodo-conservation-1.jpg"
+                    width="871" height="580" alt="Tapir andino, danta de montaña observada en el norte peruano"
+                    loading="lazy">
+                <span class="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-paper px-3 py-1.5 font-display text-xs font-bold uppercase tracking-wide text-ink before:size-2 before:rounded-full before:bg-[#c0392b]">En
+                    peligro crítico</span>
+                <figcaption class="mt-auto bg-linear-to-t from-ink/85 to-transparent px-5 pt-16 pb-5 text-sm touch:bg-ink touch:pt-4">Tapir
+                    andino · Fotografía difundida por SERFOR</figcaption>
+                <span id="tapir-fact"
+                    class="absolute inset-x-4 bottom-20 rounded bg-ink/95 p-4 text-sm opacity-0 transition group-hover:opacity-100 group-focus-visible:opacity-100 touch:static touch:rounded-none touch:opacity-100"><b
+                        class="block font-display text-lime">Dato de campo</b>SERFOR reporta monitoreo comunitario del
+                    tapir andino en el ACP Bosques de Neblina y Páramos de Samanga.</span>
+            </figure>
+            <div class="grid justify-items-start gap-5">
+                <h2 class="font-serif text-title font-medium" id="tapir-title">Tapir andino</h2>
+                <p class="folio text-clay-ink">01 · Dispersor del bosque</p>
+                <p class="font-serif text-xl italic text-clay-ink">Tapirus pinchaque · En peligro crítico en el Perú</p>
+                <p class="max-w-prose text-muted">También llamado danta de montaña, vive en los bosques de neblina y
+                    páramos del norte peruano. Al alimentarse de frutos y desplazarse por el bosque, ayuda a dispersar
+                    semillas.</p>
+                <p class="max-w-prose text-muted">SERFOR señala que la pérdida y fragmentación del hábitat afectan a la
+                    especie. En Piura, su conservación se trabaja con comunidades y organizaciones en Ayabaca y
+                    Huancabamba.</p>
+                <a class="inline-flex min-h-11 items-center font-display font-bold text-forest hover:text-clay-ink"
+                    href="https://www.gob.pe/institucion/serfor/noticias/1389306-serfor-destaca-articulacion-para-conservar-al-tapir-andino-en-piura"
+                    target="_blank" rel="noreferrer">Leer la nota de SERFOR ↗</a>
+            </div>
+        </article>
+
+        <div class="bg-sage">
+            <article class="mx-auto grid max-w-[1440px] items-center gap-12 px-6 py-24 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20 lg:px-24 lg:py-36"
+                id="oso" aria-labelledby="bear-title">
+                <figure tabindex="0" aria-describedby="bear-fact"
+                    class="reveal group relative isolate flex min-h-[26rem] flex-col overflow-hidden rounded-[10px] bg-forest text-white lg:order-2 lg:min-h-[36rem] touch:min-h-0">
+                    <img class="absolute inset-0 -z-10 size-full object-cover transition duration-700 ease-out-expo group-hover:scale-105 touch:static touch:aspect-[4/3] touch:h-auto"
+                        src="https://cdn.www.gob.pe/uploads/document/file/4084844/Rescate%20de%20oso%20de%20anteojos4.jpg.jpg"
+                        width="1391" height="1043" alt="Osezno de anteojos rescatado por SERFOR en Huancabamba"
+                        loading="lazy">
+                    <span class="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-paper px-3 py-1.5 font-display text-xs font-bold uppercase tracking-wide text-ink before:size-2 before:rounded-full before:bg-[#d98e04]">Vulnerable</span>
+                    <figcaption class="mt-auto bg-linear-to-t from-ink/85 to-transparent px-5 pt-16 pb-5 text-sm touch:bg-ink touch:pt-4">Oso
+                        de anteojos · Rescate documentado por SERFOR Piura</figcaption>
+                    <span id="bear-fact"
+                        class="absolute inset-x-4 bottom-20 rounded bg-ink/95 p-4 text-sm opacity-0 transition group-hover:opacity-100 group-focus-visible:opacity-100 touch:static touch:rounded-none touch:opacity-100"><b
+                            class="block font-display text-lime">Registro local</b>La laguna Millonaria, donde se encontró
+                        el osezno, forma parte del complejo de Las Huaringas, en el páramo de Huancabamba.</span>
+                </figure>
+                <div class="grid justify-items-start gap-5 lg:order-1">
+                    <h2 class="max-w-[10ch] font-serif text-title font-medium" id="bear-title">Oso de anteojos</h2>
+                    <p class="folio text-clay-ink">02 · Habitante de varios pisos</p>
+                    <p class="font-serif text-xl italic text-clay-ink">Tremarctos ornatus · Vulnerable en el Perú</p>
+                    <p class="max-w-prose text-muted">El oso andino utiliza distintos ambientes, desde bosques húmedos
+                        hasta páramos. En febrero de 2023, SERFOR atendió a una cría hallada cerca de la laguna
+                        Millonaria, en el distrito de El Carmen de la Frontera.</p>
+                    <p class="max-w-prose text-muted">La nota oficial describe a la especie como dispersora de semillas y
+                        destaca que proteger su hábitat también beneficia a los bosques de neblina y a las fuentes de
+                        agua.</p>
+                    <a class="inline-flex min-h-11 items-center font-display font-bold text-forest hover:text-clay-ink"
+                        href="https://www.gob.pe/institucion/serfor/noticias/695361-piura-serfor-rescata-cria-de-oso-anteojos-en-provincia-de-huancabamba"
+                        target="_blank" rel="noreferrer">Leer el reporte de SERFOR ↗</a>
+                </div>
+            </article>
+        </div>
+
+        <section class="mx-auto grid max-w-[1440px] items-center gap-12 px-6 py-24 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20 lg:px-24 lg:py-36"
+            aria-labelledby="habitat-title">
+            <div class="grid justify-items-start gap-5">
+                <h2 class="max-w-[10ch] font-serif text-title font-medium" id="habitat-title">No hay una sola forma de
+                    páramo</h2>
+                <p class="folio text-clay-ink">03 · Una red de hábitats</p>
+                <p class="max-w-prose text-muted">El paisaje combina pajonales húmedos, lagunas y bosques montanos. Las
+                    plantas de altura enfrentan frío, viento y cambios de humedad; la vegetación ayuda a mantener el
+                    suelo cubierto y a retener agua.</p>
+                <p class="max-w-prose text-muted">La fotografía muestra una puya de Choachí, Colombia. Es una referencia
+                    visual de la flora andina, no una identificación de especie en Piura.</p>
+            </div>
+            <figure tabindex="0" aria-describedby="puya-fact"
+                class="reveal group relative isolate flex min-h-[26rem] flex-col overflow-hidden rounded-[10px] bg-forest text-white lg:min-h-[36rem] touch:min-h-0">
+                <img class="absolute inset-0 -z-10 size-full object-cover transition duration-700 ease-out-expo group-hover:scale-105 touch:static touch:aspect-[3/4] touch:h-auto"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Puya_goudotiana4.jpg/960px-Puya_goudotiana4.jpg"
+                    width="960" height="1280" alt="Puya goudotiana en flor en Choachí, Colombia; imagen referencial"
+                    loading="lazy">
+                <span class="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-paper px-3 py-1.5 font-display text-xs font-bold uppercase tracking-wide text-ink before:size-2 before:rounded-full before:bg-[#71836a]">Imagen
+                    referencial</span>
+                <figcaption class="mt-auto bg-linear-to-t from-ink/85 to-transparent px-5 pt-16 pb-5 text-sm touch:bg-ink touch:pt-4">Puya
+                    goudotiana · Choachí, Colombia · Nicolas Ramirez, CC BY-SA 4.0</figcaption>
+                <span id="puya-fact"
+                    class="absolute inset-x-4 bottom-20 rounded bg-ink/95 p-4 text-sm opacity-0 transition group-hover:opacity-100 group-focus-visible:opacity-100 touch:static touch:rounded-none touch:opacity-100"><b
+                        class="block font-display text-lime">Imagen referencial</b>Esta puya fue fotografiada en
+                    Matarredonda, Choachí, Colombia; no se presenta como flora identificada en Piura.</span>
+            </figure>
+        </section>
+
+        <section class="mx-auto max-w-[1440px] px-6 pb-24 lg:px-24 lg:pb-36" id="galeria-andina"
+            aria-labelledby="gallery-title">
+            <div class="mb-12 grid items-end gap-6 md:grid-cols-[1.3fr_1fr] md:gap-20">
+                <div>
+                    <h2 class="max-w-[16ch] font-serif text-title font-medium" id="gallery-title">Un mosaico de bosques y
+                        alturas</h2>
+                    <p class="folio mt-6 text-clay-ink">04 · Más formas de vida</p>
+                </div>
+                <p class="text-muted">Los Andes reúnen páramos abiertos, bosques de altura y una gran variedad de plantas
+                    y aves. Estas fotografías amplían la mirada regional: las imágenes de Ecuador, Colombia y otras zonas
+                    del Perú son referencias visuales y no registros de especies en Piura.</p>
+            </div>
+            <!-- subgrid alinea título, etiqueta, texto y créditos; en móvil es un carrusel con scroll-snap -->
+            <div class="-mx-6 grid auto-cols-[82%] grid-flow-col gap-x-4 overflow-x-auto px-6 pb-5 snap-x snap-mandatory sm:mx-0 sm:grid-flow-row sm:grid-cols-2 sm:gap-y-4 sm:overflow-visible sm:px-0 xl:grid-cols-4 xl:gap-y-0">
+                <article class="reveal row-span-5 grid snap-start grid-rows-subgrid gap-y-3 overflow-hidden rounded-[10px] bg-paper-raised pb-6 shadow-sm transition duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-xl [&>:not(img)]:px-5">
+                    <img class="mb-2 aspect-[4/3] w-full object-cover"
+                        src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/P%C3%A1ramo_Ecuatoriano.jpg/960px-P%C3%A1ramo_Ecuatoriano.jpg"
+                        width="960" height="640"
+                        alt="Páramo de Ecuador con vegetación baja y montañas al fondo; imagen de referencia"
+                        loading="lazy">
+                    <h3 class="font-serif text-2xl leading-tight font-medium">El páramo abierto</h3>
+                    <p class="font-display text-xs font-bold uppercase tracking-widest text-forest">Paisaje · Ecuador</p>
+                    <p class="text-[0.9375rem] text-muted">Los pajonales y humedales de altura forman un paisaje que
+                        capta y libera agua lentamente. Esta fotografía muestra un páramo ecuatoriano, no un sitio de
+                        Piura.</p>
+                    <small class="self-end text-sm text-muted [&_a]:text-forest [&_a]:underline">Andrés Guayes · <a
+                            href="https://commons.wikimedia.org/wiki/File:P%C3%A1ramo_Ecuatoriano.jpg" target="_blank"
+                            rel="noreferrer">Wikimedia Commons</a> · <a
+                            href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC
+                            BY-SA 4.0</a></small>
+                </article>
+                <article class="reveal row-span-5 grid snap-start grid-rows-subgrid gap-y-3 overflow-hidden rounded-[10px] bg-paper-raised pb-6 shadow-sm transition duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-xl [&>:not(img)]:px-5">
+                    <img class="mb-2 aspect-[4/3] w-full object-cover"
+                        src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Polylepis_forest_%2815277958070%29.jpg/960px-Polylepis_forest_%2815277958070%29.jpg"
+                        width="960" height="640"
+                        alt="Bosque altoandino de Polylepis en El Cajas, Ecuador; imagen de referencia" loading="lazy">
+                    <h3 class="font-serif text-2xl leading-tight font-medium">Un refugio entre árboles</h3>
+                    <p class="font-display text-xs font-bold uppercase tracking-widest text-forest">Bosque · Ecuador</p>
+                    <p class="text-[0.9375rem] text-muted">El bosque de Polylepis de El Cajas muestra otro ambiente de
+                        montaña: árboles y sotobosque ofrecen alimento y refugio a organismos adaptados al frío y la
+                        humedad.</p>
+                    <small class="self-end text-sm text-muted [&_a]:text-forest [&_a]:underline">Sabrina Setaro · <a
+                            href="https://commons.wikimedia.org/wiki/File:Polylepis_forest_(15277958070).jpg"
+                            target="_blank" rel="noreferrer">Wikimedia Commons</a> · <a
+                            href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noreferrer">CC BY
+                            2.0</a></small>
+                </article>
+                <article class="reveal row-span-5 grid snap-start grid-rows-subgrid gap-y-3 overflow-hidden rounded-[10px] bg-paper-raised pb-6 shadow-sm transition duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-xl [&>:not(img)]:px-5">
+                    <img class="mb-2 aspect-[4/3] w-full object-cover"
+                        src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Orchid_in_Polylepis_forest_%2815599859956%29.jpg/960px-Orchid_in_Polylepis_forest_%2815599859956%29.jpg"
+                        width="960" height="640"
+                        alt="Orquídea silvestre no identificada fotografiada en un bosque de Polylepis; imagen de referencia"
+                        loading="lazy">
+                    <h3 class="font-serif text-2xl leading-tight font-medium">Pequeñas flores del bosque</h3>
+                    <p class="font-display text-xs font-bold uppercase tracking-widest text-forest">Flora · Orquídea</p>
+                    <p class="text-[0.9375rem] text-muted">La fotografía muestra una orquídea del género Gomphichis sin
+                        identificación de especie. Las orquídeas andinas presentan formas y tamaños diversos; esta imagen
+                        no confirma su presencia en Piura.</p>
+                    <small class="self-end text-sm text-muted [&_a]:text-forest [&_a]:underline">Sabrina Setaro · <a
+                            href="https://commons.wikimedia.org/wiki/File:Orchid_in_Polylepis_forest_(15599859956).jpg"
+                            target="_blank" rel="noreferrer">Wikimedia Commons</a> · <a
+                            href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noreferrer">CC BY
+                            2.0</a></small>
+                </article>
+                <article class="reveal row-span-5 grid snap-start grid-rows-subgrid gap-y-3 overflow-hidden rounded-[10px] bg-paper-raised pb-6 shadow-sm transition duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-xl [&>:not(img)]:px-5">
+                    <img class="mb-2 aspect-[4/3] w-full object-cover"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Andean_Hillstar_%28Oreotrochilus_estella%29_perched.jpg/960px-Andean_Hillstar_%28Oreotrochilus_estella%29_perched.jpg"
+                        width="960" height="640"
+                        alt="Colibrí estrella andina posado en Capachica, junto al lago Titicaca, Perú; imagen de referencia"
+                        loading="lazy">
+                    <h3 class="font-serif text-2xl leading-tight font-medium">Un colibrí de altura</h3>
+                    <p class="font-display text-xs font-bold uppercase tracking-widest text-forest">Fauna · Perú</p>
+                    <p class="text-[0.9375rem] text-muted">El colibrí estrella andina (Oreotrochilus estella) está
+                        fotografiado en Capachica, junto al Titicaca. Es una referencia de la diversidad altoandina, no
+                        un registro de Piura.</p>
+                    <small class="self-end text-sm text-muted [&_a]:text-forest [&_a]:underline">Tor Egil Høgsås · <a
+                            href="https://commons.wikimedia.org/wiki/File:Andean_Hillstar_(Oreotrochilus_estella)_perched.jpg"
+                            target="_blank" rel="noreferrer">Wikimedia Commons</a> · <a
+                            href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noreferrer">CC BY
+                            2.0</a></small>
+                </article>
+            </div>
+        </section>
+
+        <section class="topo px-6 py-24 text-white lg:px-24 lg:py-36" aria-labelledby="cta-title">
+            <h2 class="max-w-[16ch] font-serif text-title font-medium" id="cta-title">El hábitat también necesita
+                guardianes.</h2>
+            <p class="folio mt-6 mb-10 text-lime">Conocer para conservar</p>
+            <a class="inline-flex items-center gap-3 rounded-full bg-lime px-6 py-3.5 font-display font-bold text-ink shadow-lg transition duration-300 ease-out-expo hover:-translate-y-0.5 hover:bg-[#e3eb8b]"
+                href="conservacion.html">Explorar iniciativas de conservación ↗</a>
+        </section>
+
+        <nav class="flex flex-wrap justify-between gap-3 border-t border-ink/15 px-6 py-6 text-sm lg:px-24 [&_a]:text-forest [&_a]:underline [&_a:hover]:text-clay-ink"
+            id="fuentes" aria-label="Fuentes de biodiversidad">
+            <a href="https://www.gob.pe/institucion/serfor/noticias/1389306-serfor-destaca-articulacion-para-conservar-al-tapir-andino-en-piura"
+                target="_blank" rel="noreferrer">SERFOR · Tapir andino en Piura ↗</a>
+            <a href="https://www.gob.pe/institucion/serfor/noticias/695361-piura-serfor-rescata-cria-de-oso-anteojos-en-provincia-de-huancabamba"
+                target="_blank" rel="noreferrer">SERFOR · Oso de anteojos en Huancabamba ↗</a>
+        </nav>
+    </main>
+
+    <footer class="grid gap-10 bg-forest-deep px-6 pt-20 pb-10 text-white sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_auto] lg:px-24">
+        <div class="sm:col-span-2 lg:col-span-1">
+            <a class="inline-flex items-center gap-2.5 font-display text-xs font-bold leading-tight tracking-[0.14em]"
+                href="index.html"><span class="grid size-10 place-items-center rounded-full border border-current font-serif text-xl font-medium tracking-normal"
+                    aria-hidden="true">P</span><span>PIURA<br><b class="font-extrabold">ALTA</b></span></a>
+            <p class="mt-5 max-w-sm font-serif text-lg text-white/80">Un cuaderno visual sobre los páramos del norte
+                peruano.</p>
+        </div>
+        <nav aria-labelledby="f-route">
+            <h2 class="mb-3 font-display text-xs font-bold uppercase tracking-[0.12em] text-lime" id="f-route">En esta
+                página</h2>
+            <ul class="grid gap-1.5 text-white/80 [&_a:hover]:text-white [&_a:hover]:underline">
+                <li><a href="#tapir">Tapir andino</a></li>
+                <li><a href="#oso">Oso de anteojos</a></li>
+                <li><a href="#galeria-andina">Más formas de vida</a></li>
+            </ul>
+        </nav>
+        <nav aria-labelledby="f-pages">
+            <h2 class="mb-3 font-display text-xs font-bold uppercase tracking-[0.12em] text-lime" id="f-pages">Versiones
+                del sitio</h2>
+            <ul class="grid gap-1.5 text-white/80 [&_a:hover]:text-white [&_a:hover]:underline">
+                <li><a href="../biodiversidad.html">CSS nativo</a></li>
+                <li><a href="../bootstrap/biodiversidad.html">Bootstrap</a></li>
+                <li><a href="biodiversidad.html" aria-current="page">Tailwind CSS</a></li>
+            </ul>
+        </nav>
+        <a class="self-start justify-self-start rounded-full border border-white/25 px-4 py-2.5 font-display text-sm font-semibold hover:border-lime hover:bg-lime hover:text-ink"
+            href="#contenido">Volver arriba ↑</a>
+        <p class="border-t border-white/20 pt-6 text-sm text-white/80 sm:col-span-2 lg:col-span-4">Proyecto académico
+            de CSS Avanzado · Versión Tailwind CSS v4. Fotografías con licencias Creative Commons o difundidas por
+            instituciones del Estado peruano, citadas junto a cada imagen.</p>
+    </footer>
+    <script src="js/menu.js" defer></script>
+</body>
+
+</html>

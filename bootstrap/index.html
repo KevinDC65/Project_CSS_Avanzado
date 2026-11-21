@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Un recorrido visual por los páramos de Piura: agua, bosques de neblina, especies y comunidades. Versión Bootstrap.">
+    <meta name="theme-color" content="#18342e">
+    <title>Páramos de Piura | Donde nace el agua · Bootstrap</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css"
+        integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/paramos.css">
+</head>
+
+<body>
+    <a class="visually-hidden-focusable position-fixed top-0 start-0 m-2 p-2 bg-warning text-dark rounded z-3"
+        href="#contenido">Saltar al contenido</a>
+
+    <nav class="navbar navbar-expand-md fixed-top navbar-paramo" data-bs-theme="dark" aria-label="Navegación principal">
+        <div class="container-xxl px-4 px-lg-5">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#inicio" aria-label="Piura Alta, inicio">
+                <span class="wordmark-symbol" aria-hidden="true">P</span>
+                <span class="wordmark-text">PIURA<br><b>ALTA</b></span>
+            </a>
+            <button class="navbar-toggler rounded-circle p-2" type="button" data-bs-toggle="collapse"
+                data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir o cerrar el menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav mx-auto gap-md-4">
+                    <li class="nav-item"><a class="nav-link" href="#territorio">Territorio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="biodiversidad.html">Vida</a></li>
+                    <li class="nav-item"><a class="nav-link" href="conservacion.html">Conservación</a></li>
+                </ul>
+                <a class="btn btn-sm btn-outline-paper d-none d-md-inline-block" href="#fuentes">Fuentes ↗</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="contenido">
+        <!-- Hero -->
+        <section class="hero-paramo position-relative d-flex align-items-end overflow-hidden text-white bg-forest"
+            id="inicio" aria-labelledby="hero-title">
+            <img class="position-absolute top-0 start-0 w-100 h-100"
+                src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_14.jpg/1280px-Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_14.jpg"
+                srcset="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_14.jpg/960px-Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_14.jpg 960w,
+                        https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_14.jpg/1920px-Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_14.jpg 1920w"
+                sizes="100vw" width="1920" height="1280"
+                alt="Laguna Negra, en el páramo de Huancabamba, rodeada de cerros cubiertos por la neblina"
+                fetchpriority="high">
+            <div class="hero-shade position-absolute top-0 start-0 w-100 h-100" aria-hidden="true"></div>
+            <span class="cloud" aria-hidden="true"></span>
+            <span class="cloud cloud-2" aria-hidden="true"></span>
+            <div class="container-xxl px-4 px-lg-5 pb-5 mb-5 hero-enter">
+                <div class="col-lg-7 col-xl-6">
+                    <h1 class="display-paramo" id="hero-title">Donde nace<br><em>el agua</em></h1>
+                    <p class="fs-5 my-4 opacity-75">En las alturas de Piura, la neblina se posa sobre pajonales,
+                        lagunas y bosques. Un paisaje que guarda agua y conecta vidas.</p>
+                    <a class="link-light link-underline-opacity-0 fw-bold font-display" href="#territorio">Comienza el
+                        recorrido ↓</a>
+                </div>
+                <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mt-5 label-paramo">
+                    <span aria-hidden="true">04° S · 79° O · Norte de los Andes · Perú</span>
+                    <span class="fw-medium" style="text-transform:none;letter-spacing:0;font-size:0.8125rem">
+                        Laguna Negra, Huancabamba · Candy Sotomayor ·
+                        <a class="link-light"
+                            href="https://commons.wikimedia.org/wiki/File:Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_14.jpg"
+                            target="_blank" rel="noreferrer">CC BY-SA 4.0</a></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Datos rápidos -->
+        <section class="bg-forest text-white py-4" aria-label="Datos del páramo piurano">
+            <div class="container-xxl px-4 px-lg-5">
+                <div class="row row-cols-2 row-cols-md-5 g-3 align-items-center">
+                    <p class="col-12 col-md text-lime label-paramo mb-0">Un ecosistema<br>que nos conecta</p>
+                    <div class="col border-start border-light border-opacity-25">
+                        <strong class="d-block font-display">Ayabaca</strong><span class="small opacity-75">y
+                            Huancabamba</span>
+                    </div>
+                    <div class="col border-start border-light border-opacity-25">
+                        <strong class="d-block font-display">Cabeceras</strong><span class="small opacity-75">de
+                            cuenca</span>
+                    </div>
+                    <div class="col border-start border-light border-opacity-25">
+                        <strong class="d-block font-display">Agua</strong><span class="small opacity-75">para personas
+                            y cultivos</span>
+                    </div>
+                    <div class="col text-md-end">
+                        <a class="link-light link-opacity-75 small font-display fw-semibold"
+                            href="https://www.gob.pe/institucion/ana/noticias/189680-minagri-promueve-la-conservacion-de-los-paramos-en-piura"
+                            target="_blank" rel="noreferrer">ANA · 2020 ↗</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Territorio -->
+        <section class="py-5 my-lg-5" id="territorio" aria-labelledby="territory-title">
+            <div class="container-xxl px-4 px-lg-5 py-5">
+                <div class="row g-5">
+                    <div class="col-lg-4">
+                        <h2 class="title-paramo" id="territory-title">Una frontera de niebla y altura</h2>
+                        <p class="folio mt-4">01 · El territorio</p>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <p class="lead-paramo">En el extremo norte peruano, los páramos aparecen entre Ayabaca y
+                            Huancabamba, junto a bosques montanos que se funden con las nubes.</p>
+                        <p class="text-muted-paramo">No son una postal aislada: forman un mosaico de pajonales,
+                            humedales, lagunas y bosque de neblina. Las comunidades altoandinas conviven con estos
+                            paisajes y sus ciclos de lluvia, frío y niebla.</p>
+                        <p class="text-muted-paramo">Samanga, en Ayabaca, es uno de los lugares donde se protege este
+                            patrimonio. Su Área de Conservación Privada Bosques de Neblina y Páramos de Samanga fue
+                            reconocida por el Estado en 2013.</p>
+                        <a class="fw-bold font-display link-underline-opacity-0"
+                            href="https://www.gob.pe/institucion/minam/normas-legales/317970-117-2013-minam"
+                            target="_blank" rel="noreferrer">Ver reconocimiento oficial ↗</a>
+                    </div>
+                    <div class="col-md-6 col-lg-5">
+                        <figure class="card text-bg-dark border-0 overflow-hidden h-100 mb-0 zoom-img" tabindex="0"
+                            data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="top"
+                            data-bs-title="Dato de campo"
+                            data-bs-content="Los páramos piuranos se encuentran en las zonas altas de Ayabaca y Huancabamba. La neblina frecuente define su paisaje.">
+                            <img class="card-img h-100 object-fit-cover" style="min-height:26rem"
+                                src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_16.jpg/960px-Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_16.jpg"
+                                width="960" height="640" alt="Cumbres del páramo de Huancabamba envueltas por nubes bajas"
+                                loading="lazy">
+                            <div class="card-img-overlay d-flex flex-column justify-content-between overlay-gradient">
+                                <span class="badge rounded-pill text-bg-light align-self-start label-paramo">Laguna
+                                    Negra · Huancabamba</span>
+                                <figcaption class="small">La altura cambia el ritmo del paisaje: el agua llega como
+                                    lluvia, neblina y escorrentía.<span class="d-block opacity-75 mt-1">Foto: Candy
+                                        Sotomayor · CC BY-SA 4.0</span></figcaption>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- La ruta del agua -->
+        <section class="bg-mist" id="agua" aria-labelledby="water-title">
+            <div class="row g-0">
+                <div class="col-lg-6 position-relative overflow-hidden sticky-lg-top vh-100" style="min-height:28rem">
+                    <img class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
+                        src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_04.jpg/1280px-Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_04.jpg"
+                        width="1280" height="853"
+                        alt="Agua de un manantial corriendo entre piedras y hojas en el caserío de Ñangali, Huancabamba"
+                        loading="lazy">
+                    <a class="position-absolute end-0 bottom-0 me-5 mb-5 d-block border border-5 border-light rounded shadow-lg overflow-hidden"
+                        style="width:min(38%,16rem);aspect-ratio:3/4;rotate:3deg"
+                        href="https://commons.wikimedia.org/wiki/File:BOSQUE_DE_CUYAS,_AYABACA,_PIURA,_PER%C3%9A.jpg"
+                        target="_blank" rel="noreferrer"
+                        aria-label="Ver foto de la catarata La Chira en el bosque de Cuyas, Ayabaca">
+                        <img class="w-100 h-100 object-fit-cover"
+                            src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/BOSQUE_DE_CUYAS%2C_AYABACA%2C_PIURA%2C_PER%C3%9A.jpg/960px-BOSQUE_DE_CUYAS%2C_AYABACA%2C_PIURA%2C_PER%C3%9A.jpg"
+                            width="960" height="1280"
+                            alt="Catarata La Chira entre la vegetación húmeda del bosque de Cuyas, Ayabaca"
+                            loading="lazy">
+                    </a>
+                    <p class="position-absolute bottom-0 start-0 m-4 mb-3 small text-white"
+                        style="text-shadow:0 1px 6px #000">Manantial en Ñangali · Candy Sotomayor · CC BY-SA 4.0<br>La
+                        Chira, Cuyas · G. G. Sánchez · CC BY-SA 4.0</p>
+                </div>
+                <div class="col-lg-6 px-4 px-lg-5 py-5">
+                    <div class="py-lg-5 ps-xl-4">
+                        <h2 class="title-paramo" id="water-title">La montaña la recibe despacio</h2>
+                        <p class="folio mt-4 mb-5">02 · La ruta del agua</p>
+                        <ol class="list-unstyled route d-grid gap-5 mb-5">
+                            <li class="d-flex gap-4">
+                                <span class="route-node" aria-hidden="true">01</span>
+                                <div>
+                                    <h3 class="h5 fw-bold font-display">La nube se acerca</h3>
+                                    <p class="text-muted-paramo mb-0">La humedad del aire se transforma en lluvia y se
+                                        deposita sobre suelos y vegetación de altura.</p>
+                                </div>
+                            </li>
+                            <li class="d-flex gap-4">
+                                <span class="route-node" aria-hidden="true">02</span>
+                                <div>
+                                    <h3 class="h5 fw-bold font-display">El suelo la guarda</h3>
+                                    <p class="text-muted-paramo mb-0">La cobertura vegetal y los suelos húmedos ayudan a
+                                        retener agua y sostener manantiales y quebradas.</p>
+                                </div>
+                            </li>
+                            <li class="d-flex gap-4">
+                                <span class="route-node" aria-hidden="true">03</span>
+                                <div>
+                                    <h3 class="h5 fw-bold font-display">La cuenca la comparte</h3>
+                                    <p class="text-muted-paramo mb-0">El agua desciende hacia las cuencas y sostiene a
+                                        poblaciones y actividades agrícolas de Piura.</p>
+                                </div>
+                            </li>
+                        </ol>
+                        <div class="alert bg-white bg-opacity-50 border-0 font-serif fs-5 mb-0" role="note">
+                            La Autoridad Nacional del Agua destaca la función de captación, almacenamiento y regulación
+                            hídrica de los páramos piuranos.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vecinos de altura -->
+        <section class="py-5" id="vida" aria-labelledby="life-title">
+            <div class="container-xxl px-4 px-lg-5 py-5">
+                <div class="row g-4 align-items-end mb-5">
+                    <div class="col-lg-7">
+                        <h2 class="title-paramo" id="life-title">La vida encuentra su manera</h2>
+                        <p class="folio mt-4 mb-0">03 · Vecinos de altura</p>
+                    </div>
+                    <p class="col-lg-4 offset-lg-1 text-muted-paramo mb-0">Bosques de neblina y páramos son hábitat de
+                        especies emblemáticas. Toca, enfoca o pasa el cursor sobre cada imagen para descubrir una pista.
+                    </p>
+                </div>
+                <div class="row row-cols-1 row-cols-md-3 g-3">
+                    <div class="col reveal">
+                        <figure class="card text-bg-dark border-0 overflow-hidden mb-0 lift zoom-img" tabindex="0"
+                            data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-title="Tapir andino"
+                            data-bs-content="También llamado danta de montaña. SERFOR destaca su presencia en Ayabaca y Huancabamba y su papel como dispersor de semillas.">
+                            <img class="card-img object-fit-cover" style="height:32rem"
+                                src="https://cdn.www.gob.pe/uploads/document/file/9940360/1389306-tapir_foto_nodo-conservation-1.jpg"
+                                width="871" height="580" alt="Tapir andino, también llamado danta de montaña"
+                                loading="lazy">
+                            <div class="card-img-overlay d-flex flex-column justify-content-between overlay-gradient">
+                                <span class="badge rounded-pill text-bg-light badge-status badge-critical align-self-start">EN
+                                    PELIGRO CRÍTICO</span>
+                                <figcaption><b class="d-block font-serif fs-2 fw-medium">Tapir andino</b><i
+                                        class="font-serif opacity-75">Tapirus pinchaque · mamífero</i></figcaption>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="col reveal">
+                        <figure class="card text-bg-dark border-0 overflow-hidden mb-0 lift zoom-img" tabindex="0"
+                            data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-title="Oso de anteojos"
+                            data-bs-content="SERFOR documentó el rescate de una cría cerca de Las Huaringas, en Huancabamba. La especie dispersa semillas y su protección beneficia páramos y bosques.">
+                            <img class="card-img object-fit-cover" style="height:32rem"
+                                src="https://cdn.www.gob.pe/uploads/document/file/4084844/Rescate%20de%20oso%20de%20anteojos4.jpg.jpg"
+                                width="1391" height="1043" alt="Oso de anteojos atendido tras ser rescatado en Huancabamba"
+                                loading="lazy">
+                            <div class="card-img-overlay d-flex flex-column justify-content-between overlay-gradient">
+                                <span class="badge rounded-pill text-bg-light badge-status badge-vulnerable align-self-start">VULNERABLE</span>
+                                <figcaption><b class="d-block font-serif fs-2 fw-medium">Oso de anteojos</b><i
+                                        class="font-serif opacity-75">Tremarctos ornatus · mamífero</i></figcaption>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="col reveal">
+                        <figure class="card text-bg-dark border-0 overflow-hidden mb-0 lift zoom-img" tabindex="0"
+                            data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-title="Adaptarse a la altura"
+                            data-bs-content="Esta puya fue fotografiada en Colombia; se muestra como referencia visual y no identifica una especie de Piura.">
+                            <img class="card-img object-fit-cover" style="height:32rem"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Puya_goudotiana4.jpg/960px-Puya_goudotiana4.jpg"
+                                width="960" height="1280" alt="Puya en flor en un páramo de Choachí, Colombia; imagen referencial"
+                                loading="lazy">
+                            <div class="card-img-overlay d-flex flex-column justify-content-between overlay-gradient">
+                                <span class="badge rounded-pill text-bg-light badge-status align-self-start">IMAGEN
+                                    REFERENCIAL</span>
+                                <figcaption><b class="d-block font-serif fs-2 fw-medium">Puya de montaña</b><i
+                                        class="font-serif opacity-75">Flora · fotografía tomada en Colombia</i>
+                                </figcaption>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mt-4">
+                    <p class="small text-muted-paramo mb-0">Fauna: imágenes difundidas por <a
+                            href="https://www.gob.pe/institucion/serfor/noticias/1389306-serfor-destaca-articulacion-para-conservar-al-tapir-andino-en-piura"
+                            target="_blank" rel="noreferrer">SERFOR</a> y <a
+                            href="https://www.gob.pe/institucion/serfor/noticias/695361-piura-serfor-rescata-cria-de-oso-anteojos-en-provincia-de-huancabamba"
+                            target="_blank" rel="noreferrer">SERFOR Piura</a>. Puya: Nicolas Ramirez, <a
+                            href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC
+                            BY-SA 4.0</a>, vía <a href="https://commons.wikimedia.org/wiki/File:Puya_goudotiana4.jpg"
+                            target="_blank" rel="noreferrer">Wikimedia Commons</a>.</p>
+                    <a class="fw-bold font-display link-underline-opacity-0"
+                        href="biodiversidad.html#galeria-andina">Explora más flora, fauna y paisajes andinos ↗</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cuidar el origen -->
+        <section class="topo text-white position-relative overflow-hidden" id="cuidar" aria-labelledby="care-title">
+            <div class="container-xxl px-4 px-lg-5 py-5">
+                <div class="row align-items-center py-5">
+                    <div class="col-lg-7">
+                        <h2 class="title-paramo" id="care-title">Un páramo vivo se cuida en comunidad</h2>
+                        <p class="folio text-lime mt-4">04 · Cuidar el origen</p>
+                        <p class="opacity-75 my-4" style="max-width:34rem">Conservar también es trabajo cotidiano:
+                            restaurar áreas degradadas, vigilar el territorio y sostener acuerdos entre comunidades,
+                            autoridades y organizaciones.</p>
+                        <a class="btn btn-lime"
+                            href="https://www.gob.pe/institucion/ana/noticias/952967-piura-ana-inicia-proyecto-para-restaurar-ecosistemas-en-la-comunidad-altoandina-de-samanga"
+                            target="_blank" rel="noreferrer">Conoce el proyecto de restauración en Samanga ↗</a>
+                    </div>
+                    <div class="col-lg-4 offset-lg-1 d-none d-lg-flex justify-content-center" aria-hidden="true">
+                        <div class="d-flex flex-column justify-content-center text-center text-lime label-paramo rounded-circle border border-2"
+                            style="width:15rem;aspect-ratio:1;border-color:rgb(215 226 101 / 55%) !important;rotate:12deg">
+                            Agua<br><span class="fs-2">↓</span><br>Vida
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sigue el recorrido -->
+        <section class="bg-sage py-5" id="explorar" aria-labelledby="explore-title">
+            <div class="container-xxl px-4 px-lg-5 py-5">
+                <div class="row g-5">
+                    <div class="col-lg-4">
+                        <h2 class="title-paramo" id="explore-title">Dos miradas más de cerca</h2>
+                        <p class="folio mt-4">Sigue el recorrido</p>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row row-cols-1 row-cols-md-2 g-3">
+                            <div class="col reveal">
+                                <article class="card text-bg-dark border-0 overflow-hidden lift zoom-img h-100">
+                                    <img class="card-img object-fit-cover" style="height:26rem"
+                                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Oso_Andino_-_Tremarctos_ornatus.jpg/960px-Oso_Andino_-_Tremarctos_ornatus.jpg"
+                                        width="960" height="640" alt="" loading="lazy">
+                                    <div class="card-img-overlay d-flex flex-column justify-content-end overlay-gradient p-4">
+                                        <h3 class="font-serif fw-medium fs-2"><a class="stretched-link link-light link-underline-opacity-0"
+                                                href="biodiversidad.html">Vecinos de la niebla</a></h3>
+                                        <p class="opacity-75 mb-2">Conoce al tapir andino, al oso de anteojos y los
+                                            hábitats que comparten.</p>
+                                        <small class="text-lime label-paramo">Especies</small>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col reveal">
+                                <article class="card text-bg-dark border-0 overflow-hidden lift zoom-img h-100">
+                                    <img class="card-img object-fit-cover" style="height:26rem"
+                                        src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_23.jpg/960px-Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_23.jpg"
+                                        width="960" height="640" alt="" loading="lazy">
+                                    <div class="card-img-overlay d-flex flex-column justify-content-end overlay-gradient p-4">
+                                        <h3 class="font-serif fw-medium fs-2"><a class="stretched-link link-light link-underline-opacity-0"
+                                                href="conservacion.html">Cuidar desde las alturas</a></h3>
+                                        <p class="opacity-75 mb-2">Áreas protegidas, restauración y el trabajo de las
+                                            comunidades de Samanga.</p>
+                                        <small class="text-lime label-paramo">Territorio</small>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fuentes -->
+        <section class="py-5" id="fuentes" aria-labelledby="sources-title">
+            <div class="container-xxl px-4 px-lg-5 py-5">
+                <div class="row g-5">
+                    <div class="col-lg-5">
+                        <h2 class="title-paramo" id="sources-title">Fuentes del recorrido</h2>
+                        <p class="folio mt-4">Para seguir explorando</p>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="list-group list-group-flush border-top border-bottom">
+                            <a class="list-group-item list-group-item-action bg-transparent d-flex justify-content-between align-items-center py-3"
+                                href="https://www.gob.pe/institucion/ana/noticias/189680-minagri-promueve-la-conservacion-de-los-paramos-en-piura"
+                                target="_blank" rel="noreferrer"><span><small class="d-block text-clay label-paramo">ANA</small><span
+                                        class="font-serif fs-5">Conservación de los páramos en Piura</span></span><span
+                                    class="text-clay" aria-hidden="true">↗</span></a>
+                            <a class="list-group-item list-group-item-action bg-transparent d-flex justify-content-between align-items-center py-3"
+                                href="https://www.gob.pe/institucion/regionpiura/informes-publicaciones/2332147-bosques-de-neblina-y-paramos-de-samanga"
+                                target="_blank" rel="noreferrer"><span><small class="d-block text-clay label-paramo">Gobierno
+                                        Regional</small><span class="font-serif fs-5">Bosques de neblina y páramos de
+                                        Samanga</span></span><span class="text-clay" aria-hidden="true">↗</span></a>
+                            <a class="list-group-item list-group-item-action bg-transparent d-flex justify-content-between align-items-center py-3"
+                                href="https://www.gob.pe/institucion/serfor/noticias/1389306-serfor-destaca-articulacion-para-conservar-al-tapir-andino-en-piura"
+                                target="_blank" rel="noreferrer"><span><small class="d-block text-clay label-paramo">SERFOR</small><span
+                                        class="font-serif fs-5">Conservación del tapir andino en Piura</span></span><span
+                                    class="text-clay" aria-hidden="true">↗</span></a>
+                            <a class="list-group-item list-group-item-action bg-transparent d-flex justify-content-between align-items-center py-3"
+                                href="https://www.gob.pe/institucion/serfor/noticias/695361-piura-serfor-rescata-cria-de-oso-anteojos-en-provincia-de-huancabamba"
+                                target="_blank" rel="noreferrer"><span><small class="d-block text-clay label-paramo">SERFOR</small><span
+                                        class="font-serif fs-5">Oso de anteojos en Huancabamba</span></span><span
+                                    class="text-clay" aria-hidden="true">↗</span></a>
+                            <a class="list-group-item list-group-item-action bg-transparent d-flex justify-content-between align-items-center py-3"
+                                href="https://commons.wikimedia.org/wiki/File:Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_14.jpg"
+                                target="_blank" rel="noreferrer"><span><small class="d-block text-clay label-paramo">Wikimedia
+                                        Commons</small><span class="font-serif fs-5">Cartografías Sonoras del Páramo
+                                        Peruano, Huancabamba (2019)</span></span><span class="text-clay"
+                                    aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-forest-deep text-white py-5">
+        <div class="container-xxl px-4 px-lg-5">
+            <div class="row g-4">
+                <div class="col-md-12 col-lg-5">
+                    <a class="d-inline-flex align-items-center gap-2 text-white text-decoration-none" href="#inicio">
+                        <span class="wordmark-symbol" aria-hidden="true">P</span><span
+                            class="wordmark-text">PIURA<br><b>ALTA</b></span></a>
+                    <p class="font-serif fs-5 opacity-75 mt-3">Un cuaderno visual sobre los páramos del norte peruano.
+                    </p>
+                </div>
+                <nav class="col-6 col-lg-2" aria-labelledby="f-route">
+                    <h2 class="text-lime label-paramo" id="f-route">El recorrido</h2>
+                    <ul class="list-unstyled d-grid gap-1">
+                        <li><a class="link-light link-opacity-75 link-underline-opacity-0" href="#territorio">Territorio</a></li>
+                        <li><a class="link-light link-opacity-75 link-underline-opacity-0" href="#agua">La ruta del agua</a></li>
+                        <li><a class="link-light link-opacity-75 link-underline-opacity-0" href="#vida">Vecinos de altura</a></li>
+                        <li><a class="link-light link-opacity-75 link-underline-opacity-0" href="#cuidar">Cuidar el origen</a></li>
+                    </ul>
+                </nav>
+                <nav class="col-6 col-lg-3" aria-labelledby="f-pages">
+                    <h2 class="text-lime label-paramo" id="f-pages">Versiones del sitio</h2>
+                    <ul class="list-unstyled d-grid gap-1">
+                        <li><a class="link-light link-opacity-75 link-underline-opacity-0" href="../index.html">CSS nativo</a></li>
+                        <li><a class="link-light link-opacity-75 link-underline-opacity-0" href="index.html" aria-current="page">Bootstrap</a></li>
+                        <li><a class="link-light link-opacity-75 link-underline-opacity-0" href="../tailwind/index.html">Tailwind CSS</a></li>
+                    </ul>
+                </nav>
+                <div class="col-lg-2 text-lg-end">
+                    <a class="btn btn-sm btn-outline-paper" href="#inicio">Volver arriba ↑</a>
+                </div>
+            </div>
+            <p class="small opacity-75 border-top border-light border-opacity-25 pt-4 mt-4 mb-0">Proyecto académico de CSS
+                Avanzado · Versión Bootstrap 5.3. Fotografías con licencias Creative Commons o difundidas por instituciones
+                del Estado peruano, citadas junto a cada imagen.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu"
+        crossorigin="anonymous"></script>
+    <script src="js/paramos.js"></script>
+</body>
+
+</html>

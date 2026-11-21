@@ -287,7 +287,10 @@
     }
   }
 
-  .territory__image .field-note__tip,
+  .territory__image .field-note__tip {
+    bottom: 8rem;
+  }
+
   .species-profile__photo .field-note__tip,
   .habitat-note__photo .field-note__tip {
     bottom: 5.5rem;
@@ -610,7 +613,7 @@
     content: "";
     background:
       repeating-radial-gradient(ellipse 120% 80% at 82% 45%, transparent 0 26px, rgb(215 226 101 / 13%) 26px 27px),
-      linear-gradient(120deg, var(--forest), #3e6150);
+      linear-gradient(120deg, var(--forest), #2f5142);
   }
 
   .conservation__content {

@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Áreas de conservación, restauración ecológica y participación local en los páramos de Piura. Versión Tailwind CSS.">
+    <meta name="theme-color" content="#18342e">
+    <title>Cuidar las alturas | Páramos de Piura · Tailwind</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="dist/styles.css">
+</head>
+
+<body class="font-sans text-[1.0625rem] antialiased">
+    <a class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded focus:bg-lime focus:px-4 focus:py-2 focus:font-display focus:font-bold focus:text-ink"
+        href="#contenido">Saltar al contenido</a>
+
+    <header class="header-scroll fixed inset-x-0 top-0 z-30 flex h-18 items-center justify-between gap-6 px-6 text-white lg:px-24">
+        <a class="flex items-center gap-2.5 font-display text-xs font-bold leading-tight tracking-[0.14em]" href="index.html"
+            aria-label="Piura Alta, inicio">
+            <span class="grid size-10 place-items-center rounded-full border border-current font-serif text-xl font-medium tracking-normal"
+                aria-hidden="true">P</span>
+            <span>PIURA<br><b class="font-extrabold">ALTA</b></span>
+        </a>
+        <input class="peer sr-only" type="checkbox" id="nav-toggle" aria-label="Abrir o cerrar el menú"
+            aria-controls="site-navigation">
+        <label for="nav-toggle" aria-hidden="true"
+            class="grid size-11 cursor-pointer place-content-center gap-1.5 rounded-full border border-white/25 peer-checked:border-lime peer-checked:bg-lime peer-checked:text-ink peer-focus-visible:outline-2 peer-focus-visible:outline-lime md:hidden">
+            <span class="block h-px w-4.5 bg-current"></span><span class="block h-px w-4.5 bg-current"></span><span
+                class="block h-px w-4.5 bg-current"></span>
+        </label>
+        <nav id="site-navigation" aria-label="Navegación principal"
+            class="absolute inset-x-0 top-full hidden flex-col bg-ink px-6 pb-5 font-display font-semibold shadow-2xl peer-checked:flex md:static md:flex md:flex-row md:gap-10 md:bg-transparent md:p-0 md:shadow-none">
+            <a class="border-t border-white/20 py-4 hover:text-lime md:border-0 md:py-2" href="index.html#territorio">Territorio</a>
+            <a class="border-t border-white/20 py-4 hover:text-lime md:border-0 md:py-2" href="biodiversidad.html">Vida</a>
+            <a class="border-t border-white/20 py-4 text-lime underline underline-offset-8 md:border-0 md:py-2"
+                href="conservacion.html" aria-current="page">Conservación</a>
+        </nav>
+        <a class="hidden rounded-full border border-white/25 px-4 py-2 font-display text-sm font-semibold transition hover:border-lime hover:bg-lime hover:text-ink md:inline-block"
+            href="#fuentes">Fuentes ↗</a>
+    </header>
+
+    <main id="contenido">
+        <section class="relative isolate flex min-h-[min(860px,92svh)] items-end overflow-hidden bg-forest text-white"
+            aria-labelledby="page-title">
+            <img class="absolute inset-0 -z-30 size-full object-cover object-[center_45%]"
+                src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_23.jpg/1280px-Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_23.jpg"
+                srcset="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_23.jpg/960px-Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_23.jpg 960w,
+                        https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_23.jpg/1920px-Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_23.jpg 1920w"
+                sizes="100vw" width="1920" height="1280"
+                alt="Pobladores de Huancabamba con ponchos reunidos junto a la Laguna Negra, en el páramo"
+                fetchpriority="high">
+            <div class="hero-shade absolute inset-0 -z-20" aria-hidden="true"></div>
+            <div class="w-full px-6 pb-20 animate-hero lg:px-24">
+                <ol class="mb-6 flex gap-2 font-display text-sm font-semibold text-white/80" aria-label="Ubicación">
+                    <li><a class="text-white hover:text-lime" href="index.html">Inicio</a></li>
+                    <li class="before:mr-2 before:text-lime before:content-['/']" aria-current="page">Cuidar las alturas</li>
+                </ol>
+                <div class="max-w-3xl">
+                    <h1 class="font-serif text-display font-medium" id="page-title">Cuidar desde<br><em
+                            class="font-normal text-lime">las alturas</em></h1>
+                    <p class="my-6 max-w-xl text-lg text-white/85">La conservación del páramo empieza donde se encuentran
+                        las fuentes de agua, los bosques y las decisiones de quienes habitan el territorio.</p>
+                    <a class="inline-flex min-h-11 items-center gap-2 font-display font-bold hover:text-lime"
+                        href="#acciones">Ver acciones <span aria-hidden="true">↓</span></a>
+                </div>
+                <p class="mt-8 font-display text-xs text-white/80 md:text-right">Laguna Negra, Huancabamba (2019) · Candy
+                    Sotomayor · <a class="underline decoration-lime"
+                        href="https://commons.wikimedia.org/wiki/File:Cartograf%C3%ADas_Sonoras_del_P%C3%A1ramo_Peruano_en_Huancabamba_23.jpg"
+                        target="_blank" rel="noreferrer">CC BY-SA 4.0</a></p>
+            </div>
+        </section>
+
+        <section class="mx-auto grid max-w-[1440px] gap-12 px-6 py-24 md:grid-cols-2 lg:px-24 lg:py-36"
+            aria-labelledby="intro-title">
+            <div>
+                <h2 class="max-w-[14ch] font-serif text-title font-medium" id="intro-title">Proteger arriba importa
+                    abajo</h2>
+                <p class="folio mt-6 text-clay-ink">Agua que nace en comunidad</p>
+            </div>
+            <div class="grid content-start justify-items-start gap-5">
+                <p class="font-serif text-lead first-letter:text-clay">Los páramos y bosques de neblina de Piura forman
+                    parte de las cabeceras de cuenca y ayudan a captar, almacenar y regular agua.</p>
+                <p class="max-w-prose text-muted">La Autoridad Nacional del Agua vincula la conservación de estos
+                    ecosistemas con la disponibilidad hídrica para las poblaciones y la agricultura. Cuidar el suelo, la
+                    vegetación y los humedales es también cuidar la cuenca.</p>
+                <a class="inline-flex min-h-11 items-center font-display font-bold text-forest hover:text-clay-ink"
+                    href="https://www.gob.pe/institucion/ana/noticias/189680-minagri-promueve-la-conservacion-de-los-paramos-en-piura"
+                    target="_blank" rel="noreferrer">Fuente: Autoridad Nacional del Agua ↗</a>
+            </div>
+        </section>
+
+        <section class="mx-auto max-w-[1440px] px-6 pb-24 lg:px-24 lg:pb-36" aria-labelledby="places-title">
+            <div class="mb-12 grid items-end gap-6 md:grid-cols-[1.3fr_1fr] md:gap-20">
+                <div>
+                    <h2 class="max-w-[16ch] font-serif text-title font-medium" id="places-title">Cada ecosistema cuida una
+                        parte del agua</h2>
+                    <p class="folio mt-6 text-clay-ink">Paisajes de Ayabaca</p>
+                </div>
+                <p class="text-muted">En las alturas de Piura, páramos y bosques de neblina se conectan con quebradas y
+                    cuencas. Su conservación depende tanto del cuidado del suelo y la vegetación como de los acuerdos de
+                    las comunidades que viven en el territorio.</p>
+            </div>
+            <div class="grid gap-x-5 gap-y-5 md:grid-cols-2 md:gap-y-0">
+                <article class="reveal row-span-5 grid grid-rows-subgrid gap-y-3 overflow-hidden rounded-[10px] bg-paper-raised pb-7 shadow-sm transition duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-xl [&>:not(img)]:px-6">
+                    <img class="mb-2 aspect-[16/10] w-full object-cover"
+                        src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/BOSQUE_DE_CUYAS%2C_AYABACA%2C_PIURA%2C_PER%C3%9A.jpg/960px-BOSQUE_DE_CUYAS%2C_AYABACA%2C_PIURA%2C_PER%C3%9A.jpg"
+                        width="960" height="1280"
+                        alt="Catarata La Chira rodeada por la vegetación húmeda del bosque de Cuyas, Ayabaca"
+                        loading="lazy">
+                    <h3 class="font-serif text-2xl leading-tight font-medium">La humedad de La Chira</h3>
+                    <p class="font-display text-xs font-bold uppercase tracking-widest text-forest">Bosque de Cuyas ·
+                        Ayabaca</p>
+                    <p class="text-muted">La catarata La Chira se encuentra en el bosque de Cuyas. La humedad de este
+                        paisaje montano contrasta con los pajonales abiertos del páramo y forma parte de la variedad de
+                        ambientes que caracteriza las alturas de Ayabaca.</p>
+                    <small class="self-end text-sm text-muted [&_a]:text-forest [&_a]:underline">Guillermo Gonzalo Sánchez
+                        Achutegui · <a
+                            href="https://commons.wikimedia.org/wiki/File:BOSQUE_DE_CUYAS,_AYABACA,_PIURA,_PER%C3%9A.jpg"
+                            target="_blank" rel="noreferrer">Wikimedia Commons</a> · <a
+                            href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC
+                            BY-SA 4.0</a></small>
+                </article>
+                <article class="reveal row-span-5 grid grid-rows-subgrid gap-y-3 overflow-hidden rounded-[10px] bg-paper-raised pb-7 shadow-sm transition duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-xl [&>:not(img)]:px-6">
+                    <img class="mb-2 aspect-[16/10] w-full object-cover"
+                        src="https://cdn.www.gob.pe/uploads/document/file/913980/P%C3%A1ramo_-_Foto._Proyecto_IKI_alianza_Forasan_-_Aider_-_TNC__3_20200702-4721-dssg4v.JPG"
+                        width="736" height="490"
+                        alt="Pajonales y laderas de páramo en las alturas de Piura; fotografía del proyecto IKI"
+                        loading="lazy">
+                    <h3 class="font-serif text-2xl leading-tight font-medium">El paisaje que almacena agua</h3>
+                    <p class="font-display text-xs font-bold uppercase tracking-widest text-forest">Páramos de Piura ·
+                        Cabeceras de cuenca</p>
+                    <p class="text-muted">La vegetación de altura y los suelos húmedos ayudan a retener y regular el agua
+                        que alimenta las cuencas. La ANA destaca la relación entre la conservación de los páramos
+                        piuranos y la seguridad hídrica de la región.</p>
+                    <small class="self-end text-sm text-muted [&_a]:text-forest [&_a]:underline">Proyecto IKI / FORASAN /
+                        AIDER / TNC · <a
+                            href="https://www.gob.pe/institucion/ana/noticias/189680-minagri-promueve-la-conservacion-de-los-paramos-en-piura"
+                            target="_blank" rel="noreferrer">Referencia: Autoridad Nacional del Agua</a></small>
+                </article>
+            </div>
+        </section>
+
+        <section class="bg-sage px-6 py-24 lg:px-24 lg:py-36" aria-labelledby="timeline-title">
+            <div class="mx-auto grid max-w-[1440px] items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+                <div class="lg:sticky lg:top-28">
+                    <h2 class="max-w-[12ch] font-serif text-title font-medium" id="timeline-title">Acuerdos que cuidan el
+                        origen</h2>
+                    <p class="folio mt-6 text-clay-ink">Una historia en marcha</p>
+                </div>
+                <ol class="relative grid gap-12 pl-11 before:absolute before:top-4 before:bottom-2 before:left-2.5 before:w-px before:bg-ink/30">
+                    <li class="reveal group relative before:absolute before:top-3.5 before:-left-[2.65rem] before:size-4 before:rounded-full before:border-2 before:border-clay before:bg-sage before:transition hover:before:bg-clay">
+                        <span class="font-serif text-4xl leading-none text-clay-ink">2013</span>
+                        <h3 class="mt-2 mb-2 font-display text-xl font-bold text-forest">Samanga obtiene reconocimiento</h3>
+                        <p class="mb-3 max-w-xl text-muted">El Ministerio del Ambiente reconoce el Área de Conservación
+                            Privada Bosques de Neblina y Páramos de Samanga, en Ayabaca.</p>
+                        <a class="font-display font-semibold text-forest underline hover:text-clay-ink"
+                            href="https://www.gob.pe/institucion/minam/normas-legales/317970-117-2013-minam"
+                            target="_blank" rel="noreferrer">Resolución Ministerial 117-2013-MINAM ↗</a>
+                    </li>
+                    <li class="reveal group relative before:absolute before:top-3.5 before:-left-[2.65rem] before:size-4 before:rounded-full before:border-2 before:border-clay before:bg-sage before:transition hover:before:bg-clay">
+                        <span class="font-serif text-4xl leading-none text-clay-ink">2024</span>
+                        <h3 class="mt-2 mb-2 font-display text-xl font-bold text-forest">Comienza un proyecto de
+                            restauración</h3>
+                        <p class="mb-3 max-w-xl text-muted">La ANA informa sobre una iniciativa de restauración de
+                            ecosistemas en la comunidad campesina altoandina de Samanga, provincia de Ayabaca.</p>
+                        <a class="font-display font-semibold text-forest underline hover:text-clay-ink"
+                            href="https://www.gob.pe/institucion/ana/noticias/952967-piura-ana-inicia-proyecto-para-restaurar-ecosistemas-en-la-comunidad-altoandina-de-samanga"
+                            target="_blank" rel="noreferrer">Nota de la ANA ↗</a>
+                    </li>
+                    <li class="reveal group relative before:absolute before:top-3.5 before:-left-[2.65rem] before:size-4 before:rounded-full before:border-2 before:border-clay before:bg-sage before:transition hover:before:bg-clay">
+                        <span class="font-serif text-4xl leading-none text-clay-ink">Hoy</span>
+                        <h3 class="mt-2 mb-2 font-display text-xl font-bold text-forest">Monitoreo con participación local</h3>
+                        <p class="mb-3 max-w-xl text-muted">SERFOR destaca el trabajo entre especialistas, organizaciones y
+                            comunidades para conservar al tapir andino y mantener corredores ecológicos entre los
+                            hábitats.</p>
+                        <a class="font-display font-semibold text-forest underline hover:text-clay-ink"
+                            href="https://www.gob.pe/institucion/serfor/noticias/1389306-serfor-destaca-articulacion-para-conservar-al-tapir-andino-en-piura"
+                            target="_blank" rel="noreferrer">Nota de SERFOR ↗</a>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="mx-auto max-w-[1440px] px-6 py-24 lg:px-24 lg:py-36" id="acciones"
+            aria-labelledby="actions-title">
+            <h2 class="max-w-[16ch] font-serif text-title font-medium" id="actions-title">Cuidar el ecosistema es cuidar
+                sus vínculos</h2>
+            <p class="folio mt-6 mb-12 text-clay-ink">¿Qué significa conservar?</p>
+            <ul class="grid gap-x-20 xl:grid-cols-2">
+                <li class="reveal group grid items-baseline gap-2 border-t border-ink/15 py-6 sm:grid-cols-[0.9fr_1.1fr] sm:gap-6">
+                    <h3 class="font-serif text-[clamp(2rem,1.5rem+2vw,3.2rem)] leading-none font-medium text-forest transition group-hover:text-clay-ink group-hover:italic">
+                        Restaurar</h3>
+                    <p class="text-muted">Recuperar áreas priorizadas con acompañamiento técnico y conocimiento local.</p>
+                </li>
+                <li class="reveal group grid items-baseline gap-2 border-t border-ink/15 py-6 sm:grid-cols-[0.9fr_1.1fr] sm:gap-6">
+                    <h3 class="font-serif text-[clamp(2rem,1.5rem+2vw,3.2rem)] leading-none font-medium text-forest transition group-hover:text-clay-ink group-hover:italic">
+                        Conectar</h3>
+                    <p class="text-muted">Mantener hábitats continuos para que especies como el tapir puedan
+                        desplazarse.</p>
+                </li>
+                <li class="reveal group grid items-baseline gap-2 border-t border-ink/15 py-6 sm:grid-cols-[0.9fr_1.1fr] sm:gap-6">
+                    <h3 class="font-serif text-[clamp(2rem,1.5rem+2vw,3.2rem)] leading-none font-medium text-forest transition group-hover:text-clay-ink group-hover:italic">
+                        Monitorear</h3>
+                    <p class="text-muted">Observar cambios en agua, vegetación y fauna para orientar decisiones de
+                        manejo.</p>
+                </li>
+                <li class="reveal group grid items-baseline gap-2 border-t border-ink/15 py-6 sm:grid-cols-[0.9fr_1.1fr] sm:gap-6">
+                    <h3 class="font-serif text-[clamp(2rem,1.5rem+2vw,3.2rem)] leading-none font-medium text-forest transition group-hover:text-clay-ink group-hover:italic">
+                        Participar</h3>
+                    <p class="text-muted">Sumar a comunidades, autoridades y organizaciones en acuerdos de conservación.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="topo px-6 py-24 text-white lg:px-24 lg:py-36" aria-labelledby="visit-title">
+            <h2 class="max-w-[16ch] font-serif text-title font-medium" id="visit-title">Camina con cuidado. Deja el
+                paisaje intacto.</h2>
+            <p class="folio mt-6 text-lime">Una visita responsable</p>
+            <p class="my-8 max-w-2xl text-white/80">Respeta las indicaciones locales, no dejes residuos y observa la
+                fauna a distancia. El páramo es hogar y fuente de agua, no solo un destino.</p>
+            <a class="inline-flex items-center gap-3 rounded-full bg-lime px-6 py-3.5 font-display font-bold text-ink shadow-lg transition duration-300 ease-out-expo hover:-translate-y-0.5 hover:bg-[#e3eb8b]"
+                href="biodiversidad.html">Conocer a sus habitantes ↗</a>
+        </section>
+
+        <nav class="flex flex-wrap justify-between gap-3 border-t border-ink/15 px-6 py-6 text-sm lg:px-24 [&_a]:text-forest [&_a]:underline [&_a:hover]:text-clay-ink"
+            id="fuentes" aria-label="Fuentes de conservación">
+            <a href="https://www.gob.pe/institucion/regionpiura/informes-publicaciones/2332147-bosques-de-neblina-y-paramos-de-samanga"
+                target="_blank" rel="noreferrer">Gobierno Regional · Samanga ↗</a>
+            <a href="https://www.gob.pe/institucion/ana/noticias/952967-piura-ana-inicia-proyecto-para-restaurar-ecosistemas-en-la-comunidad-altoandina-de-samanga"
+                target="_blank" rel="noreferrer">ANA · Restauración en Samanga ↗</a>
+        </nav>
+    </main>
+
+    <footer class="grid gap-10 bg-forest-deep px-6 pt-20 pb-10 text-white sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_auto] lg:px-24">
+        <div class="sm:col-span-2 lg:col-span-1">
+            <a class="inline-flex items-center gap-2.5 font-display text-xs font-bold leading-tight tracking-[0.14em]"
+                href="index.html"><span class="grid size-10 place-items-center rounded-full border border-current font-serif text-xl font-medium tracking-normal"
+                    aria-hidden="true">P</span><span>PIURA<br><b class="font-extrabold">ALTA</b></span></a>
+            <p class="mt-5 max-w-sm font-serif text-lg text-white/80">Un cuaderno visual sobre los páramos del norte
+                peruano.</p>
+        </div>
+        <nav aria-labelledby="f-route">
+            <h2 class="mb-3 font-display text-xs font-bold uppercase tracking-[0.12em] text-lime" id="f-route">En esta
+                página</h2>
+            <ul class="grid gap-1.5 text-white/80 [&_a:hover]:text-white [&_a:hover]:underline">
+                <li><a href="#acciones">Qué significa conservar</a></li>
+                <li><a href="#fuentes">Fuentes</a></li>
+            </ul>
+        </nav>
+        <nav aria-labelledby="f-pages">
+            <h2 class="mb-3 font-display text-xs font-bold uppercase tracking-[0.12em] text-lime" id="f-pages">Versiones
+                del sitio</h2>
+            <ul class="grid gap-1.5 text-white/80 [&_a:hover]:text-white [&_a:hover]:underline">
+                <li><a href="../conservacion.html">CSS nativo</a></li>
+                <li><a href="../bootstrap/conservacion.html">Bootstrap</a></li>
+                <li><a href="conservacion.html" aria-current="page">Tailwind CSS</a></li>
+            </ul>
+        </nav>
+        <a class="self-start justify-self-start rounded-full border border-white/25 px-4 py-2.5 font-display text-sm font-semibold hover:border-lime hover:bg-lime hover:text-ink"
+            href="#contenido">Volver arriba ↑</a>
+        <p class="border-t border-white/20 pt-6 text-sm text-white/80 sm:col-span-2 lg:col-span-4">Proyecto académico
+            de CSS Avanzado · Versión Tailwind CSS v4. Fotografías con licencias Creative Commons o difundidas por
+            instituciones del Estado peruano, citadas junto a cada imagen.</p>
+    </footer>
+    <script src="js/menu.js" defer></script>
+</body>
+
+</html>

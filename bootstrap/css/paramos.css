@@ -1,0 +1,276 @@
+/* ==========================================================================
+   paramos.css — Personalización de Bootstrap 5.3 para Páramos de Piura
+   Bootstrap aporta la rejilla, los componentes y las utilidades.
+   Este archivo solo añade la identidad visual y lo que el framework no trae:
+   colores propios, tipografías, el hero con neblina y las animaciones.
+   ========================================================================== */
+
+/* ---------- 1. Identidad: se sobrescriben variables de Bootstrap ---------- */
+:root {
+  --ink: #18342e;
+  --forest: #254b3e;
+  --forest-deep: #132a24;
+  --lime: #d7e265;
+  --mist: #cfdfd9;
+  --sage: #e4e9df;
+  --paper: #f1f0e8;
+  --clay: #bc654c;
+  --clay-ink: #8c412c;
+  --muted: #4c5d55;
+
+  --bs-body-bg: var(--paper);
+  --bs-body-color: var(--ink);
+  --bs-body-font-family: "DM Sans", system-ui, sans-serif;
+  --bs-body-font-size: 1.0625rem;
+  --bs-body-line-height: 1.65;
+  --bs-secondary-color: var(--muted);
+  --bs-link-color: var(--forest);
+  --bs-link-color-rgb: 37, 75, 62;
+  --bs-link-hover-color: var(--clay-ink);
+  --bs-link-hover-color-rgb: 140, 65, 44;
+  --bs-border-color: rgb(24 52 46 / 18%);
+  --bs-border-radius: 10px;
+  --bs-focus-ring-color: rgb(188 101 76 / 45%);
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-display: "Manrope", system-ui, sans-serif;
+}
+
+::selection { color: var(--ink); background: var(--lime); }
+
+/* La barra de navegación es fija: las anclas internas se desplazan bajo ella */
+html { scroll-padding-top: 5.5rem; }
+
+/* Colores de marca como utilidades, al estilo de Bootstrap */
+.bg-forest { background-color: var(--forest) !important; }
+.bg-forest-deep { background-color: var(--forest-deep) !important; }
+.bg-sage { background-color: var(--sage) !important; }
+.bg-mist { background-color: var(--mist) !important; }
+.text-lime { color: var(--lime) !important; }
+.text-clay { color: var(--clay-ink) !important; }
+.text-muted-paramo { color: var(--muted) !important; }
+.font-serif { font-family: var(--font-serif) !important; }
+.font-display { font-family: var(--font-display) !important; }
+
+/* ---------- 2. Tipografía ---------- */
+.display-paramo {
+  font: 500 clamp(3.3rem, 1.6rem + 7vw, 6rem) / 0.94 var(--font-serif);
+  letter-spacing: -0.03em;
+}
+
+.display-paramo em { color: var(--lime); font-weight: 400; }
+
+.title-paramo {
+  font: 500 clamp(2.6rem, 1.55rem + 4.2vw, 5rem) / 1 var(--font-serif);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.lead-paramo { font: 400 clamp(1.2rem, 1.08rem + 0.55vw, 1.5rem) / 1.45 var(--font-serif); }
+
+.folio {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--clay-ink);
+  font: 700 0.75rem / 1.3 var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.folio::before { width: 2rem; height: 1px; content: ""; background: currentColor; }
+.text-white .folio, .folio.text-lime { color: var(--lime); }
+
+.label-paramo {
+  font: 700 0.75rem / 1.4 var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ---------- 3. Botones e insignias con variables --bs-btn-* ---------- */
+.btn-lime {
+  --bs-btn-color: var(--ink);
+  --bs-btn-bg: var(--lime);
+  --bs-btn-border-color: var(--lime);
+  --bs-btn-hover-color: var(--ink);
+  --bs-btn-hover-bg: #e3eb8b;
+  --bs-btn-hover-border-color: #e3eb8b;
+  --bs-btn-active-bg: #c9d454;
+  --bs-btn-focus-shadow-rgb: 215, 226, 101;
+  --bs-btn-padding-x: 1.35rem;
+  --bs-btn-padding-y: 0.85rem;
+  --bs-btn-font-weight: 700;
+  --bs-btn-border-radius: 50rem;
+  font-family: var(--font-display);
+}
+
+.btn-outline-paper {
+  --bs-btn-color: #fff;
+  --bs-btn-border-color: rgb(255 255 255 / 30%);
+  --bs-btn-hover-color: var(--ink);
+  --bs-btn-hover-bg: var(--lime);
+  --bs-btn-hover-border-color: var(--lime);
+  --bs-btn-focus-shadow-rgb: 215, 226, 101;
+  --bs-btn-border-radius: 50rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.badge-status::before {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.4rem;
+  content: "";
+  background: var(--dot, #71836a);
+  border-radius: 50%;
+}
+
+.badge-critical { --dot: #c0392b; }
+.badge-vulnerable { --dot: #d98e04; }
+
+/* ---------- 4. Navegación ---------- */
+/* [data-bs-theme] iguala la especificidad del tema oscuro de Bootstrap */
+.navbar-paramo,
+.navbar-paramo[data-bs-theme] {
+  --bs-navbar-color: #fff;
+  --bs-navbar-hover-color: var(--lime);
+  --bs-navbar-active-color: var(--lime);
+  --bs-navbar-toggler-border-color: rgb(255 255 255 / 30%);
+  min-height: 4.5rem;
+  background: rgb(24 52 46 / 94%);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.navbar-paramo .nav-link.active { text-decoration: underline; text-underline-offset: 0.5em; }
+
+.wordmark-symbol {
+  display: inline-grid;
+  width: 2.4rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font: 500 1.25rem / 1 var(--font-serif);
+}
+
+.wordmark-text { font: 700 0.75rem / 1.1 var(--font-display); letter-spacing: 0.14em; }
+
+/* ---------- 5. Hero con foto, velo y neblina ---------- */
+.hero-paramo { min-height: min(980px, 100svh); isolation: isolate; }
+.hero-paramo > img { z-index: -3; object-fit: cover; object-position: center 62%; }
+
+.hero-shade {
+  z-index: -2;
+  background:
+    linear-gradient(180deg, rgb(13 39 32 / 80%), rgb(13 39 32 / 45%) 10%, transparent 24%),
+    linear-gradient(90deg, rgb(13 39 32 / 78%), rgb(13 39 32 / 38%) 50%, transparent 80%),
+    linear-gradient(0deg, rgb(13 39 32 / 62%), transparent 45%);
+}
+
+.cloud {
+  position: absolute;
+  z-index: -1;
+  top: 26%;
+  width: 34rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: rgb(241 246 234 / 18%);
+  filter: blur(42px);
+  pointer-events: none;
+  animation: cloud-drift 52s linear infinite;
+}
+
+.cloud-2 { top: 46%; animation-duration: 66s; animation-delay: -24s; }
+
+@keyframes cloud-drift {
+  from { translate: -45vw 0; }
+  to { translate: 110vw 0; }
+}
+
+.overlay-gradient::after {
+  position: absolute;
+  inset: 30% 0 0;
+  content: "";
+  background: linear-gradient(0deg, rgb(13 33 28 / 90%), transparent);
+}
+
+.overlay-gradient > * { position: relative; z-index: 1; }
+
+/* Curvas de nivel para las bandas oscuras */
+.topo {
+  background:
+    radial-gradient(ellipse 60% 70% at 85% 50%, transparent 30%, rgb(215 226 101 / 10%) 30.2%, transparent 30.6%, transparent 45%, rgb(215 226 101 / 10%) 45.2%, transparent 45.6%),
+    linear-gradient(120deg, var(--forest), #2f5142);
+}
+
+/* Línea vertical de la ruta del agua y de la cronología */
+.route { position: relative; }
+.route::before {
+  position: absolute;
+  top: 1.2rem;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  width: 2px;
+  content: "";
+  background: var(--clay);
+  translate: -50% 0;
+}
+
+.route-node {
+  position: relative;
+  display: inline-grid;
+  flex: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  place-items: center;
+  color: var(--clay-ink);
+  background: var(--mist);
+  border: 1.5px solid var(--clay);
+  border-radius: 50%;
+  font: 700 0.75rem / 1 var(--font-display);
+}
+
+/* ---------- 6. Movimiento ---------- */
+.lift { transition: translate 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease; }
+.lift:hover, .lift:focus-within { translate: 0 -4px; box-shadow: 0 1rem 2rem -0.75rem rgb(19 42 36 / 35%) !important; }
+.zoom-img { overflow: hidden; }
+.zoom-img img { transition: scale 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+.zoom-img:hover img { scale: 1.05; }
+
+.hero-enter { animation: hero-enter 1.1s 0.15s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+@keyframes hero-enter {
+  from { opacity: 0; translate: 0 1.5rem; filter: blur(6px); }
+  to { opacity: 1; translate: 0 0; filter: none; }
+}
+
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 80%;
+  }
+
+  @keyframes reveal {
+    from { opacity: 0; translate: 0 2.5rem; }
+    to { opacity: 1; translate: 0 0; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* Popover anclado dentro de la foto (ver js/paramos.js) */
+.popover-dentro {
+  --bs-popover-max-width: min(20rem, calc(100% - 2rem));
+  --bs-popover-header-bg: var(--ink);
+  --bs-popover-header-color: var(--lime);
+  --bs-popover-bg: rgb(24 52 46 / 95%);
+  --bs-popover-body-color: #fff;
+  --bs-popover-border-color: transparent;
+  font-family: var(--bs-body-font-family);
+}
+.popover-dentro .popover-arrow { display: none; }
+.popover-dentro .popover-header { font-family: var(--font-display); font-size: 0.875rem; }

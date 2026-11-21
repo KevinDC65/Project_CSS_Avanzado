@@ -1,0 +1,164 @@
+/* ==========================================================================
+   input.css — Tailwind CSS v4 para Páramos de Piura
+   Compilar: npm run build  (genera dist/styles.css)
+   Tailwind genera solo las utilidades que aparecen en los HTML.
+   Aquí se definen los tokens del proyecto (@theme) y las pocas utilidades
+   propias que el framework no trae (@utility).
+   ========================================================================== */
+@import "tailwindcss";
+
+/* Archivos que Tailwind analiza para generar las clases */
+@source "../*.html";
+
+/* Variante para pantallas táctiles: touch:block, touch:static… */
+@custom-variant touch (@media (hover: none));
+
+/* ---------- Tokens del proyecto ---------- */
+@theme {
+  --color-ink: #18342e;
+  --color-forest: #254b3e;
+  --color-forest-deep: #132a24;
+  --color-lime: #d7e265;
+  --color-mist: #cfdfd9;
+  --color-sage: #e4e9df;
+  --color-paper: #f1f0e8;
+  --color-paper-raised: #fbfaf5;
+  --color-clay: #bc654c;
+  --color-clay-ink: #8c412c;
+  --color-muted: #4c5d55;
+
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-display: "Manrope", system-ui, sans-serif;
+
+  --text-display: clamp(3.3rem, 1.6rem + 7vw, 6rem);
+  --text-display--line-height: 0.94;
+  --text-display--letter-spacing: -0.03em;
+  --text-title: clamp(2.6rem, 1.55rem + 4.2vw, 5rem);
+  --text-title--line-height: 1;
+  --text-title--letter-spacing: -0.02em;
+  --text-lead: clamp(1.2rem, 1.08rem + 0.55vw, 1.5rem);
+  --text-lead--line-height: 1.45;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-cloud: cloud-drift 52s linear infinite;
+  --animate-hero: hero-enter 1.1s 0.15s var(--ease-out-expo) both;
+
+  @keyframes cloud-drift {
+    from { translate: -45vw 0; }
+    to { translate: 110vw 0; }
+  }
+
+  @keyframes hero-enter {
+    from { opacity: 0; translate: 0 1.5rem; filter: blur(6px); }
+    to { opacity: 1; translate: 0 0; filter: none; }
+  }
+}
+
+/* ---------- Estilos base ---------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    scrollbar-color: #71836a var(--color-paper);
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  h1, h2, h3 { text-wrap: balance; }
+
+  ::selection { color: var(--color-ink); background: var(--color-lime); }
+
+  :focus-visible {
+    outline: 2px solid var(--color-clay);
+    outline-offset: 3px;
+  }
+}
+
+/* ---------- Utilidades propias ---------- */
+
+/* Folio del recorrido: línea + texto en versalitas */
+@utility folio {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font: 700 0.75rem / 1.3 var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  &::before {
+    width: 2rem;
+    height: 1px;
+    content: "";
+    background: currentColor;
+  }
+}
+
+/* Velo de la foto del hero */
+@utility hero-shade {
+  background:
+    linear-gradient(180deg, rgb(13 39 32 / 80%), rgb(13 39 32 / 45%) 10%, transparent 24%),
+    linear-gradient(90deg, rgb(13 39 32 / 78%), rgb(13 39 32 / 38%) 50%, transparent 80%),
+    linear-gradient(0deg, rgb(13 39 32 / 62%), transparent 45%);
+}
+
+/* Curvas de nivel para bandas oscuras */
+@utility topo {
+  background:
+    repeating-radial-gradient(ellipse 120% 80% at 82% 45%, transparent 0 26px, rgb(215 226 101 / 13%) 26px 27px),
+    linear-gradient(120deg, var(--color-forest), #2f5142);
+}
+
+/* Cabecera transparente sobre el hero que se vuelve sólida al bajar */
+@utility header-scroll {
+  background: rgb(24 52 46 / 94%);
+
+  @supports (animation-timeline: scroll()) {
+    background: transparent;
+    animation: header-solid linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 45vh;
+  }
+}
+
+/* Aparición al entrar en pantalla (animación ligada al scroll) */
+@utility reveal {
+  @supports (animation-timeline: view()) {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 80%;
+  }
+}
+
+/* Cauce de la ruta del agua que se llena al leer */
+@utility route-fill {
+  @supports (animation-timeline: view()) {
+    transform-origin: top;
+    animation: fill-route linear both;
+    animation-timeline: view();
+    animation-range: entry 40% cover 60%;
+  }
+}
+
+@keyframes header-solid {
+  to { background: rgb(24 52 46 / 94%); box-shadow: 0 8px 24px -12px rgb(0 0 0 / 40%); }
+}
+
+@keyframes reveal {
+  from { opacity: 0; translate: 0 2.5rem; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@keyframes fill-route {
+  from { scale: 1 0; }
+  to { scale: 1 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
