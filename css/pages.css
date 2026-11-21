@@ -1,0 +1,1363 @@
+/* ==========================================================================
+   pages.css — Secciones de cada página
+   1. Portada (index.html)
+   2. Subpáginas compartidas (biodiversidad.html y conservacion.html)
+   3. Biodiversidad
+   4. Conservación
+   5. Pantallas táctiles
+   ========================================================================== */
+@layer pages {
+  /* ======================================================================
+     1. PORTADA
+     ====================================================================== */
+
+  /* ---------- Hero ---------- */
+  .hero,
+  .detail-hero {
+    position: relative;
+    display: flex;
+    min-height: min(980px, 100svh);
+    align-items: flex-end;
+    overflow: hidden;
+    color: var(--on-dark);
+    background: var(--forest);
+    isolation: isolate;
+  }
+
+  .hero__image,
+  .hero__shade,
+  .detail-hero__image,
+  .detail-hero__shade,
+  .mist {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero__image,
+  .detail-hero__image {
+    z-index: -3;
+    object-fit: cover;
+    object-position: center 62%;
+  }
+
+  .hero__shade,
+  .detail-hero__shade {
+    z-index: -2;
+    background:
+      linear-gradient(180deg, rgb(13 39 32 / 80%), rgb(13 39 32 / 45%) 10%, transparent 24%),
+      linear-gradient(90deg, rgb(13 39 32 / 78%), rgb(13 39 32 / 38%) 50%, rgb(13 39 32 / 0%) 80%),
+      linear-gradient(0deg, rgb(13 39 32 / 62%), transparent 45%);
+  }
+
+  .mist {
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .cloud {
+    position: absolute;
+    width: 34rem;
+    height: 5rem;
+    border-radius: 50%;
+    background: rgb(241 246 234 / 18%);
+    filter: blur(42px);
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      border-radius: 50%;
+      background: inherit;
+    }
+
+    &::before {
+      inset: -55% auto auto 12%;
+      width: 55%;
+      height: 160%;
+    }
+
+    &::after {
+      inset: -35% 12% auto auto;
+      width: 46%;
+      height: 130%;
+    }
+  }
+
+  .cloud--one { top: 26%; left: 30%; }
+  .cloud--two { top: 46%; left: 62%; opacity: 0.55; scale: 0.75; }
+  .cloud--three { top: 66%; left: 8%; opacity: 0.4; scale: 1.2; }
+
+  .hero__content {
+    width: min(48rem, 100%);
+    margin: 0 var(--gutter) clamp(7rem, 15vh, 10rem);
+
+    & h1 {
+      font: 500 var(--fs-display) / var(--lh-tight) var(--font-serif);
+      letter-spacing: -0.03em;
+
+      & em {
+        color: var(--lime);
+        font-weight: 400;
+      }
+    }
+  }
+
+  .hero__intro {
+    max-width: 32rem;
+    margin: var(--space-m) 0 var(--space-s);
+    color: var(--on-dark-muted);
+    font-size: 1.125rem;
+  }
+
+  .hero__coordinates,
+  .hero__scroll,
+  .hero__credit {
+    position: absolute;
+    font: 700 var(--fs-label) / 1.6 var(--font-display);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+
+  .hero__coordinates {
+    right: var(--gutter);
+    bottom: 4.25rem;
+    margin: 0;
+    text-align: right;
+  }
+
+  .hero__credit {
+    right: var(--gutter);
+    bottom: 1.75rem;
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: none;
+  }
+
+  .hero__scroll {
+    bottom: 1.9rem;
+    left: var(--gutter);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    & span {
+      width: 3rem;
+      height: 1px;
+      background: var(--lime);
+      transform-origin: left;
+    }
+  }
+
+  /* ---------- Banda de datos ---------- */
+  .quick-facts {
+    display: grid;
+    grid-template-columns: 1.2fr repeat(3, minmax(0, 1fr)) auto;
+    align-items: center;
+    gap: var(--space-m);
+    padding: 1.75rem var(--gutter);
+  }
+
+  .quick-facts__intro {
+    color: var(--lime);
+    font: 700 var(--fs-label) / 1.5 var(--font-display);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+
+  .fact-chip {
+    display: grid;
+    gap: 0.15rem;
+    padding-left: var(--space-m);
+    border-left: 1px solid var(--on-dark-line);
+
+    & strong {
+      font: 700 1.05rem / 1.2 var(--font-display);
+    }
+
+    & span {
+      color: var(--on-dark-muted);
+      font-size: var(--fs-small);
+    }
+  }
+
+  .quick-facts__source {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--on-dark-muted);
+    font: 600 var(--fs-small) / 1 var(--font-display);
+    text-decoration: none;
+    white-space: nowrap;
+
+    &:hover {
+      color: var(--lime);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .quick-facts {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      row-gap: 1.25rem;
+    }
+
+    .quick-facts__intro,
+    .quick-facts__source {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .quick-facts {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .fact-chip:last-of-type {
+      grid-column: 1 / -1;
+    }
+
+    /* En pantallas pequeñas el pie del hero se apila sin choques */
+    .hero__scroll {
+      display: none;
+    }
+
+    .hero__coordinates {
+      right: auto;
+      left: var(--gutter);
+      bottom: 3.6rem;
+      text-align: left;
+    }
+
+    .hero__credit {
+      right: var(--gutter);
+      left: var(--gutter);
+      bottom: 1.25rem;
+    }
+  }
+
+  /* ---------- Territorio ---------- */
+  .territory {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 0.85fr) minmax(0, 1.2fr);
+    align-items: start;
+    gap: var(--space-xl) clamp(2rem, 4vw, 4.5rem);
+
+    & .section-title {
+      max-width: 11ch;
+    }
+  }
+
+  .territory__body {
+    display: grid;
+    gap: var(--space-m);
+    justify-items: start;
+    padding-top: 0.75rem;
+  }
+
+  .territory__image {
+    align-self: stretch;
+    min-height: 34rem;
+  }
+
+  /* Pie de foto sobre la imagen en las notas de campo grandes */
+  .territory__image figcaption,
+  .species-profile__photo figcaption,
+  .habitat-note__photo figcaption {
+    position: absolute;
+    z-index: 1;
+    inset: auto 0 0;
+    padding: 4rem 1.25rem 1.15rem;
+    color: var(--on-dark);
+    background: linear-gradient(0deg, rgb(13 39 32 / 82%), transparent);
+    font-size: 0.875rem;
+    line-height: 1.5;
+
+    & span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--on-dark-muted);
+      font-size: var(--fs-label);
+    }
+
+    & a {
+      color: var(--on-dark);
+    }
+  }
+
+  .territory__image .field-note__tip,
+  .species-profile__photo .field-note__tip,
+  .habitat-note__photo .field-note__tip {
+    bottom: 5.5rem;
+  }
+
+  @media (max-width: 1100px) {
+    .territory {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .territory__head {
+      grid-column: 1 / -1;
+    }
+
+    .territory__head .section-title {
+      max-width: 16ch;
+    }
+
+    .territory__image {
+      min-height: 28rem;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .territory {
+      grid-template-columns: 1fr;
+      row-gap: var(--space-l);
+    }
+
+    .territory__body {
+      padding-top: 0;
+    }
+
+    .territory__image {
+      min-height: 24rem;
+    }
+  }
+
+  /* ---------- La ruta del agua ---------- */
+  .water-story {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  }
+
+  .water-story__visual {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .water-story__photo,
+  .water-story__wash {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .water-story__photo {
+    z-index: -2;
+    object-fit: cover;
+  }
+
+  .water-story__wash {
+    z-index: -1;
+    background:
+      linear-gradient(0deg, rgb(13 39 32 / 70%), transparent 45%),
+      linear-gradient(130deg, rgb(37 75 62 / 30%), transparent 60%);
+  }
+
+  .water-story__foreground {
+    position: absolute;
+    right: 8%;
+    bottom: 16%;
+    width: min(36%, 17rem);
+    aspect-ratio: 3 / 4;
+    border: 0.5rem solid var(--paper);
+    border-radius: var(--radius-s);
+    box-shadow: var(--shadow-l);
+    rotate: 3deg;
+    transition: rotate var(--dur-slow) var(--ease-out), scale var(--dur-slow) var(--ease-out);
+
+    &:hover,
+    &:focus-visible {
+      rotate: 0deg;
+      scale: 1.04;
+    }
+  }
+
+  .water-story__credits {
+    position: absolute;
+    bottom: 1.75rem;
+    left: var(--gutter);
+    margin: 0;
+  }
+
+  .water-story__copy {
+    padding: var(--space-section) var(--gutter) var(--space-section) clamp(2rem, 6vw, 6rem);
+
+    & .section-title {
+      max-width: 10ch;
+    }
+  }
+
+  .water-steps {
+    position: relative;
+    display: grid;
+    gap: var(--space-l);
+    margin: var(--space-xl) 0 0;
+    padding: 0;
+    list-style: none;
+
+    /* Cauce: la línea que une los pasos (se llena al hacer scroll) */
+    &::before,
+    &::after {
+      position: absolute;
+      top: 1.2rem;
+      bottom: 1.2rem;
+      left: 1.2rem;
+      width: 2px;
+      content: "";
+      translate: -50% 0;
+    }
+
+    &::before {
+      background: var(--line-strong);
+    }
+
+    &::after {
+      background: var(--clay);
+      transform-origin: top;
+    }
+  }
+
+  .water-step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2.4rem 1fr;
+    gap: 1.25rem;
+
+    & h3 {
+      margin-bottom: 0.4rem;
+      color: var(--forest);
+      font: 700 1.15rem / 1.3 var(--font-display);
+    }
+
+    & p {
+      max-width: 30rem;
+      color: var(--muted);
+    }
+  }
+
+  .water-step__number {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: 2.4rem;
+    aspect-ratio: 1;
+    place-items: center;
+    color: var(--clay-ink);
+    background: var(--mist);
+    border: 1.5px solid var(--clay);
+    border-radius: 50%;
+    font: 700 var(--fs-label) / 1 var(--font-display);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .water-story__note {
+    display: flex;
+    gap: 0.9rem;
+    max-width: 34rem;
+    margin-top: var(--space-xl);
+    padding: 1.25rem 1.35rem;
+    color: var(--ink);
+    background: color-mix(in srgb, white 45%, var(--mist));
+    border-radius: var(--radius-m);
+    font: 400 1.1rem / 1.5 var(--font-serif);
+
+    & .icon {
+      margin-top: 0.15rem;
+      color: var(--clay);
+      font-size: 1.4rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .water-story {
+      display: block;
+    }
+
+    .water-story__visual {
+      position: relative;
+      height: 72svh;
+      min-height: 28rem;
+    }
+
+    .water-story__foreground {
+      width: min(42%, 14rem);
+    }
+
+    .water-story__copy {
+      padding: var(--space-section) var(--gutter);
+    }
+  }
+
+  /* ---------- Vecinos de altura ---------- */
+  .species-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    align-items: start;
+    gap: 1rem;
+  }
+
+  .species-card {
+    height: clamp(24rem, 40vw, 36rem);
+    color: var(--on-dark);
+
+    & > img {
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+    }
+
+    &::after {
+      position: absolute;
+      z-index: -1;
+      inset: 35% 0 0;
+      content: "";
+      background: linear-gradient(0deg, rgb(13 33 28 / 90%), transparent);
+    }
+
+    & figcaption {
+      position: absolute;
+      inset: auto 1.25rem 1.25rem;
+      display: grid;
+      gap: 0.2rem;
+
+      & b {
+        font: 500 clamp(1.6rem, 1.3rem + 1vw, 2.1rem) / 1.05 var(--font-serif);
+      }
+
+      & i {
+        color: var(--on-dark-muted);
+        font: italic 400 0.95rem / 1.3 var(--font-serif);
+      }
+    }
+
+    & .field-note__tip {
+      bottom: 6.75rem;
+    }
+  }
+
+  .species-card--tapir {
+    margin-top: 2.5rem;
+
+    & > img { object-position: 62% 42%; }
+  }
+
+  .species-card--bear > img { object-position: 45% center; }
+
+  .species-card--flora {
+    margin-top: 5rem;
+  }
+
+  .life__footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-s) var(--space-l);
+    margin-top: var(--space-l);
+
+    & .credit-line {
+      max-width: 48rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .species-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .species-card--tapir {
+      grid-column: 1 / -1;
+      height: clamp(22rem, 60vw, 30rem);
+      margin-top: 0;
+    }
+
+    .species-card--bear,
+    .species-card--flora {
+      height: 24rem;
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .species-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ---------- Cuidar el origen (banda oscura) ---------- */
+  .conservation {
+    position: relative;
+    display: flex;
+    min-height: 38rem;
+    align-items: center;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  /* Curvas de nivel: textura de mapa topográfico */
+  .conservation__texture,
+  .dark-band::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    content: "";
+    background:
+      repeating-radial-gradient(ellipse 120% 80% at 82% 45%, transparent 0 26px, rgb(215 226 101 / 13%) 26px 27px),
+      linear-gradient(120deg, var(--forest), #3e6150);
+  }
+
+  .conservation__content {
+    width: min(46rem, 64%);
+    padding: var(--space-section) var(--gutter);
+
+    & .section-title {
+      max-width: 13ch;
+    }
+  }
+
+  .conservation__text {
+    max-width: 34rem;
+    margin: var(--space-m) 0 var(--space-l);
+    color: var(--on-dark-muted);
+    font-size: 1.0625rem;
+  }
+
+  .conservation__stamp {
+    position: absolute;
+    top: 50%;
+    right: 12%;
+    display: grid;
+    width: clamp(10rem, 18vw, 16rem);
+    aspect-ratio: 1;
+    place-content: center;
+    justify-items: center;
+    gap: 0.4rem;
+    color: var(--lime);
+    border: 1px solid rgb(215 226 101 / 55%);
+    border-radius: 50%;
+    font: 700 var(--fs-label) / 1 var(--font-display);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    translate: 0 -50%;
+    rotate: 12deg;
+
+    &::before,
+    &::after {
+      position: absolute;
+      inset: 0.6rem;
+      content: "";
+      border: 1px solid rgb(215 226 101 / 30%);
+      border-radius: 50%;
+    }
+
+    &::after {
+      inset: 1.2rem;
+    }
+
+    & .icon {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .conservation {
+      align-items: flex-start;
+    }
+
+    .conservation__content {
+      width: 100%;
+      padding-bottom: 14rem;
+    }
+
+    .conservation__stamp {
+      top: auto;
+      right: var(--gutter);
+      bottom: 2.5rem;
+      width: 9rem;
+      translate: none;
+    }
+  }
+
+  /* ---------- Sigue el recorrido ---------- */
+  .more-reading__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+    align-items: start;
+    gap: var(--space-l);
+  }
+
+  .more-reading__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .more-reading__item {
+    position: relative;
+    display: flex;
+    min-height: 26rem;
+    align-items: flex-end;
+    overflow: hidden;
+    color: var(--on-dark);
+    background: var(--forest);
+    border-radius: var(--radius-m);
+    text-decoration: none;
+    isolation: isolate;
+    box-shadow: var(--shadow-s);
+    transition: box-shadow var(--dur-base) var(--ease-out), translate var(--dur-base) var(--ease-out);
+
+    & > img {
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: scale var(--dur-slow) var(--ease-out);
+    }
+
+    &::after {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      content: "";
+      background: linear-gradient(0deg, rgb(13 33 28 / 92%) 10%, rgb(13 33 28 / 20%) 70%);
+    }
+
+    &:hover,
+    &:focus-visible {
+      translate: 0 -4px;
+      box-shadow: var(--shadow-l);
+    }
+
+    &:hover > img,
+    &:focus-visible > img {
+      scale: 1.05;
+    }
+
+    &:hover .more-reading__arrow,
+    &:focus-visible .more-reading__arrow {
+      rotate: 45deg;
+    }
+  }
+
+  .more-reading__copy {
+    display: grid;
+    gap: 0.6rem;
+    padding: 1.6rem;
+
+    & b {
+      font: 500 clamp(1.7rem, 1.4rem + 1vw, 2.2rem) / 1.05 var(--font-serif);
+    }
+
+    & > span {
+      max-width: 22rem;
+      color: var(--on-dark-muted);
+    }
+
+    & small {
+      color: var(--lime);
+      font: 700 var(--fs-label) / 1 var(--font-display);
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+    }
+  }
+
+  .more-reading__arrow {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0.75rem;
+    color: var(--ink);
+    background: var(--lime);
+    mask: none;
+    border-radius: 50%;
+    transition: rotate var(--dur-base) var(--ease-out);
+
+    &::before {
+      display: block;
+      width: 100%;
+      height: 100%;
+      content: "";
+      background: currentColor;
+      mask: var(--icon-arrow-ne) center / contain no-repeat;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .more-reading__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .more-reading__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .more-reading__item {
+      min-height: 20rem;
+    }
+  }
+
+  /* ---------- Fuentes ---------- */
+  .sources {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: var(--space-l);
+
+    & .section-title {
+      max-width: 9ch;
+    }
+  }
+
+  .sources__list {
+    align-self: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-bottom: 1px solid var(--line);
+
+    & li {
+      border-top: 1px solid var(--line);
+    }
+
+    & a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-m);
+      padding: 1.25rem 0;
+      color: var(--ink);
+      font: 400 1.15rem / 1.35 var(--font-serif);
+      text-decoration: none;
+      transition: color var(--dur-fast) ease, padding var(--dur-base) var(--ease-out);
+
+      & b {
+        display: block;
+        margin-bottom: 0.2rem;
+        color: var(--clay-ink);
+        font: 700 var(--fs-label) / 1.3 var(--font-display);
+        letter-spacing: var(--tracking-label);
+        text-transform: uppercase;
+      }
+
+      & .icon {
+        color: var(--clay);
+        font-size: 1.25rem;
+      }
+
+      &:hover,
+      &:focus-visible {
+        padding-inline: 0.5rem;
+        color: var(--forest);
+      }
+    }
+  }
+
+  @media (max-width: 760px) {
+    .sources {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ======================================================================
+     2. SUBPÁGINAS (compartido)
+     ====================================================================== */
+  .detail-hero {
+    min-height: min(860px, 92svh);
+  }
+
+  .detail-hero__content {
+    width: min(50rem, 100%);
+    margin: 0 var(--gutter) clamp(5rem, 12vh, 8rem);
+
+    & h1 {
+      font: 500 var(--fs-display) / var(--lh-tight) var(--font-serif);
+      letter-spacing: -0.03em;
+
+      & em {
+        color: var(--lime);
+        font-weight: 400;
+      }
+    }
+
+    & > p {
+      max-width: 34rem;
+      margin: var(--space-m) 0 var(--space-s);
+      color: var(--on-dark-muted);
+      font-size: 1.125rem;
+    }
+  }
+
+  .detail-hero__credit {
+    position: absolute;
+    right: var(--gutter);
+    bottom: 1.75rem;
+    max-width: 24rem;
+    margin: 0;
+    text-align: right;
+  }
+
+  .detail-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: var(--space-l) var(--space-xl);
+  }
+
+  .detail-intro__body {
+    display: grid;
+    gap: var(--space-m);
+    justify-items: start;
+  }
+
+  .dark-band {
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-section) var(--gutter);
+    isolation: isolate;
+
+    & .section-title {
+      max-width: 16ch;
+    }
+
+    & > p:not(.folio) {
+      max-width: 38rem;
+      margin: var(--space-m) 0 0;
+      color: var(--on-dark-muted);
+      font-size: 1.0625rem;
+    }
+
+    & .action-link {
+      margin-top: var(--space-l);
+    }
+  }
+
+  /* Tarjetas de galería con filas alineadas gracias a subgrid */
+  .gallery-card {
+    display: grid;
+    grid-row: span 5;
+    grid-template-rows: subgrid;
+    row-gap: 0.65rem;
+    min-width: 0;
+    overflow: hidden;
+    padding-bottom: 1.4rem;
+    background: var(--paper-raised);
+    border-radius: var(--radius-m);
+    box-shadow: var(--shadow-s);
+    transition: translate var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+
+    & > img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      margin-bottom: 0.85rem;
+      object-fit: cover;
+      transition: scale var(--dur-slow) var(--ease-out);
+    }
+
+    & > :not(img) {
+      margin: 0;
+      padding-inline: 1.35rem;
+    }
+
+    & h3 {
+      color: var(--ink);
+      font: 500 var(--fs-h3) / 1.1 var(--font-serif);
+    }
+
+    & .gallery-card__meta {
+      color: var(--forest);
+      font: 700 var(--fs-label) / 1.4 var(--font-display);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    & p {
+      color: var(--muted);
+      font-size: 0.9375rem;
+    }
+
+    & small {
+      align-self: end;
+      color: var(--muted);
+      font-size: var(--fs-small);
+      line-height: 1.5;
+
+      & a {
+        color: var(--forest);
+      }
+    }
+
+    &:hover {
+      translate: 0 -4px;
+      box-shadow: var(--shadow-m);
+    }
+
+    &:hover > img {
+      scale: 1.04;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .detail-intro {
+      grid-template-columns: 1fr;
+    }
+
+    .detail-hero__credit {
+      left: var(--gutter);
+      text-align: left;
+    }
+  }
+
+  /* ======================================================================
+     3. BIODIVERSIDAD
+     ====================================================================== */
+  .species-profile {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: var(--space-l) var(--space-xl);
+  }
+
+  .species-profile--reverse {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+
+    & .species-profile__photo {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    & .species-profile__copy {
+      grid-column: 1;
+      grid-row: 1;
+    }
+  }
+
+  .species-profile__photo,
+  .habitat-note__photo {
+    min-height: 36rem;
+
+    /* La foto llena el recuadro aunque la altura venga de min-height */
+    & > img {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+    }
+  }
+
+  .species-profile__copy,
+  .habitat-note__copy {
+    display: grid;
+    gap: var(--space-m);
+    justify-items: start;
+
+    & .section-title {
+      max-width: 10ch;
+    }
+  }
+
+  .species-profile__latin {
+    color: var(--clay-ink);
+    font: italic 400 1.2rem / 1.4 var(--font-serif);
+  }
+
+  .habitat-note {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: var(--space-l) var(--space-xl);
+  }
+
+  .biodiversity-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0 1rem;
+  }
+
+  @media (max-width: 1100px) {
+    .biodiversity-gallery__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      row-gap: 1rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .species-profile,
+    .species-profile--reverse,
+    .habitat-note {
+      grid-template-columns: 1fr;
+    }
+
+    .species-profile--reverse .species-profile__photo,
+    .species-profile--reverse .species-profile__copy {
+      grid-column: auto;
+      grid-row: auto;
+    }
+
+    .species-profile__photo,
+    .habitat-note__photo {
+      min-height: 26rem;
+    }
+  }
+
+  /* Carrusel con scroll-snap en móvil */
+  @media (max-width: 620px) {
+    .biodiversity-gallery__grid {
+      grid-template-columns: none;
+      grid-auto-flow: column;
+      grid-auto-columns: 82%;
+      gap: 0 0.9rem;
+      margin-inline: calc(var(--gutter) * -1);
+      padding: 0.5rem var(--gutter) 1.25rem;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-padding-inline: var(--gutter);
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+    }
+
+    .biodiversity-gallery__grid .gallery-card {
+      scroll-snap-align: start;
+    }
+
+    .gallery-card:hover {
+      translate: none;
+    }
+  }
+
+  /* ======================================================================
+     4. CONSERVACIÓN
+     ====================================================================== */
+  .place-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 1.25rem;
+
+    & .gallery-card > img {
+      aspect-ratio: 16 / 10;
+    }
+  }
+
+  .timeline-section {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    align-items: start;
+    gap: var(--space-l) var(--space-xl);
+  }
+
+  .timeline-section__heading {
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+  }
+
+  .field-timeline {
+    position: relative;
+    display: grid;
+    gap: var(--space-l);
+    margin: 0;
+    padding: 0 0 0 2.75rem;
+    list-style: none;
+
+    &::before {
+      position: absolute;
+      top: 0.9rem;
+      bottom: 0.5rem;
+      left: 0.6rem;
+      width: 1px;
+      content: "";
+      background: var(--line-strong);
+    }
+
+    & li {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 0.85rem;
+        left: calc(-2.75rem + 0.6rem - 0.475rem);
+        width: 0.95rem;
+        aspect-ratio: 1;
+        content: "";
+        background: var(--sage);
+        border: 2px solid var(--clay);
+        border-radius: 50%;
+        transition: background-color var(--dur-base) ease;
+      }
+
+      &:hover::before {
+        background: var(--clay);
+      }
+    }
+
+    & h3 {
+      margin: 0.35rem 0 0.5rem;
+      color: var(--forest);
+      font: 700 1.2rem / 1.3 var(--font-display);
+    }
+
+    & p {
+      max-width: 38rem;
+      margin-bottom: 0.75rem;
+      color: var(--muted);
+    }
+
+    & a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--forest);
+      font: 600 0.9375rem / 1.4 var(--font-display);
+
+      &:hover {
+        color: var(--clay-ink);
+      }
+    }
+  }
+
+  .field-timeline__year {
+    color: var(--clay-ink);
+    font: 500 clamp(1.9rem, 1.5rem + 1.2vw, 2.6rem) / 1 var(--font-serif);
+    font-variant-numeric: lining-nums;
+  }
+
+  /* Principios: lista editorial en lugar de tarjetas con números */
+  .principle-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 var(--space-xl);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    & li {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      align-items: baseline;
+      gap: var(--space-m);
+      padding: var(--space-m) 0;
+      border-top: 1px solid var(--line);
+    }
+
+    & h3 {
+      color: var(--forest);
+      font: 500 clamp(2rem, 1.5rem + 2vw, 3.2rem) / 1 var(--font-serif);
+      letter-spacing: var(--tracking-heading);
+      transition: color var(--dur-base) ease;
+    }
+
+    & li:hover h3 {
+      color: var(--clay-ink);
+      font-style: italic;
+    }
+
+    & p {
+      color: var(--muted);
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .principle-list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .timeline-section {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline-section__heading {
+      position: static;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .place-gallery__grid {
+      grid-template-columns: 1fr;
+      row-gap: 1.25rem;
+    }
+
+    .principle-list li {
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+    }
+  }
+
+  /* ======================================================================
+     5. PANTALLAS TÁCTILES: la información no depende del cursor
+     ====================================================================== */
+  @media (hover: none) {
+    .field-note {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      min-height: 0;
+
+      & > img {
+        position: static;
+        height: auto;
+        aspect-ratio: 4 / 3;
+      }
+
+      & figcaption {
+        position: static;
+        order: 2;
+        padding: 1rem 1.15rem 0.25rem;
+        background: var(--ink);
+      }
+
+      & .field-note__tip {
+        order: 3;
+        padding-top: 0.5rem;
+      }
+    }
+
+    .species-card {
+      height: auto;
+
+      &::after {
+        display: none;
+      }
+
+      & figcaption {
+        position: static;
+        inset: auto;
+      }
+    }
+
+    .species-card--flora > img {
+      aspect-ratio: 3 / 4;
+    }
+
+    /* La polaroid de la catarata no tiene dato: la foto sigue llenando el marco */
+    .water-story__foreground > img {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      aspect-ratio: auto;
+    }
+
+    .territory__image,
+    .species-profile__photo,
+    .habitat-note__photo {
+      min-height: 0;
+    }
+
+    .territory__image figcaption,
+    .species-profile__photo figcaption,
+    .habitat-note__photo figcaption {
+      padding-top: 1rem;
+    }
+  }
+}

@@ -1,0 +1,593 @@
+/* ==========================================================================
+   components.css — Piezas reutilizables en las tres páginas
+   (cabecera, menú, enlaces, iconos, notas de campo, créditos, pie)
+   ========================================================================== */
+@layer components {
+  /* ---------- Iconos dibujados (máscara SVG que toma currentColor) ---------- */
+  .icon {
+    display: inline-block;
+    flex: none;
+    width: 1em;
+    height: 1em;
+    background: currentColor;
+    mask: var(--icon, var(--icon-arrow-ne)) center / contain no-repeat;
+    vertical-align: -0.125em;
+  }
+
+  .icon--down { --icon: var(--icon-arrow-down); }
+  .icon--up { --icon: var(--icon-arrow-up); }
+  .icon--drop { --icon: var(--icon-drop); }
+
+  /* ---------- Cabecera fija ---------- */
+  .site-header {
+    position: fixed;
+    z-index: 30;
+    inset: 0 0 auto;
+    display: flex;
+    height: var(--header-h);
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-m);
+    padding-inline: var(--gutter);
+    color: var(--on-dark);
+    /* Respaldo para navegadores sin animaciones ligadas al scroll */
+    background: color-mix(in srgb, var(--ink) 94%, transparent);
+    border-bottom: 1px solid var(--on-dark-line);
+    view-transition-name: site-header;
+
+    /* Barra de progreso de lectura (se activa en animations.css) */
+    &::after {
+      position: absolute;
+      inset: auto 0 -1px;
+      display: none;
+      height: 2px;
+      content: "";
+      background: var(--lime);
+      transform-origin: left center;
+    }
+  }
+
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: inherit;
+    font: 700 var(--fs-label) / 1.1 var(--font-display);
+    letter-spacing: 0.14em;
+    text-decoration: none;
+
+    & b {
+      font-weight: 800;
+    }
+  }
+
+  .wordmark__symbol {
+    display: grid;
+    width: 2.4rem;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    font: 500 1.25rem / 1 var(--font-serif);
+    letter-spacing: 0;
+    transition: background-color var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out);
+  }
+
+  .wordmark:hover .wordmark__symbol {
+    color: var(--ink);
+    background: var(--lime);
+    border-color: var(--lime);
+  }
+
+  .main-nav {
+    display: flex;
+    gap: clamp(1.25rem, 3vw, 2.75rem);
+
+    & a {
+      position: relative;
+      padding-block: 0.5rem;
+      font: 600 0.875rem / 1.2 var(--font-display);
+      text-decoration: none;
+      transition: color var(--dur-fast) ease;
+
+      &::after {
+        position: absolute;
+        inset: auto 0 0.15rem;
+        height: 1px;
+        content: "";
+        background: currentColor;
+        scale: 0 1;
+        transform-origin: right center;
+        transition: scale var(--dur-base) var(--ease-out);
+      }
+
+      &:hover,
+      &:focus-visible {
+        color: var(--lime);
+      }
+
+      &:hover::after,
+      &[aria-current="page"]::after {
+        scale: 1 1;
+        transform-origin: left center;
+      }
+
+      &[aria-current="page"] {
+        color: var(--lime);
+      }
+    }
+  }
+
+  .header-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 0.95rem;
+    border: 1px solid var(--on-dark-line);
+    border-radius: 99px;
+    font: 600 var(--fs-small) / 1 var(--font-display);
+    text-decoration: none;
+    transition: color var(--dur-fast) ease, background-color var(--dur-fast) ease, border-color var(--dur-fast) ease;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--ink);
+      background: var(--lime);
+      border-color: var(--lime);
+    }
+  }
+
+  /* Menú móvil sin JavaScript: casilla oculta + etiqueta */
+  .nav-toggle,
+  .menu-toggle {
+    display: none;
+  }
+
+  @media (max-width: 760px) {
+    .header-note {
+      display: none;
+    }
+
+    .nav-toggle {
+      display: block;
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+    }
+
+    .menu-toggle {
+      display: grid;
+      width: 2.9rem;
+      aspect-ratio: 1;
+      place-content: center;
+      gap: 0.32rem;
+      border: 1px solid var(--on-dark-line);
+      border-radius: 50%;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+
+      & span {
+        width: 1.1rem;
+        height: 1.5px;
+        background: currentColor;
+        border-radius: 2px;
+        transition: transform var(--dur-fast) var(--ease-out), opacity var(--dur-fast) ease;
+      }
+    }
+
+    .nav-toggle:focus-visible + .menu-toggle {
+      outline: 2px solid var(--lime);
+      outline-offset: 3px;
+    }
+
+    .nav-toggle:checked + .menu-toggle {
+      color: var(--ink);
+      background: var(--lime);
+      border-color: var(--lime);
+
+      & span:first-child { transform: translateY(0.4rem) rotate(45deg); }
+      & span:nth-child(2) { opacity: 0; }
+      & span:last-child { transform: translateY(-0.4rem) rotate(-45deg); }
+    }
+
+    .main-nav {
+      position: absolute;
+      inset: 100% 0 auto;
+      flex-direction: column;
+      gap: 0;
+      padding: 0.5rem var(--gutter) 1.25rem;
+      background: var(--ink);
+      border-bottom: 1px solid var(--on-dark-line);
+      box-shadow: var(--shadow-l);
+      /* Cerrado: fuera de la vista y sin foco */
+      visibility: hidden;
+      opacity: 0;
+      translate: 0 -0.75rem;
+      transition: opacity var(--dur-base) var(--ease-out), translate var(--dur-base) var(--ease-out), visibility 0s linear var(--dur-base);
+
+      & a {
+        padding-block: 0.95rem;
+        border-top: 1px solid var(--on-dark-line);
+        font-size: 1.05rem;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    .nav-toggle:checked ~ .main-nav {
+      visibility: visible;
+      opacity: 1;
+      translate: 0 0;
+      transition-delay: 0s;
+    }
+  }
+
+  /* ---------- Folio: índice del recorrido, debajo del título ---------- */
+  .folio {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: var(--space-m);
+    color: var(--clay-ink);
+    font: 700 var(--fs-label) / 1.3 var(--font-display);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+
+    &::before {
+      width: 2rem;
+      height: 1px;
+      content: "";
+      background: currentColor;
+    }
+  }
+
+  .on-dark .folio,
+  .folio--light {
+    color: var(--lime);
+  }
+
+  /* ---------- Títulos de sección ---------- */
+  .section-title {
+    color: var(--ink);
+    font: 500 var(--fs-h2) / var(--lh-heading) var(--font-serif);
+    letter-spacing: var(--tracking-heading);
+  }
+
+  .on-dark .section-title {
+    color: var(--on-dark);
+  }
+
+  .lead {
+    color: var(--ink);
+    font: 400 var(--fs-lead) / 1.45 var(--font-serif);
+
+    &::first-letter {
+      color: var(--clay);
+    }
+  }
+
+  .prose {
+    max-width: var(--measure);
+    color: var(--muted);
+
+    & > * + * {
+      margin-top: 1.1em;
+    }
+  }
+
+  .on-dark .prose {
+    color: var(--on-dark-muted);
+  }
+
+  /* ---------- Enlaces de acción ---------- */
+  .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 2.75rem;
+    color: var(--forest);
+    font: 700 0.9375rem / 1.3 var(--font-display);
+    text-decoration: none;
+
+    & .icon {
+      transition: translate var(--dur-fast) var(--ease-out);
+    }
+
+    &:hover {
+      color: var(--clay-ink);
+    }
+
+    &:hover .icon,
+    &:focus-visible .icon {
+      translate: 2px -2px;
+    }
+
+    &:hover .icon--down,
+    &:focus-visible .icon--down {
+      translate: 0 3px;
+    }
+  }
+
+  .text-link--light {
+    color: var(--on-dark);
+
+    &:hover {
+      color: var(--lime);
+    }
+  }
+
+  .action-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1.35rem;
+    color: var(--ink);
+    background: var(--lime);
+    border-radius: 99px;
+    font: 700 0.9375rem / 1.2 var(--font-display);
+    text-decoration: none;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 35%) inset, 0 8px 20px -8px rgb(0 0 0 / 45%);
+    transition: background-color var(--dur-fast) ease, translate var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+
+    &:hover,
+    &:focus-visible {
+      background: color-mix(in srgb, var(--lime) 85%, white);
+      translate: 0 -2px;
+      box-shadow: 0 1px 0 rgb(255 255 255 / 35%) inset, 0 14px 28px -10px rgb(0 0 0 / 55%);
+    }
+
+    &:active {
+      translate: 0 0;
+    }
+  }
+
+  /* ---------- Etiqueta de estado de conservación ---------- */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    width: fit-content;
+    padding: 0.35rem 0.7rem;
+    color: var(--ink);
+    background: var(--paper);
+    border-radius: 99px;
+    font: 700 var(--fs-label) / 1 var(--font-display);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    &::before {
+      width: 0.5rem;
+      aspect-ratio: 1;
+      content: "";
+      background: var(--chip-dot, var(--moss));
+      border-radius: 50%;
+    }
+  }
+
+  .chip--critical { --chip-dot: #c0392b; }
+  .chip--vulnerable { --chip-dot: #d98e04; }
+  .chip--reference { --chip-dot: var(--moss); }
+
+  /* ---------- Nota de campo: foto con dato desplegable ---------- */
+  .field-note {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-m);
+    background: var(--forest);
+    isolation: isolate;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--clay);
+      outline-offset: 4px;
+    }
+  }
+
+  .field-note__tip {
+    position: absolute;
+    z-index: 3;
+    inset: auto 1rem 1rem;
+    padding: 1rem 1.15rem;
+    color: var(--on-dark);
+    background: color-mix(in srgb, var(--ink) 92%, transparent);
+    backdrop-filter: blur(6px);
+    border-radius: var(--radius-s);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    pointer-events: none;
+
+    & b {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: var(--lime);
+      font: 700 var(--fs-small) / 1.3 var(--font-display);
+    }
+  }
+
+  .field-note__tag {
+    position: absolute;
+    z-index: 2;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  /* En pantallas táctiles el dato no depende del cursor: se muestra fijo */
+  @media (hover: none) {
+    .field-note__tip {
+      position: static;
+      display: block;
+      margin: 0;
+      border-radius: 0;
+      backdrop-filter: none;
+      background: var(--ink);
+    }
+  }
+
+  /* ---------- Créditos de imagen ---------- */
+  .image-credit {
+    color: var(--on-dark-muted);
+    font: 500 var(--fs-label) / 1.45 var(--font-display);
+
+    & a {
+      color: var(--on-dark);
+      text-decoration-color: var(--lime);
+    }
+  }
+
+  .credit-line {
+    color: var(--muted);
+    font-size: var(--fs-small);
+    line-height: 1.6;
+
+    & a {
+      color: var(--forest);
+    }
+  }
+
+  /* ---------- Migas de pan (subpáginas) ---------- */
+  .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 var(--space-m);
+    padding: 0;
+    color: var(--on-dark-muted);
+    font: 600 var(--fs-small) / 1.3 var(--font-display);
+    list-style: none;
+
+    & li + li::before {
+      margin-right: 0.5rem;
+      content: "/";
+      color: var(--lime);
+    }
+
+    & a {
+      color: var(--on-dark);
+      text-decoration: none;
+
+      &:hover {
+        color: var(--lime);
+      }
+    }
+  }
+
+  /* ---------- Fuentes al pie de las subpáginas ---------- */
+  .detail-sources {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem 2rem;
+    padding: 1.5rem var(--gutter);
+    border-top: 1px solid var(--line);
+
+    & a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--forest);
+      font-size: var(--fs-small);
+
+      &:hover {
+        color: var(--clay-ink);
+      }
+    }
+  }
+
+  /* ---------- Pie de página ---------- */
+  .site-footer {
+    display: grid;
+    grid-template-columns: 1.4fr repeat(2, minmax(0, 1fr)) auto;
+    gap: var(--space-l);
+    padding: var(--space-xl) var(--gutter) var(--space-l);
+    color: var(--on-dark);
+    background: var(--forest-deep);
+
+    & h2 {
+      margin-bottom: 0.9rem;
+      color: var(--lime);
+      font: 700 var(--fs-label) / 1.3 var(--font-display);
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+    }
+
+    & ul {
+      display: grid;
+      gap: 0.35rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    & ul a {
+      color: var(--on-dark-muted);
+      font-size: 0.9375rem;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--on-dark);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .site-footer__brand p {
+    max-width: 24rem;
+    margin-top: 1.2rem;
+    color: var(--on-dark-muted);
+    font: 400 1.15rem / 1.45 var(--font-serif);
+  }
+
+  .site-footer__top {
+    align-self: start;
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.6rem 1rem;
+    color: var(--on-dark);
+    border: 1px solid var(--on-dark-line);
+    border-radius: 99px;
+    font: 600 var(--fs-small) / 1 var(--font-display);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--ink);
+      background: var(--lime);
+      border-color: var(--lime);
+    }
+  }
+
+  .site-footer__legal {
+    grid-column: 1 / -1;
+    padding-top: var(--space-m);
+    color: var(--on-dark-muted);
+    border-top: 1px solid var(--on-dark-line);
+    font-size: var(--fs-small);
+  }
+
+  @media (max-width: 900px) {
+    .site-footer {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .site-footer__brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 460px) {
+    .site-footer {
+      grid-template-columns: 1fr;
+    }
+  }
+}

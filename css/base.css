@@ -1,0 +1,122 @@
+/* ==========================================================================
+   base.css — Reset ligero, tipografía base y superficies del navegador
+   ========================================================================== */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 1rem);
+    scrollbar-color: var(--moss) var(--paper);
+    accent-color: var(--forest);
+  }
+
+  body {
+    min-width: 320px;
+    margin: 0;
+    color: var(--ink);
+    background: var(--paper);
+    font: 400 var(--fs-body) / var(--lh-body) var(--font-body);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    caret-color: var(--clay);
+  }
+
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  img {
+    height: auto;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  p {
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+  }
+
+  ::selection {
+    color: var(--ink);
+    background: var(--lime);
+  }
+
+  /* Foco visible y coherente con la paleta en todo el sitio */
+  :focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  :where(.on-dark, .site-header, .hero, .detail-hero, .site-footer, .dark-band) :focus-visible {
+    outline-color: var(--lime);
+  }
+
+  /* Barra de desplazamiento personalizada (Chromium / Safari) */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--paper);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--moss);
+    border: 3px solid var(--paper);
+    border-radius: 99px;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .skip-link {
+    position: fixed;
+    z-index: 50;
+    top: 0.75rem;
+    left: 0.75rem;
+    padding: 0.7rem 1.1rem;
+    color: var(--ink);
+    background: var(--lime);
+    border-radius: var(--radius-s);
+    font: 700 var(--fs-small) var(--font-display);
+    text-decoration: none;
+    translate: 0 -200%;
+    transition: translate var(--dur-fast) var(--ease-out);
+  }
+
+  .skip-link:focus-visible {
+    translate: 0 0;
+  }
+}

@@ -1,0 +1,61 @@
+/* ==========================================================================
+   layout.css — Contenedores, ritmo vertical y bandas de color
+   ========================================================================== */
+@layer layout {
+  main {
+    display: block;
+  }
+
+  /* Ancho máximo centrado para bloques de contenido */
+  .wrap {
+    width: min(100%, var(--max-width));
+    margin-inline: auto;
+  }
+
+  .section-pad {
+    padding: var(--space-section) var(--gutter);
+  }
+
+  /* Bandas oscuras: el texto y los acentos cambian solos con .on-dark */
+  .on-dark {
+    color: var(--on-dark);
+    background: var(--forest);
+  }
+
+  .band-sage {
+    background: var(--sage);
+  }
+
+  .band-mist {
+    background: var(--mist);
+  }
+
+  /* Cabecera de sección: título + folio + texto opcional */
+  .section-head {
+    display: grid;
+    gap: var(--space-m);
+    margin-bottom: var(--space-l);
+
+    & .section-title {
+      max-width: 16ch;
+    }
+  }
+
+  /* Cabecera a dos columnas en pantallas anchas */
+  .section-head--split {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    align-items: end;
+    column-gap: var(--space-xl);
+
+    & > p:last-child {
+      max-width: 28rem;
+      color: var(--muted);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .section-head--split {
+      grid-template-columns: 1fr;
+    }
+  }
+}

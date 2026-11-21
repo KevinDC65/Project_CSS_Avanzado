@@ -1,0 +1,83 @@
+/* ==========================================================================
+   tokens.css — Variables de diseño (CSS nativo)
+   Orden de capas de todo el sitio: cada archivo escribe en su capa, así la
+   cascada no depende del orden de los <link> ni de la especificidad.
+   ========================================================================== */
+@layer tokens, base, layout, components, pages, animations;
+
+@layer tokens {
+  :root {
+    color-scheme: light;
+
+    /* Paleta: cuaderno de campo del páramo */
+    --ink: #18342e;          /* texto principal y fondos profundos */
+    --forest: #254b3e;       /* bloques oscuros, enlaces */
+    --forest-deep: #132a24;  /* pie de página, sombras */
+    --moss: #71836a;         /* solo decoración */
+    --lime: #d7e265;         /* acento sobre fondos oscuros */
+    --mist: #cfdfd9;         /* fondo de la ruta del agua */
+    --sage: #e4e9df;         /* fondo alterno claro */
+    --paper: #f1f0e8;        /* fondo base */
+    --paper-raised: #fbfaf5; /* tarjetas sobre papel */
+    --clay: #bc654c;         /* acento decorativo y textos grandes */
+    --clay-ink: #8c412c;     /* acento para texto pequeño (AA sobre papel y bruma) */
+    --muted: #4c5d55;        /* texto secundario sobre claros (AA) */
+    --line: color-mix(in srgb, var(--ink) 18%, transparent);
+    --line-strong: color-mix(in srgb, var(--ink) 32%, transparent);
+    --on-dark: #ffffff;
+    --on-dark-muted: color-mix(in srgb, white 80%, var(--forest));
+    --on-dark-line: color-mix(in srgb, white 22%, transparent);
+
+    /* Tipografía */
+    --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+    --font-display: "Manrope", system-ui, sans-serif;
+    --font-body: "DM Sans", system-ui, sans-serif;
+
+    /* Escala fluida: crece con el ancho de pantalla sin saltos */
+    --fs-label: 0.75rem;
+    --fs-small: 0.8125rem;
+    --fs-body: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+    --fs-lead: clamp(1.2rem, 1.08rem + 0.55vw, 1.5rem);
+    --fs-h3: clamp(1.35rem, 1.18rem + 0.7vw, 1.8rem);
+    --fs-h2: clamp(2.6rem, 1.55rem + 4.2vw, 5rem);
+    --fs-display: clamp(3.3rem, 1.6rem + 7vw, 6rem);
+
+    --lh-tight: 0.94;
+    --lh-heading: 1;
+    --lh-body: 1.65;
+    --tracking-heading: -0.02em;
+    --tracking-label: 0.12em;
+
+    /* Espaciado */
+    --gutter: clamp(1.25rem, 6vw, 6.5rem);
+    --space-xs: 0.5rem;
+    --space-s: 1rem;
+    --space-m: 1.5rem;
+    --space-l: clamp(2rem, 4vw, 3.5rem);
+    --space-xl: clamp(3rem, 7vw, 6rem);
+    --space-section: clamp(5rem, 10vw, 9rem);
+    --measure: 62ch;
+    --max-width: 1440px;
+    --header-h: 4.5rem;
+
+    /* Forma y profundidad */
+    --radius-s: 4px;
+    --radius-m: 10px;
+    --shadow-s: 0 1px 2px rgb(19 42 36 / 8%), 0 4px 12px rgb(19 42 36 / 6%);
+    --shadow-m: 0 2px 4px rgb(19 42 36 / 8%), 0 16px 32px -8px rgb(19 42 36 / 22%);
+    --shadow-l: 0 4px 8px rgb(19 42 36 / 10%), 0 30px 60px -12px rgb(19 42 36 / 35%);
+
+    /* Movimiento */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --dur-fast: 180ms;
+    --dur-base: 320ms;
+    --dur-slow: 700ms;
+
+    /* Iconos dibujados (SVG) usados como máscara: heredan currentColor */
+    --icon-arrow-ne: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7M8 7h9v9'/%3E%3C/svg%3E");
+    --icon-arrow-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 5v14M6 13l6 6 6-6'/%3E%3C/svg%3E");
+    --icon-arrow-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 19V5M6 11l6-6 6 6'/%3E%3C/svg%3E");
+    --icon-drop: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3s6 6.4 6 11a6 6 0 0 1-12 0c0-4.6 6-11 6-11Z'/%3E%3C/svg%3E");
+  }
+}
